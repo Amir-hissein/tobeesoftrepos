@@ -1,0 +1,12 @@
+# Security Policy - TOBEESOFT
+# https://securitytxt.org/
+
+Contact: mailto:contact@tobeesoft.com
+Contact: https://www.tobeesoft.com/#contact
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: fr, en, tr
+Canonical: https://www.tobeesoft.com/.well-known/security.txt
+
+# Si vous découvrez une vulnérabilité de sécurité, 
+# merci de nous contacter immédiatement à l'adresse ci-dessus.
+# Nous prendrons toutes les mesures nécessaires dans les plus brefs délais.

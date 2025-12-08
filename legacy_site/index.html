@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="TOBEESOFT - Expert en développement logiciel sur mesure et numérisation des infrastructures. Solutions innovantes pour votre transformation digitale.">
+    <meta name="keywords"
+        content="développement logiciel, numérisation, infrastructure cloud, applications web, applications mobiles, Tobeesoft">
+
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta name="author" content="Tobeesoft">
+    <title>Tobeesoft - Transformez votre vision digitale en réalité</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#hero" class="logo">
+                    <span class="logo-text">TOBEESOFT</span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                    <li><a href="#apropos" class="nav-link">À Propos</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#processus" class="nav-link">Processus</a></li>
+                    <li><a href="#expertise" class="nav-link">Expertise</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link cta-nav">Contact</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-background">
+            <canvas id="techCanvas"></canvas>
+            <div class="tech-grid"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="typing-text" data-text="Transformez votre vision digitale en réalité"></span>
+                </h1>
+                <p class="hero-subtitle">
+                    Votre partenaire expert en développement logiciel et numérisation des infrastructures technologiques
+                </p>
+                <p class="hero-description">
+                    Nous concevons des solutions logicielles innovantes et sur mesure qui propulsent votre entreprise
+                    vers l'excellence numérique. De l'idée initiale au déploiement final, nous transformons vos défis
+                    technologiques en opportunités de croissance.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Démarrer votre projet</a>
+                    <a href="#services" class="btn btn-secondary">Découvrir nos services</a>
+                </div>
+                <div class="tech-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="50">0</span>
+                        <span class="stat-label">Projets réalisés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <span class="stat-label">% Satisfaction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="24">0</span>
+                        <span class="stat-label">Support 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos Section -->
+    <section class="about" id="apropos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Qui sommes-nous</span>
+                <h2 class="section-title">À Propos de TOBEESOFT</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Notre Histoire</h3>
+                    <p>Tobeesoft est née d'une passion commune pour l'innovation technologique et d'une volonté de
+                        rendre la transformation digitale accessible à toutes les entreprises. Depuis notre création,
+                        nous avons accompagné des dizaines d'organisations dans leur évolution numérique, en créant des
+                        solutions qui font réellement la différence.</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Notre Mission</h3>
+                    <p>Nous croyons fermement que chaque entreprise mérite d'avoir accès à des solutions technologiques
+                        de pointe, parfaitement adaptées à ses besoins. Notre mission est de démocratiser l'excellence
+                        logicielle en proposant des services de développement et de numérisation qui allient qualité,
+                        innovation et accessibilité.</p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Notre Vision</h3>
+                    <p>Devenir le partenaire de référence des entreprises qui souhaitent accélérer leur transformation
+                        digitale et construire un avenir technologique durable, performant et évolutif.</p>
+                </div>
+            </div>
+
+            <div class="values-section">
+                <h3 class="values-title">Nos Valeurs</h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-star"></i></div>
+                        <h4>Excellence Technique</h4>
+                        <p>Nous nous engageons à livrer des solutions de la plus haute qualité, en utilisant les
+                            technologies les plus récentes et les meilleures pratiques du secteur.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-ear-listen"></i></div>
+                        <h4>Écoute et Transparence</h4>
+                        <p>Votre réussite est notre priorité. Nous écoutons attentivement vos besoins et maintenons une
+                            communication claire et transparente tout au long de nos collaborations.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-rocket"></i></div>
+                        <h4>Innovation Continue</h4>
+                        <p>Le monde technologique évolue rapidement. Nous restons constamment à la pointe de
+                            l'innovation pour vous offrir des solutions modernes et pérennes.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Partenariat Durable</h4>
+                        <p>Nous ne sommes pas qu'un simple prestataire, nous sommes votre partenaire à long terme,
+                            engagés dans votre succès et votre croissance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Ce que nous faisons</span>
+                <h2 class="section-title">Nos Services</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Développement Logiciel sur Mesure</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-item">
+                            <h4>Applications Web</h4>
+                            <p>Création d'applications web modernes, réactives et performantes, adaptées à tous les
+                                navigateurs et appareils.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Applications Mobiles</h4>
+                            <p>Développement d'applications mobiles natives (iOS et Android) ou cross-platform qui
+                                offrent une expérience utilisateur exceptionnelle.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Applications Desktop</h4>
+                            <p>Conception de logiciels desktop puissants et intuitifs pour Windows, macOS et Linux.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Logiciels Métier</h4>
+                            <p>Solutions spécialement conçues pour votre secteur : ERP, CRM, systèmes de gestion,
+                                plateformes e-commerce.</p>
+                        </div>
+                    </div>
+                    <div class="service-tech">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Vue.js</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Flutter</span>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                        <h3>Numérisation des Infrastructures</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-item">
+                            <h4>Audit et Diagnostic</h4>
+                            <p>Analyse approfondie de votre infrastructure pour identifier les opportunités
+                                d'amélioration.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Migration vers le Cloud</h4>
+                            <p>Transition sécurisée vers des solutions cloud (AWS, Azure, Google Cloud).</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Automatisation des Processus</h4>
+                            <p>Mise en place de workflows automatisés pour améliorer la productivité.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Modernisation Legacy</h4>
+                            <p>Transformation de vos anciens systèmes en solutions modernes et performantes.</p>
+                        </div>
+                    </div>
+                    <div class="service-tech">
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Azure</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Kubernetes</span>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-link"></i></div>
+                        <h3>Intégration de Systèmes</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-item">
+                            <h4>API et Microservices</h4>
+                            <p>Développement d'APIs robustes pour connecter vos applications.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Intégration ERP/CRM</h4>
+                            <p>Connexion de vos outils de gestion (Salesforce, SAP, Odoo, etc.).</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Connexion de Bases de Données</h4>
+                            <p>Synchronisation et migration de données entre différentes sources.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Services Tiers</h4>
+                            <p>Intégration de systèmes de paiement, outils marketing, plateformes logistiques.</p>
+                        </div>
+                    </div>
+                    <div class="service-tech">
+                        <span class="tech-badge">REST API</span>
+                        <span class="tech-badge">GraphQL</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Conseil et Stratégie Digitale</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-item">
+                            <h4>Audit Technologique</h4>
+                            <p>Évaluation complète de votre maturité digitale.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Feuille de Route Digitale</h4>
+                            <p>Stratégie de transformation numérique sur mesure avec objectifs mesurables.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Architecture Logicielle</h4>
+                            <p>Conception de l'architecture technique optimale pour vos projets.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Formation et Accompagnement</h4>
+                            <p>Formation de vos équipes aux nouvelles technologies.</p>
+                        </div>
+                    </div>
+                    <div class="service-tech">
+                        <span class="tech-badge">Consulting</span>
+                        <span class="tech-badge">Strategy</span>
+                        <span class="tech-badge">Training</span>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Maintenance et Support</h3>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-item">
+                            <h4>Maintenance Corrective</h4>
+                            <p>Correction rapide des bugs pour assurer la continuité de vos opérations.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Maintenance Évolutive</h4>
+                            <p>Ajout de nouvelles fonctionnalités selon l'évolution de vos besoins.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Monitoring et Supervision</h4>
+                            <p>Surveillance proactive pour détecter et prévenir les problèmes.</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Support Dédié 24/7</h4>
+                            <p>Assistance technique réactive par email, téléphone ou chat.</p>
+                        </div>
+                    </div>
+                    <div class="service-tech">
+                        <span class="tech-badge">24/7</span>
+                        <span class="tech-badge">Monitoring</span>
+                        <span class="tech-badge">Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nos atouts</span>
+                <h2 class="section-title">Pourquoi Choisir TOBEESOFT ?</h2>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Expertise Technique Reconnue</h3>
+                    <p>Notre équipe de développeurs expérimentés maîtrise un large éventail de technologies modernes et
+                        applique les meilleures pratiques de développement.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Approche Centrée sur Vos Besoins</h3>
+                    <p>Pas de solutions génériques. Chaque projet commence par une écoute approfondie pour concevoir des
+                        solutions parfaitement alignées avec votre réalité.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Méthodologie Agile</h3>
+                    <p>Livraisons régulières, points de suivi fréquents et capacité à adapter le projet. Vous gardez le
+                        contrôle à chaque étape.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>Qualité et Performance</h3>
+                    <p>Code propre, documenté et testé. Standards de qualité stricts avec revues de code et tests
+                        automatisés.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Accompagnement de A à Z</h3>
+                    <p>De l'analyse initiale au support post-déploiement, nous sommes à vos côtés dans l'adoption et
+                        l'évolution de vos solutions.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Respect des Délais</h3>
+                    <p>Estimations réalistes, plannings respectés et information en temps réel de l'avancement de votre
+                        projet.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Sécurité et Confidentialité</h3>
+                    <p>Protection de vos données et propriété intellectuelle. Standards de sécurité stricts et accords
+                        de confidentialité systématiques.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Support Réactif</h3>
+                    <p>Notre relation continue après la mise en production avec des contrats de support adaptés à vos
+                        besoins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="processus">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Comment nous travaillons</span>
+                <h2 class="section-title">Notre Processus de Travail</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Découverte et Analyse</h3>
+                        <span class="timeline-duration">1-2 semaines</span>
+                        <ul>
+                            <li>Rencontre initiale pour comprendre votre contexte</li>
+                            <li>Analyse approfondie des besoins fonctionnels et techniques</li>
+                            <li>Étude de faisabilité technique et financière</li>
+                            <li>Proposition détaillée avec périmètre, planning et budget</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Conception et Design</h3>
+                        <span class="timeline-duration">2-3 semaines</span>
+                        <ul>
+                            <li>Architecture technique et choix des technologies</li>
+                            <li>Wireframes et maquettes UI/UX</li>
+                            <li>Spécifications techniques détaillées</li>
+                            <li>Validation client avant développement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Développement</h3>
+                        <span class="timeline-duration">Variable selon projet</span>
+                        <ul>
+                            <li>Sprints agiles avec livraisons régulières</li>
+                            <li>Revues hebdomadaires ou bi-hebdomadaires</li>
+                            <li>Tests continus (unitaires, intégration, fonctionnels)</li>
+                            <li>Code reviews systématiques</li>
+                            <li>Documentation technique et utilisateur</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Tests et Validation</h3>
+                        <span class="timeline-duration">1-2 semaines</span>
+                        <ul>
+                            <li>Tests fonctionnels complets</li>
+                            <li>Tests de performance et charge</li>
+                            <li>Audit de sécurité</li>
+                            <li>Recette utilisateur avec accompagnement</li>
+                            <li>Corrections et ajustements finaux</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Déploiement</h3>
+                        <span class="timeline-duration">1 semaine</span>
+                        <ul>
+                            <li>Préparation et sécurisation de l'environnement de production</li>
+                            <li>Migration des données si nécessaire</li>
+                            <li>Mise en production avec stratégie adaptée</li>
+                            <li>Formation des utilisateurs</li>
+                            <li>Remise de la documentation complète</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">6</div>
+                    <div class="timeline-content">
+                        <h3>Support et Évolution</h3>
+                        <span class="timeline-duration">Continue</span>
+                        <ul>
+                            <li>Période de garantie avec support inclus</li>
+                            <li>Monitoring et surveillance en temps réel</li>
+                            <li>Support technique selon contrat</li>
+                            <li>Maintenance évolutive et nouvelles fonctionnalités</li>
+                            <li>Mises à jour de sécurité régulières</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nos compétences</span>
+                <h2 class="section-title">Nos Domaines d'Expertise</h2>
+            </div>
+
+            <div class="expertise-content">
+                <div class="expertise-section">
+                    <h3>Secteurs d'Activité</h3>
+                    <div class="expertise-tags">
+                        <span class="expertise-tag"><i class="fas fa-shopping-cart"></i> Commerce et E-commerce</span>
+                        <span class="expertise-tag"><i class="fas fa-heartbeat"></i> Santé</span>
+                        <span class="expertise-tag"><i class="fas fa-graduation-cap"></i> Éducation</span>
+                        <span class="expertise-tag"><i class="fas fa-coins"></i> Finance</span>
+                        <span class="expertise-tag"><i class="fas fa-industry"></i> Industrie</span>
+                        <span class="expertise-tag"><i class="fas fa-truck"></i> Logistique</span>
+                        <span class="expertise-tag"><i class="fas fa-building"></i> Immobilier</span>
+                        <span class="expertise-tag"><i class="fas fa-users"></i> Ressources Humaines</span>
+                    </div>
+                </div>
+
+                <div class="expertise-section">
+                    <h3>Technologies et Compétences</h3>
+                    <div class="tech-categories">
+                        <div class="tech-category">
+                            <h4>Frontend & UI/UX</h4>
+                            <div class="tech-list">
+                                <span>React</span>
+                                <span>Vue.js</span>
+                                <span>Angular</span>
+                                <span>Next.js</span>
+                                <span>Nuxt.js</span>
+                                <span>Svelte</span>
+                                <span>Tailwind</span>
+                                <span>Material UI</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Backend & API</h4>
+                            <div class="tech-list">
+                                <span>Node.js</span>
+                                <span>Python</span>
+                                <span>Django</span>
+                                <span>PHP</span>
+                                <span>Laravel</span>
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>.NET Core</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Mobile</h4>
+                            <div class="tech-list">
+                                <span>React Native</span>
+                                <span>Flutter</span>
+                                <span>Swift (iOS)</span>
+                                <span>Kotlin (Android)</span>
+                                <span>Xamarin</span>
+                                <span>Ionic</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Base de Données</h4>
+                            <div class="tech-list">
+                                <span>PostgreSQL</span>
+                                <span>MySQL</span>
+                                <span>MongoDB</span>
+                                <span>Redis</span>
+                                <span>Elasticsearch</span>
+                                <span>Firebase</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Cloud & DevOps</h4>
+                            <div class="tech-list">
+                                <span>AWS</span>
+                                <span>Azure</span>
+                                <span>Google Cloud</span>
+                                <span>Docker</span>
+                                <span>Kubernetes</span>
+                                <span>CI/CD</span>
+                                <span>Terraform</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>IA & Data</h4>
+                            <div class="tech-list">
+                                <span>Machine Learning</span>
+                                <span>Deep Learning</span>
+                                <span>NLP</span>
+                                <span>Computer Vision</span>
+                                <span>Data Analytics</span>
+                                <span>BI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Vos questions</span>
+                <h2 class="section-title">Questions Fréquentes</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Combien coûte le développement d'une application ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Le coût dépend de nombreux facteurs : complexité fonctionnelle, technologies utilisées,
+                            design, intégrations tierces, etc. Nous proposons toujours un devis personnalisé après avoir
+                            analysé vos besoins. En moyenne, les projets varient de quelques milliers à plusieurs
+                            dizaines de milliers d'euros.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Combien de temps prend le développement d'un projet ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>La durée varie selon la complexité. Un projet simple peut prendre 1-2 mois, tandis qu'un
+                            projet complexe peut nécessiter 6-12 mois ou plus. Nous vous fournissons un planning
+                            détaillé dès la phase de proposition.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Proposez-vous des contrats de maintenance ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, nous proposons différentes formules de maintenance et support : corrective, évolutive,
+                            préventive. Les contrats sont adaptables selon vos besoins et votre budget.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Puis-je voir des exemples de vos réalisations ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolument ! Nous pouvons vous présenter des études de cas et des démos de projets similaires
+                            au vôtre, dans le respect de la confidentialité de nos clients.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Travaillez-vous en régie ou au forfait ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous proposons les deux modèles selon vos préférences. Le forfait est idéal pour des projets
+                            avec un périmètre bien défini. La régie convient mieux pour des projets évolutifs ou du
+                            renfort d'équipe.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Offrez-vous des garanties sur vos développements ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, tous nos projets incluent une période de garantie pendant laquelle nous corrigeons
+                            gratuitement les bugs et problèmes liés à nos développements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Puis-je récupérer le code source ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, vous êtes propriétaire du code source développé pour votre projet. Nous vous remettons
+                            l'intégralité du code et de la documentation associée.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Comment gérez-vous la confidentialité ?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous signons systématiquement des accords de confidentialité (NDA) avant tout échange
+                            d'informations sensibles. La protection de vos données est notre priorité.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Parlons de votre projet</span>
+                <h2 class="section-title">Contactez-nous</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informations de Contact</h3>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:contact@tobeesoft.com">contact@tobeesoft.com</a>
+                            <a href="mailto:commercial@tobeesoft.com">commercial@tobeesoft.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <a href="tel:+90">+90 [Votre numéro]</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>[Votre adresse complète]<br>Konya, Turquie</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Horaires d'Ouverture</h4>
+                            <p>Lundi - Vendredi : 9h00 - 18h00<br>
+                                Samedi : 10h00 - 14h00<br>
+                                Dimanche : Fermé</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/tobeesoft" target="_blank" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/tobeesoft" target="_blank" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com/tobeesoft" target="_blank" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <h3>Parlez-nous de votre projet</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom et Prénom *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Entreprise</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectType">Type de projet *</label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="">Sélectionnez une option</option>
+                            <option value="development">Développement d'application</option>
+                            <option value="infrastructure">Numérisation d'infrastructure</option>
+                            <option value="consulting">Conseil et stratégie</option>
+                            <option value="maintenance">Maintenance et support</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="message">Décrivez votre projet *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <!-- Honeypot anti-spam (hidden field) -->
+                    <input type="text" id="website" name="website" style="display: none;" tabindex="-1"
+                        autocomplete="off">
+
+                    <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à transformer votre vision en réalité digitale ?</h2>
+                <p>Ne laissez pas la technologie être un frein à votre croissance. Que vous ayez un projet ambitieux ou
+                    une simple question, notre équipe est là pour vous aider.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Démarrer mon projet</a>
+                    <a href="#contact" class="btn btn-secondary">Demander un devis gratuit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo-text">TOBEESOFT</h3>
+                    <p>L'innovation technologique au service de votre succès</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#processus">Processus</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Développement Logiciel</a></li>
+                        <li><a href="#services">Numérisation</a></li>
+                        <li><a href="#services">Conseil Stratégique</a></li>
+                        <li><a href="#services">Support & Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:contact@tobeesoft.com">contact@tobeesoft.com</a></li>
+                        <li><a href="tel:+90">+90 [5355048712]</a></li>
+                        <li>İsta, Turquie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tobeesoft. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
