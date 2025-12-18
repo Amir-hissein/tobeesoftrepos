@@ -1,16 +1,94 @@
-# React + Vite
+# TOBEESOFT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Expert en développement logiciel sur mesure et numérisation des infrastructures technologiques.
 
-Currently, two official plugins are available:
+## 🚀 À propos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+TOBEESOFT est une plateforme web moderne et performante conçue pour présenter nos services de développement logiciel et de transformation digitale. Le site offre une expérience utilisateur premium avec des animations fluides et un design moderne.
 
-## React Compiler
+## ✨ Fonctionnalités
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🌐 **Multilingue** - Support Français & Anglais
+- 🎨 **Design Moderne** - Interface avec glassmorphism et animations avancées
+- 📱 **Responsive** - Optimisé pour tous les appareils
+- ⚡ **Performance** - Build optimisé avec Vite
+- 🎭 **Animations** - Animations fluides avec Framer Motion
+- 📧 **Contact** - Formulaire de contact intégré avec EmailJS
+- ♿ **Accessibilité** - Conforme aux standards d'accessibilité
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** - Framework UI
+- **Vite 7** - Build tool ultra-rapide
+- **Tailwind CSS** - Framework CSS utilitaire
+- **Framer Motion** - Animations
+- **Lucide React** - Icônes modernes
+- **EmailJS** - Service d'envoi d'emails
+
+## 📦 Installation
+
+```bash
+# Cloner le repository
+git clone [your-repo-url]
+
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm run dev
+
+# Builder pour la production
+npm run build
+
+# Prévisualiser le build
+npm run preview
+```
+
+## 🏗️ Structure du Projet
+
+```
+tobeesoft/
+├── src/
+│   ├── components/
+│   │   ├── layout/        # Navbar, Footer
+│   │   ├── sections/      # Hero, About, Services, etc.
+│   │   └── ui/            # Button, Section, Notification
+│   ├── contexts/          # LanguageContext, ThemeContext
+│   ├── lib/               # Utilitaires (utils, useScrollReveal)
+│   ├── assets/            # Images et ressources
+│   ├── translations.js    # Fichier de traductions
+│   ├── index.css          # Styles globaux
+│   ├── App.jsx            # Composant principal
+│   └── main.jsx           # Point d'entrée
+├── public/                # Fichiers statiques
+└── index.html             # Template HTML
+```
+
+## 🎨 Sections du Site
+
+1. **Hero** - Section d'accueil avec animations de particules
+2. **About** - À propos de TOBEESOFT
+3. **Services** - Nos services (Développement, Cloud, Intégration)
+4. **Process** - Notre processus de travail
+5. **Expertise** - Nos domaines d'expertise
+6. **FAQ** - Questions fréquentes
+7. **Contact** - Formulaire de contact
+
+## 🌍 Langues Supportées
+
+- 🇫🇷 Français
+- 🇬🇧 Anglais
+
+## 📝 License
+
+© 2025 TOBEESOFT. Tous droits réservés.
+
+## 🤝 Contact
+
+- **Email**: contact@tobeesoft.com
+- **Téléphone**: +235 66 77 88 99
+- **Website**: https://tobeesoftrepos.vercel.app/
+
+---
+
+Développé avec ❤️ par TOBEESOFT

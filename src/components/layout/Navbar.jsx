@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Menu, X, Globe, Moon, Sun, ChevronDown, Check } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, Check } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/Button';
 import logo from '../../assets/tob.png';
