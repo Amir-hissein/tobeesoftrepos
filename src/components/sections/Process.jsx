@@ -8,30 +8,31 @@ const Process = () => {
     const { t } = useLanguage();
 
     const gradients = [
-        'from-cyan-400 to-blue-500',
-        'from-purple-400 to-pink-500',
-        'from-green-400 to-emerald-500',
-        'from-yellow-400 to-orange-500',
-        'from-red-400 to-pink-500'
+        'from-primary-500 to-indigo-600',
+        'from-secondary-500 to-emerald-600',
+        'from-amber-500 to-orange-600',
+        'from-rose-500 to-pink-600',
+        'from-blue-500 to-cyan-600'
     ];
 
     return (
-        <Section id="processus" className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1420] relative overflow-hidden">
-            {/* Background decorations */}
-            <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-green-500/30 to-emerald-500/30 rounded-full blur-3xl" />
+        <Section id="processus" className="bg-white relative overflow-hidden py-24">
+            {/* Background decorations - very subtle */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-primary-500/3 rounded-full blur-[120px]" />
+                <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-secondary-500/3 rounded-full blur-[120px]" />
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-24">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 backdrop-blur-sm mb-4"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-50 border border-secondary-200 mb-6"
                     >
-                        <span className="text-sm font-semibold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                        <span className="text-xs font-bold uppercase tracking-widest text-secondary-600">
                             {t.process.label}
                         </span>
                     </motion.div>
@@ -40,18 +41,24 @@ const Process = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-white font-display"
+                        className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
                     >
                         {t.process.title}
                     </motion.h2>
+                    <motion.div
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        className="h-1 w-24 bg-gradient-to-r from-secondary-500 to-primary-500 mx-auto rounded-full"
+                    />
                 </div>
 
                 <div className="relative max-w-5xl mx-auto">
-                    {/* Animated vertical line */}
-                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px">
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent" />
+                    {/* Animated vertical line - cleaner look */}
+                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5">
+                        <div className="absolute inset-0 bg-slate-200" />
                         <motion.div
-                            className="absolute inset-0 bg-gradient-to-b from-cyan-400 via-purple-400 to-pink-400"
+                            className="absolute inset-0 bg-gradient-to-b from-primary-500 via-secondary-500 to-primary-500"
                             initial={{ scaleY: 0 }}
                             whileInView={{ scaleY: 1 }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -69,29 +76,29 @@ const Process = () => {
                                     {/* Content */}
                                     <motion.div
                                         className="flex-1 w-full pl-20 md:pl-0"
-                                        initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                                        initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true, margin: "-100px" }}
-                                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                                        transition={{ duration: 0.5, delay: index * 0.1 }}
                                     >
                                         <motion.div
-                                            whileHover={{ scale: 1.02, y: -5 }}
-                                            className={`group relative p-8 rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 ${isEven ? 'md:mr-12' : 'md:ml-12'}`}
+                                            whileHover={{ y: -3 }}
+                                            className={`group relative p-8 rounded-2xl bg-white border border-slate-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300 ${isEven ? 'md:mr-12' : 'md:ml-12'}`}
                                         >
-                                            {/* Glow effect */}
-                                            <div className={`absolute -inset-1 bg-gradient-to-r ${gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
+                                            {/* Subtle glow effect on hover */}
+                                            <div className={`absolute -inset-0.5 bg-gradient-to-r ${gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
                                             {/* Card content */}
                                             <div className="relative">
-                                                {/* Duration badge */}
-                                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r ${gradient} mb-4`}>
+                                                {/* Duration badge - cleaner style */}
+                                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r ${gradient} mb-6 shadow-sm`}>
                                                     <span className="text-xs font-bold text-white uppercase tracking-wider">
                                                         {item.duration}
                                                     </span>
                                                 </div>
 
                                                 {/* Title */}
-                                                <h3 className="text-2xl font-bold text-white mb-6">
+                                                <h3 className="text-2xl font-bold text-slate-900 mb-6 font-display">
                                                     {item.title}
                                                 </h3>
 
@@ -102,39 +109,36 @@ const Process = () => {
                                                             key={i}
                                                             initial={{ opacity: 0, x: -10 }}
                                                             whileInView={{ opacity: 1, x: 0 }}
-                                                            transition={{ delay: i * 0.1 }}
-                                                            className="flex items-start gap-3 text-gray-400"
+                                                            transition={{ delay: i * 0.05 }}
+                                                            className="flex items-start gap-3 text-slate-600"
                                                         >
-                                                            <CheckCircle2 size={18} className={`flex-shrink-0 mt-0.5 text-transparent bg-gradient-to-r ${gradient} bg-clip-text`} />
+                                                            <CheckCircle2 size={18} className="flex-shrink-0 mt-0.5 text-primary-600" />
                                                             <span className="text-sm leading-relaxed">{subItem}</span>
                                                         </motion.li>
                                                     ))}
                                                 </ul>
-
-                                                {/* Decorative corner */}
-                                                <div className={`absolute ${isEven ? 'top-0 right-0' : 'bottom-0 left-0'} w-20 h-20 bg-gradient-to-${isEven ? 'bl' : 'tr'} ${gradient} opacity-5 ${isEven ? 'rounded-bl-full rounded-tr-3xl' : 'rounded-tl-full rounded-br-3xl'}`} />
                                             </div>
                                         </motion.div>
                                     </motion.div>
 
-                                    {/* Center marker with animated pulse */}
+                                    {/* Center marker - refined design */}
                                     <motion.div
                                         className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20"
                                         initial={{ scale: 0, opacity: 0 }}
                                         whileInView={{ scale: 1, opacity: 1 }}
                                         viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 + 0.3, type: "spring", bounce: 0.5 }}
+                                        transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200, damping: 15 }}
                                     >
-                                        {/* Pulsing ring */}
-                                        <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${gradient} animate-ping opacity-20`} />
+                                        {/* Subtle pulsing effect - less aggressive */}
+                                        <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${gradient} animate-ping opacity-10`} style={{ animationDuration: '3s' }} />
 
-                                        {/* Outer glow */}
-                                        <div className={`absolute -inset-2 rounded-full bg-gradient-to-r ${gradient} blur-md opacity-50`} />
+                                        {/* Outer ring */}
+                                        <div className={`absolute -inset-1 rounded-full bg-gradient-to-r ${gradient} opacity-20 blur-sm`} />
 
-                                        {/* Main circle */}
-                                        <div className={`relative w-12 h-12 rounded-full bg-[#0a0e1a] border-2 border-transparent bg-gradient-to-r ${gradient} bg-clip-border flex items-center justify-center shadow-lg`}>
-                                            <div className="w-10 h-10 rounded-full bg-[#0a0e1a] flex items-center justify-center">
-                                                <span className={`text-sm font-black bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                                        {/* Main circle - cleaner design */}
+                                        <div className="relative w-14 h-14 rounded-full bg-white border-4 border-white shadow-lg flex items-center justify-center">
+                                            <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+                                                <span className="text-base font-black text-white">
                                                     {index + 1}
                                                 </span>
                                             </div>

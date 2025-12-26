@@ -73,77 +73,83 @@ const Navbar = () => {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b border-transparent",
-                isScrolled ? "bg-theme-glass border-theme shadow-lg py-4" : "bg-transparent py-6"
+                "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-in-out border-b",
+                isScrolled
+                    ? "glass-nav py-4 shadow-sm"
+                    : "bg-transparent border-transparent py-6"
             )}
         >
             <div className="container flex items-center justify-between">
-                <a href="#hero" className="relative z-50" onClick={(e) => handleNavClick(e, 'hero')}>
-                    <img src={logo} alt="TOBEESOFT" className="h-10 w-auto object-contain" />
+                <a href="#hero" className="relative z-50 group" onClick={(e) => handleNavClick(e, 'hero')}>
+                    <img src={logo} alt="TOBEESOFT" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
                 </a>
 
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex items-center gap-8">
-                    <ul className="flex items-center gap-6">
+                    <ul className="flex items-center gap-8">
                         {navLinks.map((link) => (
                             <li key={link.id}>
                                 <a
                                     href={`#${link.id}`}
-                                    className="text-sm font-medium text-theme-secondary hover:text-primary-400 transition-colors relative group"
+                                    className="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors relative group py-1"
                                     onClick={(e) => handleNavClick(e, link.id)}
                                 >
                                     {link.label}
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
+                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full opacity-100"></span>
                                 </a>
                             </li>
                         ))}
                     </ul>
 
-                    <div className="flex items-center gap-4 pl-4 border-l border-white/10">
+                    <div className="flex items-center gap-4 pl-6 border-l border-slate-200">
                         {/* Language Selector */}
                         <div className="relative language-toggle">
                             <button
                                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                                className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                                className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100"
                             >
                                 <Globe size={18} />
                                 <span className="uppercase">{language}</span>
-                                <ChevronDown size={14} className={cn("transition-transform", isLanguageMenuOpen && "rotate-180")} />
+                                <ChevronDown size={14} className={cn("transition-transform duration-300", isLanguageMenuOpen && "rotate-180")} />
                             </button>
 
-                            {isLanguageMenuOpen && (
-                                <div className="absolute top-full right-0 mt-2 w-32 bg-dark-800 border border-white/10 rounded-lg shadow-xl overflow-hidden py-1">
-                                    <button
-                                        onClick={() => { toggleLanguage(); setIsLanguageMenuOpen(false); }}
-                                        className={cn(
-                                            "w-full px-4 py-2 text-sm text-left flex items-center justify-between hover:bg-white/5 transition-colors",
-                                            language === 'fr' ? "text-primary-400" : "text-gray-300"
-                                        )}
+                            <AnimatePresence>
+                                {isLanguageMenuOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        className="absolute top-full right-0 mt-2 w-36 bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden py-1 z-50"
                                     >
-                                        <span>Français</span>
-                                        {language === 'fr' && <Check size={14} />}
-                                    </button>
-                                    <button
-                                        onClick={() => { toggleLanguage(); setIsLanguageMenuOpen(false); }}
-                                        className={cn(
-                                            "w-full px-4 py-2 text-sm text-left flex items-center justify-between hover:bg-white/5 transition-colors",
-                                            language === 'en' ? "text-primary-400" : "text-gray-300"
-                                        )}
-                                    >
-                                        <span>English</span>
-                                        {language === 'en' && <Check size={14} />}
-                                    </button>
-                                </div>
-                            )}
+                                        <button
+                                            onClick={() => { toggleLanguage(); setIsLanguageMenuOpen(false); }}
+                                            className={cn(
+                                                "w-full px-4 py-2.5 text-sm text-left flex items-center justify-between hover:bg-slate-50 transition-colors",
+                                                language === 'fr' ? "text-primary-600 font-medium" : "text-slate-600"
+                                            )}
+                                        >
+                                            <span>Français</span>
+                                            {language === 'fr' && <Check size={14} className="text-primary-600" />}
+                                        </button>
+                                        <button
+                                            onClick={() => { toggleLanguage(); setIsLanguageMenuOpen(false); }}
+                                            className={cn(
+                                                "w-full px-4 py-2.5 text-sm text-left flex items-center justify-between hover:bg-slate-50 transition-colors",
+                                                language === 'en' ? "text-primary-600 font-medium" : "text-slate-600"
+                                            )}
+                                        >
+                                            <span>English</span>
+                                            {language === 'en' && <Check size={14} className="text-primary-600" />}
+                                        </button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </div>
-
-                        {/* Theme Toggle */}
-                        {/* Theme Toggle Removed */}
 
                         <Button
                             variant="primary"
                             size="sm"
-                            className="ml-2"
+                            className="bg-primary-600 hover:bg-primary-700 text-white shadow-md shadow-primary-500/20 border-0"
                             onClick={(e) => handleNavClick(e, 'contact')}
                         >
                             {t.navbar.contact}
@@ -153,7 +159,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="lg:hidden relative z-50 p-2 text-white transition-opacity duration-300 hover:text-primary-400"
+                    className="lg:hidden relative z-50 p-2 text-slate-600 transition-colors duration-300 hover:text-primary-600"
                     onClick={() => setIsMobileMenuOpen(true)}
                     style={{ opacity: isMobileMenuOpen ? 0 : 1, pointerEvents: isMobileMenuOpen ? 'none' : 'auto' }}
                 >
@@ -171,7 +177,7 @@ const Navbar = () => {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.3 }}
-                                    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] lg:hidden"
+                                    className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-[999] lg:hidden"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 />
 
@@ -180,31 +186,35 @@ const Navbar = () => {
                                     initial={{ x: '100%' }}
                                     animate={{ x: 0 }}
                                     exit={{ x: '100%' }}
-                                    transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                                    transition={{ type: "spring", damping: 30, stiffness: 300 }}
                                     className={cn(
-                                        "fixed top-0 right-0 bottom-0 w-[280px] md:w-[320px] bg-dark-900 border-l border-white/10 z-[1000] flex flex-col shadow-2xl lg:hidden overflow-y-auto"
+                                        "fixed top-0 right-0 bottom-0 w-[280px] md:w-[320px] bg-white border-l border-slate-200 z-[1000] flex flex-col shadow-2xl lg:hidden overflow-y-auto"
                                     )}
                                 >
                                     <div className="flex justify-end p-6">
                                         <button
                                             onClick={() => setIsMobileMenuOpen(false)}
-                                            className="p-2 text-gray-400 hover:text-white transition-colors"
+                                            className="p-2 text-slate-500 hover:text-primary-600 transition-colors bg-slate-100 rounded-full hover:bg-slate-200"
                                         >
-                                            <X size={24} />
+                                            <X size={20} />
                                         </button>
                                     </div>
 
-                                    <div className="flex flex-col px-8 pb-10">
-                                        <ul className="flex flex-col gap-6 text-left mb-10">
+                                    <div className="flex flex-col px-8 pb-10 h-full">
+                                        <div className="mb-10 text-center">
+                                            <img src={logo} alt="TOBEESOFT" className="h-12 w-auto mx-auto object-contain" />
+                                        </div>
+
+                                        <ul className="flex flex-col gap-2 text-left mb-10">
                                             {navLinks.map((link) => (
-                                                <li key={link.id} className="border-b border-white/5 pb-4 last:border-0">
+                                                <li key={link.id}>
                                                     <a
                                                         href={`#${link.id}`}
-                                                        className="text-lg font-medium text-gray-300 hover:text-primary-400 transition-colors flex items-center justify-between group"
+                                                        className="text-lg font-medium text-slate-600 hover:text-primary-600 hover:bg-slate-50 px-4 py-3 rounded-xl transition-all flex items-center justify-between group"
                                                         onClick={(e) => handleNavClick(e, link.id)}
                                                     >
                                                         {link.label}
-                                                        <span className="opacity-0 group-hover:opacity-100 transition-opacity text-primary-500">→</span>
+                                                        <span className="opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all text-primary-600">→</span>
                                                     </a>
                                                 </li>
                                             ))}
@@ -214,20 +224,20 @@ const Navbar = () => {
                                             <Button
                                                 variant="primary"
                                                 size="lg"
-                                                className="w-full justify-center"
+                                                className="w-full justify-center bg-primary-600 shadow-xl shadow-primary-500/20"
                                                 onClick={(e) => handleNavClick(e, 'contact')}
                                             >
                                                 {t.navbar.contact}
                                             </Button>
 
                                             {/* Mobile Footer Controls */}
-                                            <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                                            <div className="flex items-center justify-between pt-6 border-t border-slate-100">
                                                 <button
                                                     onClick={toggleLanguage}
-                                                    className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors"
+                                                    className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-primary-600 transition-colors mx-auto px-4 py-2 border border-slate-200 rounded-lg hover:bg-slate-50"
                                                 >
                                                     <Globe size={18} />
-                                                    <span className="uppercase">{language}</span>
+                                                    <span className="uppercase">{language === 'en' ? 'English' : 'Français'}</span>
                                                 </button>
                                             </div>
                                         </div>

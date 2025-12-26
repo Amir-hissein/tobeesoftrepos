@@ -25,36 +25,36 @@ const About = () => {
     };
 
     const mainCards = [
-        { icon: BookOpen, title: t.about.history.title, content: t.about.history.content, gradient: 'from-cyan-500 to-blue-600', shadowColor: 'cyan' },
-        { icon: Target, title: t.about.mission.title, content: t.about.mission.content, gradient: 'from-purple-500 to-pink-600', shadowColor: 'purple' },
-        { icon: Eye, title: t.about.vision.title, content: t.about.vision.content, gradient: 'from-green-500 to-emerald-600', shadowColor: 'green' }
+        { icon: BookOpen, title: t.about.history.title, content: t.about.history.content, gradient: 'from-primary-500 to-indigo-600' },
+        { icon: Target, title: t.about.mission.title, content: t.about.mission.content, gradient: 'from-secondary-500 to-emerald-600' },
+        { icon: Eye, title: t.about.vision.title, content: t.about.vision.content, gradient: 'from-accent-500 to-amber-600' }
     ];
 
     const valueCards = [
-        { icon: Star, title: t.about.values.excellence.title, content: t.about.values.excellence.content, gradient: 'from-yellow-400 to-orange-500' },
-        { icon: Ear, title: t.about.values.listening.title, content: t.about.values.listening.content, gradient: 'from-blue-400 to-cyan-500' },
-        { icon: Rocket, title: t.about.values.innovation.title, content: t.about.values.innovation.content, gradient: 'from-purple-400 to-pink-500' },
-        { icon: Handshake, title: t.about.values.partnership.title, content: t.about.values.partnership.content, gradient: 'from-green-400 to-emerald-500' }
+        { icon: Star, title: t.about.values.excellence.title, content: t.about.values.excellence.content, gradient: 'from-amber-500 to-orange-600' },
+        { icon: Ear, title: t.about.values.listening.title, content: t.about.values.listening.content, gradient: 'from-indigo-500 to-blue-600' },
+        { icon: Rocket, title: t.about.values.innovation.title, content: t.about.values.innovation.content, gradient: 'from-rose-500 to-pink-600' },
+        { icon: Handshake, title: t.about.values.partnership.title, content: t.about.values.partnership.content, gradient: 'from-emerald-500 to-teal-600' }
     ];
 
     return (
-        <Section id="apropos" className="bg-gradient-to-b from-[#0a0e1a] to-[#0f1420] relative overflow-hidden">
-            {/* Decorative background elements */}
-            <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+        <Section id="apropos" className="bg-white relative overflow-hidden py-24">
+            {/* Decorative background elements - very subtle */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 rounded-full blur-[140px]" />
+                <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-secondary-500/3 rounded-full blur-[140px]" />
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 backdrop-blur-sm mb-4"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 border border-primary-200 mb-6"
                     >
-                        <span className="text-sm font-semibold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        <span className="text-xs font-bold uppercase tracking-widest text-primary-600">
                             {t.about.label}
                         </span>
                     </motion.div>
@@ -63,10 +63,16 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-white font-display bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
+                        className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
                     >
                         {t.about.title}
                     </motion.h2>
+                    <motion.div
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        className="h-1 w-24 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"
+                    />
                 </div>
 
                 {/* Main Cards */}
@@ -81,29 +87,26 @@ const About = () => {
                         <motion.div
                             key={i}
                             variants={itemVariants}
-                            whileHover={{ y: -10, scale: 1.02 }}
+                            whileHover={{ y: -5 }}
                             className="group relative"
                         >
-                            {/* Glow effect */}
-                            <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
+                            {/* Glow effect - subtle */}
+                            <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
                             {/* Card content */}
-                            <div className="relative p-8 rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 h-full">
+                            <div className="relative p-8 rounded-2xl bg-white border border-slate-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                                 {/* Icon with gradient background */}
-                                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${item.gradient} mb-6 shadow-lg`}>
+                                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${item.gradient} mb-6 shadow-sm w-fit`}>
                                     <item.icon size={28} className="text-white" />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all">
+                                <h3 className="text-2xl font-bold text-slate-900 mb-4 font-display">
                                     {item.title}
                                 </h3>
 
-                                <p className="text-gray-400 leading-relaxed text-base">
+                                <p className="text-slate-600 leading-relaxed text-base flex-1">
                                     {item.content}
                                 </p>
-
-                                {/* Decorative corner element */}
-                                <div className={`absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl ${item.gradient} opacity-5 rounded-tl-full rounded-br-3xl`} />
                             </div>
                         </motion.div>
                     ))}
@@ -113,16 +116,16 @@ const About = () => {
                 <div className="relative">
                     {/* Divider with gradient */}
                     <div className="flex items-center gap-4 mb-16">
-                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
                         <motion.h3
-                            className="text-3xl font-bold text-white font-display px-6"
+                            className="text-3xl font-bold text-slate-900 font-display px-6 text-center"
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                         >
                             {t.about.valuesTitle}
                         </motion.h3>
-                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
                     </div>
 
                     {/* Value Cards */}
@@ -137,29 +140,29 @@ const About = () => {
                             <motion.div
                                 key={i}
                                 variants={itemVariants}
-                                whileHover={{ y: -8, scale: 1.03 }}
+                                whileHover={{ y: -5, scale: 1.02 }}
                                 className="group relative"
                             >
-                                {/* Hover glow */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-75 transition duration-300`} />
+                                {/* Hover glow - subtle */}
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300`} />
 
                                 {/* Card */}
-                                <div className="relative p-6 rounded-2xl bg-white/[0.05] backdrop-blur-md border border-white/10 text-center hover:bg-white/[0.08] transition-all duration-300 h-full flex flex-col">
+                                <div className="relative p-6 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-lg hover:border-primary-300 transition-all duration-300 h-full flex flex-col items-center">
                                     {/* Animated icon background */}
-                                    <div className={`w-14 h-14 mx-auto rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg`}>
+                                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200 shadow-sm`}>
                                         <item.icon size={24} className="text-white" />
                                     </div>
 
-                                    <h4 className={`text-lg font-bold text-white mb-3 bg-gradient-to-r ${item.gradient} bg-clip-text group-hover:text-transparent transition-all`}>
+                                    <h4 className="text-lg font-bold text-slate-900 mb-3">
                                         {item.title}
                                     </h4>
 
-                                    <p className="text-sm text-gray-400 leading-relaxed flex-1">
+                                    <p className="text-sm text-slate-600 leading-relaxed flex-1">
                                         {item.content}
                                     </p>
 
                                     {/* Decorative bottom line */}
-                                    <div className={`mt-4 h-1 w-12 rounded-full bg-gradient-to-r ${item.gradient} mx-auto opacity-50 group-hover:w-full group-hover:opacity-100 transition-all duration-300`} />
+                                    <div className={`mt-4 h-1 w-12 rounded-full bg-gradient-to-r ${item.gradient} opacity-50 group-hover:w-full group-hover:opacity-100 transition-all duration-300`} />
                                 </div>
                             </motion.div>
                         ))}

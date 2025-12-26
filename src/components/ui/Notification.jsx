@@ -13,16 +13,19 @@ const Notification = ({ message, type = 'info', onClose }) => {
 
     const variants = {
         success: {
-            bg: "bg-gradient-to-r from-emerald-500 to-teal-600",
-            icon: CheckCircle
+            bg: "bg-dark-900 border-l-4 border-emerald-500",
+            icon: CheckCircle,
+            color: "text-emerald-500"
         },
         error: {
-            bg: "bg-gradient-to-r from-red-500 to-rose-600",
-            icon: AlertCircle
+            bg: "bg-dark-900 border-l-4 border-rose-500",
+            icon: AlertCircle,
+            color: "text-rose-500"
         },
         info: {
-            bg: "bg-gradient-to-r from-blue-500 to-indigo-600",
-            icon: Info
+            bg: "bg-dark-900 border-l-4 border-primary-500",
+            icon: Info,
+            color: "text-primary-500"
         }
     };
 
@@ -36,17 +39,22 @@ const Notification = ({ message, type = 'info', onClose }) => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 100, scale: 0.9 }}
                 className={cn(
-                    "fixed top-24 right-5 z-[100] p-4 rounded-xl shadow-2xl flex items-center gap-4 text-white min-w-[300px] max-w-sm backdrop-blur-sm",
+                    "fixed top-24 right-5 z-[100] p-4 rounded-lg shadow-2xl flex items-start gap-4 text-slate-100 min-w-[320px] max-w-sm backdrop-blur-xl border-y border-r border-white/5",
                     currentVariant.bg
                 )}
             >
-                <Icon size={24} className="shrink-0 text-white/90" />
-                <p className="flex-1 font-medium text-sm leading-relaxed">{message}</p>
+                <div className={cn("p-1 rounded-full bg-white/5", currentVariant.color)}>
+                    <Icon size={20} />
+                </div>
+                <div className="flex-1 pt-0.5">
+                    <p className="font-semibold text-sm leading-relaxed text-white">{type === 'error' ? 'Error' : type === 'success' ? 'Success' : 'Info'}</p>
+                    <p className="text-sm text-slate-400 mt-0.5">{message}</p>
+                </div>
                 <button
                     onClick={onClose}
-                    className="p-1 hover:bg-white/20 rounded-full transition-colors shrink-0"
+                    className="p-1 hover:bg-white/10 rounded-lg transition-colors shrink-0 text-slate-400 hover:text-white"
                 >
-                    <X size={18} />
+                    <X size={16} />
                 </button>
             </motion.div>
         </AnimatePresence>

@@ -66,18 +66,18 @@ const Hero = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             particles = [];
-            const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 12000), 120);
+            const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100);
 
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
                     z: Math.random() * 2 + 0.5,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5,
-                    radius: Math.random() * 3 + 1,
-                    opacity: Math.random() * 0.6 + 0.2,
-                    hue: Math.random() * 60 + 180 // Blue to cyan range
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    radius: Math.random() * 2 + 1,
+                    opacity: Math.random() * 0.5 + 0.1,
+                    hue: Math.random() > 0.6 ? 240 : 160 // Indigo or Emerald mix
                 });
             }
         };
@@ -91,18 +91,18 @@ const Hero = () => {
                 const dy = mousePos.y - particle.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < 150) {
-                    const force = (150 - dist) / 150;
-                    particle.vx -= (dx / dist) * force * 0.2;
-                    particle.vy -= (dy / dist) * force * 0.2;
+                if (dist < 200) {
+                    const force = (200 - dist) / 200;
+                    particle.vx -= (dx / dist) * force * 0.4;
+                    particle.vy -= (dy / dist) * force * 0.4;
                 }
 
                 particle.x += particle.vx * particle.z;
                 particle.y += particle.vy * particle.z;
 
                 // Damping
-                particle.vx *= 0.99;
-                particle.vy *= 0.99;
+                particle.vx *= 0.98;
+                particle.vy *= 0.98;
 
                 // Boundaries with wrapping
                 if (particle.x < 0) particle.x = canvas.width;
@@ -113,27 +113,27 @@ const Hero = () => {
                 // Draw particle with glow
                 const size = particle.radius * particle.z;
 
-                // Glow effect
+                // Glow effect - adjusted for light theme
                 const gradient = ctx.createRadialGradient(
                     particle.x, particle.y, 0,
-                    particle.x, particle.y, size * 3
+                    particle.x, particle.y, size * 4
                 );
-                gradient.addColorStop(0, `hsla(${particle.hue}, 100%, 70%, ${particle.opacity * 0.8})`);
-                gradient.addColorStop(0.5, `hsla(${particle.hue}, 100%, 60%, ${particle.opacity * 0.3})`);
-                gradient.addColorStop(1, `hsla(${particle.hue}, 100%, 50%, 0)`);
+                gradient.addColorStop(0, `hsla(${particle.hue}, 70%, 55%, ${particle.opacity * 0.4})`);
+                gradient.addColorStop(0.5, `hsla(${particle.hue}, 70%, 45%, ${particle.opacity * 0.15})`);
+                gradient.addColorStop(1, `hsla(${particle.hue}, 70%, 40%, 0)`);
 
                 ctx.fillStyle = gradient;
                 ctx.fillRect(
-                    particle.x - size * 3,
-                    particle.y - size * 3,
-                    size * 6,
-                    size * 6
+                    particle.x - size * 4,
+                    particle.y - size * 4,
+                    size * 8,
+                    size * 8
                 );
 
-                // Core particle
+                // Core particle - adjusted for light theme
                 ctx.beginPath();
-                ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${particle.hue}, 100%, 80%, ${particle.opacity})`;
+                ctx.arc(particle.x, particle.y, size * 0.8, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${particle.hue}, 80%, 60%, ${particle.opacity * 0.7})`;
                 ctx.fill();
 
                 // Enhanced connections with gradient
@@ -143,7 +143,7 @@ const Hero = () => {
                     const dy = particle.y - other.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 120) {
+                    if (distance < 140) {
                         ctx.beginPath();
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(other.x, other.y);
@@ -151,11 +151,11 @@ const Hero = () => {
                             particle.x, particle.y,
                             other.x, other.y
                         );
-                        const alpha = (1 - distance / 120) * 0.3;
-                        lineGradient.addColorStop(0, `hsla(${particle.hue}, 100%, 70%, ${alpha})`);
-                        lineGradient.addColorStop(1, `hsla(${other.hue}, 100%, 70%, ${alpha})`);
+                        const alpha = (1 - distance / 140) * 0.08;
+                        lineGradient.addColorStop(0, `hsla(${particle.hue}, 70%, 55%, ${alpha})`);
+                        lineGradient.addColorStop(1, `hsla(${other.hue}, 70%, 55%, ${alpha})`);
                         ctx.strokeStyle = lineGradient;
-                        ctx.lineWidth = 1.5;
+                        ctx.lineWidth = 1;
                         ctx.stroke();
                     }
                 }
@@ -206,29 +206,28 @@ const Hero = () => {
     }, []);
 
     const featureCards = [
-        { icon: Zap, title: 'Performance', color: 'from-yellow-400 to-orange-500' },
-        { icon: Code2, title: 'Clean Code', color: 'from-blue-400 to-cyan-500' },
-        { icon: Rocket, title: 'Fast Deploy', color: 'from-purple-400 to-pink-500' },
-        { icon: TrendingUp, title: 'Growth', color: 'from-green-400 to-emerald-500' }
+        { icon: Zap, title: 'Performance', color: 'from-accent-500 to-orange-600' },
+        { icon: Code2, title: 'Clean Code', color: 'from-primary-500 to-indigo-600' },
+        { icon: Rocket, title: 'Fast Deploy', color: 'from-rose-500 to-pink-600' },
+        { icon: TrendingUp, title: 'Growth', color: 'from-secondary-500 to-emerald-600' }
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" id="hero">
-            {/* Enhanced Background with multiple layers */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e1a] via-[#0f1420] to-[#0a0e1a] z-0">
-                <canvas ref={canvasRef} className="absolute inset-0 opacity-70" />
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50" id="hero">
+            {/* Enhanced Background with multiple layers - Light theme */}
+            <div className="absolute inset-0 z-0">
+                <canvas ref={canvasRef} className="absolute inset-0 opacity-40" />
 
-                {/* Animated gradient orbs */}
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"
+                {/* Animated gradient orbs - subtle for light theme */}
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/5 rounded-full blur-[120px]"
                     style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }} />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse delay-75"
+                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-500/5 rounded-full blur-[120px]"
                     style={{ transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)` }} />
 
-                {/* Grid overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+                {/* Grid overlay - removed for cleaner look */}
 
-                {/* Radial gradient overlay */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,212,255,0.15)_0%,transparent_50%)]" />
+                {/* Vignette - light theme */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.5)_100%)]" />
             </div>
 
             <div className="container relative z-10 px-4 py-12">
@@ -240,9 +239,9 @@ const Hero = () => {
                         transition={{ duration: 0.5 }}
                         className="mb-8"
                     >
-                        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 backdrop-blur-sm">
-                            <Sparkles className="w-4 h-4 text-cyan-400" />
-                            <span className="text-sm font-medium bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 border border-primary-200 shadow-sm">
+                            <Sparkles className="w-4 h-4 text-primary-600" />
+                            <span className="text-sm font-medium text-primary-700">
                                 Solutions Digitales Premium
                             </span>
                         </div>
@@ -253,11 +252,12 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="mb-6"
+                        className="mb-6 relative"
                     >
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-blue-400 pb-2 leading-tight">
+                        <div className="absolute -inset-1 blur-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-primary-500/10 opacity-30"></div>
+                        <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 pb-2 leading-tight tracking-tight">
                             {typedText}
-                            <span className="inline-block w-1 h-16 md:h-24 bg-gradient-to-b from-cyan-400 to-blue-500 ml-2 animate-pulse" />
+                            <span className="inline-block w-1.5 h-12 md:h-20 bg-primary-600 ml-2 animate-pulse align-middle rounded-full" />
                         </h1>
                     </motion.div>
 
@@ -266,7 +266,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-2xl md:text-3xl text-gray-300 mb-4 font-light tracking-wide"
+                        className="text-2xl md:text-3xl text-slate-700 mb-6 font-light tracking-wide font-display"
                     >
                         {t.hero.subtitle}
                     </motion.p>
@@ -275,7 +275,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7, duration: 0.8 }}
-                        className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl leading-relaxed"
+                        className="text-lg md:text-xl text-slate-600 mb-12 max-w-3xl leading-relaxed"
                     >
                         {t.hero.description}
                     </motion.p>
@@ -285,18 +285,17 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.9, duration: 0.6 }}
-                        className="flex flex-col sm:flex-row gap-4 mb-16"
+                        className="flex flex-col sm:flex-row gap-5 mb-20"
                     >
                         <a href="#contact" className="group relative">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-200" />
-                            <button className="relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-white font-semibold flex items-center gap-3 hover:scale-105 transition-transform duration-200">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300" />
+                            <button className="relative px-8 py-4 bg-primary-600 rounded-xl text-white font-semibold flex items-center gap-3 hover:bg-primary-700 transition-all duration-300 shadow-lg shadow-primary-500/30">
                                 <Sparkles size={20} className="stroke-2" />
                                 <span>{t.hero.startProject}</span>
                             </button>
                         </a>
                         <a href="#services" className="group relative">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/50 to-pink-500/50 rounded-xl blur opacity-0 group-hover:opacity-60 transition duration-200" />
-                            <button className="relative px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white font-semibold flex items-center gap-3 hover:bg-white/10 hover:scale-105 transition-all duration-200">
+                            <button className="relative px-8 py-4 bg-white border border-slate-200 rounded-xl text-slate-700 font-semibold flex items-center gap-3 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-md">
                                 <span>{t.hero.discoverServices}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -308,24 +307,23 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.1, duration: 0.8 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 w-full max-w-4xl"
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 w-full max-w-5xl"
                     >
                         {featureCards.map((card, i) => (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, scale: 0.8 }}
+                                initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 1.3 + i * 0.1 }}
-                                whileHover={{ scale: 1.05, y: -5 }}
+                                whileHover={{ y: -3 }}
                                 className="relative group"
                             >
-                                <div className="absolute -inset-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"
-                                    style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }} />
-                                <div className="relative p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
-                                    <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${card.color} mb-3`}>
+                                <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300" />
+                                <div className="relative p-6 bg-white border border-slate-200 rounded-2xl hover:border-primary-300 transition-all duration-300 h-full flex flex-col items-center justify-center gap-3 hover:shadow-md">
+                                    <div className={`p-3 rounded-xl bg-gradient-to-br ${card.color} shadow-sm`}>
                                         <card.icon className="w-6 h-6 text-white" />
                                     </div>
-                                    <h3 className="text-sm font-semibold text-white">{card.title}</h3>
+                                    <h3 className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">{card.title}</h3>
                                 </div>
                             </motion.div>
                         ))}
@@ -334,31 +332,28 @@ const Hero = () => {
                     {/* Stats with glassmorphism cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
                         {[
-                            { label: t.hero.stats.projects, value: stats.projects, suffix: '+', gradient: 'from-cyan-400 to-blue-500' },
-                            { label: t.hero.stats.satisfaction, value: stats.satisfaction, suffix: '%', gradient: 'from-purple-400 to-pink-500' },
-                            { label: t.hero.stats.support, value: `${stats.support}/7`, suffix: '', gradient: 'from-green-400 to-emerald-500' }
+                            { label: t.hero.stats.projects, value: stats.projects, suffix: '+', gradient: 'from-primary-500 to-indigo-600' },
+                            { label: t.hero.stats.satisfaction, value: stats.satisfaction, suffix: '%', gradient: 'from-secondary-500 to-emerald-600' },
+                            { label: t.hero.stats.support, value: `${stats.support}/7`, suffix: '', gradient: 'from-amber-500 to-orange-600' }
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                                initial={{ opacity: 0, scale: 0.8, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 transition={{ delay: 1.5 + i * 0.15, type: "spring", stiffness: 100 }}
-                                whileHover={{ scale: 1.05, y: -5 }}
+                                whileHover={{ y: -3 }}
                                 className="relative group"
                             >
-                                {/* Glow effect on hover */}
-                                <div className={`absolute -inset-1 bg-gradient-to-r ${stat.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-50 transition duration-300`} />
+                                {/* Glow effect on hover - subtle */}
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300`} />
 
-                                <div className="relative p-8 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-3xl hover:bg-white/[0.07] transition-all duration-300">
-                                    <div className={`text-6xl md:text-7xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-3 font-display`}>
+                                <div className="relative p-8 bg-white border border-slate-200 rounded-2xl hover:shadow-lg hover:border-primary-300 transition-all duration-300">
+                                    <div className={`text-6xl md:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
                                         {stat.value}{stat.suffix}
                                     </div>
-                                    <div className="text-sm text-gray-400 uppercase tracking-[0.2em] font-semibold">
+                                    <div className="text-sm text-slate-600 uppercase tracking-[0.2em] font-semibold group-hover:text-slate-800 transition-colors">
                                         {stat.label}
                                     </div>
-
-                                    {/* Decorative line */}
-                                    <div className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r ${stat.gradient} mx-auto opacity-50`} />
                                 </div>
                             </motion.div>
                         ))}
@@ -373,7 +368,7 @@ const Hero = () => {
                 transition={{ delay: 2, duration: 1 }}
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
             >
-                <div className="flex flex-col items-center gap-2 text-gray-500 hover:text-cyan-400 transition-colors cursor-pointer">
+                <div className="flex flex-col items-center gap-2 text-slate-400 hover:text-primary-600 transition-colors cursor-pointer">
                     <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
                     <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2 relative overflow-hidden">
                         <motion.div

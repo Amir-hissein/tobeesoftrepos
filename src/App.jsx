@@ -21,9 +21,9 @@ function AppContent() {
   useScrollReveal();
 
   return (
-    <div className="bg-theme-primary text-theme-primary min-h-screen selection:bg-primary-500/30 selection:text-white">
+    <div className="bg-slate-50 text-slate-900 min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans overflow-x-hidden">
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Services />

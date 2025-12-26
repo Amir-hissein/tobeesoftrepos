@@ -3,9 +3,9 @@ import React, { createContext, useContext, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    // Dark mode only - no toggle needed
+    // Light mode forced for professional theme
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('data-theme', 'light');
     }, []);
 
     return (
