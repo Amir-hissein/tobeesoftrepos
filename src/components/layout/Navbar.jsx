@@ -80,8 +80,11 @@ const Navbar = () => {
             )}
         >
             <div className="container flex items-center justify-between">
-                <a href="#hero" className="relative z-50 group" onClick={(e) => handleNavClick(e, 'hero')}>
-                    <img src={logo} alt="TOBEESOFT" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                <a href="#hero" className="relative z-50 group flex items-center gap-0" onClick={(e) => handleNavClick(e, 'hero')}>
+                    <img src={logo} alt="TOBEESOFT" className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <span className="hidden lg:block text-2xl font-bold text-slate-900 tracking-tight group-hover:text-primary-600 transition-colors duration-300">
+                        TOBEESOFT
+                    </span>
                 </a>
 
                 {/* Desktop Menu */}
@@ -202,7 +205,7 @@ const Navbar = () => {
 
                                     <div className="flex flex-col px-8 pb-10 h-full">
                                         <div className="mb-10 text-center">
-                                            <img src={logo} alt="TOBEESOFT" className="h-12 w-auto mx-auto object-contain" />
+                                            <img src={logo} alt="TOBEESOFT" className="h-24 w-auto mx-auto object-contain" />
                                         </div>
 
                                         <ul className="flex flex-col gap-2 text-left mb-10">

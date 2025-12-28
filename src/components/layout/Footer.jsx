@@ -43,7 +43,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="space-y-6 text-center md:text-left">
                         <div className="flex justify-center md:justify-start">
-                            <img src={logo} alt="TOBEESOFT" className="h-10 w-auto" />
+                            <img src={logo} alt="TOBEESOFT" className="h-20 w-auto" />
                         </div>
                         <p className="text-slate-600 text-sm leading-relaxed">
                             {t.footer.description}

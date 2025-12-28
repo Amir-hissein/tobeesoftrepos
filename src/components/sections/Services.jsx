@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
-import { Code2, Cloud, Link as LinkIcon, Lightbulb, PenTool, ArrowRight } from 'lucide-react';
+import { Code2, Cloud, Link as LinkIcon, Lightbulb, PenTool } from 'lucide-react';
 
 const Services = () => {
     const { t } = useLanguage();

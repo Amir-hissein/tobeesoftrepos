@@ -15,10 +15,7 @@ import Expertise from './components/sections/Expertise';
 import FAQ from './components/sections/FAQ';
 import Contact from './components/sections/Contact';
 
-import { useScrollReveal } from './lib/useScrollReveal';
-
 function AppContent() {
-  useScrollReveal();
 
   return (
     <div className="bg-slate-50 text-slate-900 min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans overflow-x-hidden">
