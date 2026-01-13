@@ -82,20 +82,13 @@ const FAQ = () => {
                                         className="w-full text-left p-6 md:p-7 flex items-center justify-between gap-6"
                                         onClick={() => toggleFAQ(index)}
                                     >
-                                        <div className="flex items-start gap-4 flex-1">
-                                            {/* Number badge - simpler design */}
-                                            <div className={`flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white font-black text-base shadow-sm ${isActive ? 'scale-105' : ''} transition-transform duration-200`}>
-                                                {index + 1}
-                                            </div>
-
-                                            {/* Question text */}
-                                            <span className={`font-bold text-lg md:text-xl transition-colors font-display ${isActive
-                                                ? 'text-slate-900'
-                                                : 'text-slate-800 group-hover:text-slate-900'
-                                                }`}>
-                                                {item.question}
-                                            </span>
-                                        </div>
+                                        {/* Question text */}
+                                        <span className={`font-bold text-lg md:text-xl transition-colors font-display ${isActive
+                                            ? 'text-slate-900'
+                                            : 'text-slate-800 group-hover:text-slate-900'
+                                            }`}>
+                                            {item.question}
+                                        </span>
 
                                         {/* Toggle Icon - simpler */}
                                         <motion.div
@@ -120,7 +113,7 @@ const FAQ = () => {
                                                 transition={{ duration: 0.3, ease: "easeInOut" }}
                                             >
                                                 <div className="px-6 md:px-7 pb-7 pt-0">
-                                                    <div className="pl-14">
+                                                    <div className="">
                                                         <div className="h-px bg-slate-200 mb-5" />
                                                         <p className="text-slate-600 leading-relaxed text-base">
                                                             {item.answer}

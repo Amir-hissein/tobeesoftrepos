@@ -1,7 +1,15 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import logo from '../../assets/tob.png';
+import { Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import logo from '../../assets/TOBEESOFT.png';
+
+// TikTok icon component (since lucide-react doesn't have it)
+const TikTokIcon = ({ size = 18 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+    </svg>
+);
+
 
 const Footer = () => {
     const { t } = useLanguage();
@@ -49,7 +57,7 @@ const Footer = () => {
                             {t.footer.description}
                         </p>
                         <div className="flex gap-4 justify-center md:justify-start">
-                            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                            {[Facebook, Linkedin, TikTokIcon].map((Icon, i) => (
                                 <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-primary-600 hover:border-primary-600 hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/20">
                                     <Icon size={18} />
                                 </a>
@@ -109,18 +117,18 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3 text-slate-600 text-sm justify-center md:justify-start">
                                 <MapPin size={18} className="text-primary-600 shrink-0 mt-0.5" />
-                                <span>123 Tech Street, Digital City, Chad</span>
+                                <span>{t.footer.contact.address}</span>
                             </li>
                             <li className="flex items-center gap-3 text-slate-600 text-sm justify-center md:justify-start">
                                 <Mail size={18} className="text-primary-600 shrink-0" />
-                                <a href="mailto:contact@tobeesoft.com" className="hover:text-primary-600 transition-colors hover:underline">
-                                    contact@tobeesoft.com
+                                <a href={`mailto:${t.footer.contact.email}`} className="hover:text-primary-600 transition-colors hover:underline">
+                                    {t.footer.contact.email}
                                 </a>
                             </li>
                             <li className="flex items-center gap-3 text-slate-600 text-sm justify-center md:justify-start">
                                 <Phone size={18} className="text-primary-600 shrink-0" />
-                                <a href="tel:+23566778899" className="hover:text-primary-600 transition-colors hover:underline">
-                                    +235 66 77 88 99
+                                <a href={`tel:${t.footer.contact.phone.replace(/\s/g, '')}`} className="hover:text-primary-600 transition-colors hover:underline">
+                                    {t.footer.contact.phone}
                                 </a>
                             </li>
                         </ul>
@@ -135,9 +143,6 @@ const Footer = () => {
                         <div className="flex flex-wrap gap-6 justify-center">
                             <a href="#" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">Privacy Policy</a>
                             <a href="#" className="text-slate-500 hover:text-slate-900 text-sm transition-colors">Terms of Service</a>
-                            <a href="https://tobeesoftrepos.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-primary-600 text-sm transition-colors font-medium">
-                                TOBEESOFT
-                            </a>
                         </div>
                     </div>
                 </div>

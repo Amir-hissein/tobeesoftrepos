@@ -5,7 +5,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { Menu, X, Globe, ChevronDown, Check } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/Button';
-import logo from '../../assets/tob.png';
+import logo from '../../assets/TOBEESOFT.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);

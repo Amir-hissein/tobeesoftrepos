@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
 import { ShoppingCart, Heart, GraduationCap, Coins, Factory, Truck, Building, Users, Sparkles } from 'lucide-react';
+import devImage from '../../assets/image0.png';
 
 const Expertise = () => {
     const { t } = useLanguage();
@@ -118,6 +119,59 @@ const Expertise = () => {
                                     </div>
                                 </motion.div>
                             ))}
+                        </motion.div>
+
+                        {/* Image Section below Industries */}
+                        <motion.div
+                            className="mt-12 relative group"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3, duration: 0.8 }}
+                        >
+                            {/* Glow effect */}
+                            <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/15 via-purple-500/15 to-indigo-500/15 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                            {/* Image container - transparent background */}
+                            <motion.div
+                                className="relative"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <img
+                                    src={devImage}
+                                    alt="Tobeesoft - Development Environment"
+                                    className="w-full h-auto object-contain"
+                                />
+                            </motion.div>
+
+                            {/* Decorative floating elements */}
+                            <motion.div
+                                className="absolute -top-3 -left-3 w-12 h-12 bg-gradient-to-br from-primary-500 to-indigo-600 rounded-xl opacity-80 flex items-center justify-center"
+                                animate={{
+                                    y: [0, -8, 0],
+                                    rotate: [0, 5, 0]
+                                }}
+                                transition={{
+                                    duration: 3.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                <span className="text-white text-lg font-bold font-mono">&lt;/&gt;</span>
+                            </motion.div>
+                            <motion.div
+                                className="absolute -bottom-3 -right-3 w-10 h-10 bg-gradient-to-br from-secondary-500 to-emerald-600 rounded-lg opacity-80"
+                                animate={{
+                                    y: [0, 8, 0],
+                                    rotate: [0, -5, 0]
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
                         </motion.div>
                     </div>
 

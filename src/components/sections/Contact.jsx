@@ -1,16 +1,28 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
 import Notification from '../ui/Notification';
 import { Button } from '../ui/Button';
-import { Mail, Phone, MapPin, Clock, Send, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+
+// EmailJS Configuration
+const EMAILJS_SERVICE_ID = 'service_lid2yta';
+const EMAILJS_TEMPLATE_ID = 'template_0iv0rnp';
+const EMAILJS_PUBLIC_KEY = '8wkbxHcPMNERdCeAY';
 
 const Contact = () => {
     const { t } = useLanguage();
     const formRef = useRef();
     const [loading, setLoading] = useState(false);
     const [notification, setNotification] = useState(null);
+
+    // Initialize EmailJS
+    useEffect(() => {
+        if (window.emailjs) {
+            window.emailjs.init(EMAILJS_PUBLIC_KEY);
+        }
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,25 +31,61 @@ const Contact = () => {
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData.entries());
 
+        // Honeypot check for spam
         if (data.website) {
             setLoading(false);
             return;
         }
 
-        // Mock submission for demo
-        setTimeout(() => {
-            setLoading(false);
+        // Check if EmailJS is loaded
+        if (!window.emailjs) {
             setNotification({
-                message: t.contact.form.success || "Message sent successfully!",
-                type: 'success'
+                message: t.contact.form.error || "Service email non disponible. Veuillez réessayer.",
+                type: 'error'
             });
-            formRef.current.reset();
-        }, 1500);
+            setLoading(false);
+            return;
+        }
 
-        // Real implementation logic remains compatible
-        /* 
-        if (window.emailjs) { ... }
-        */
+        // Format current time
+        const now = new Date();
+        const timeString = now.toLocaleString('fr-FR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        // Prepare template parameters matching the EmailJS template variables
+        const templateParams = {
+            from_name: data.name,
+            from_email: data.email,
+            phone: data.phone || 'Non renseigné',
+            company: data.company || 'Non renseigné',
+            project_type: data.projectType,
+            message: data.message,
+            time: timeString
+        };
+
+        // Send email via EmailJS
+        window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(() => {
+                setLoading(false);
+                setNotification({
+                    message: t.contact.form.success || "Message envoyé avec succès !",
+                    type: 'success'
+                });
+                formRef.current.reset();
+            })
+            .catch((error) => {
+                console.error('EmailJS Error:', error);
+                setLoading(false);
+                setNotification({
+                    message: t.contact.form.error || "Erreur lors de l'envoi. Veuillez réessayer.",
+                    type: 'error'
+                });
+            });
     };
 
     return (
@@ -88,7 +136,7 @@ const Contact = () => {
                     <div>
                         <h3 className="text-3xl font-bold text-slate-900 mb-6 font-display">{t.contact.info.title}</h3>
                         <p className="text-slate-600 text-lg leading-relaxed">
-                            Let's discuss your project and see how we can help you achieve your goals. We're always open to new challenges.
+                            {t.contact.info.description}
                         </p>
                     </div>
 
@@ -114,14 +162,6 @@ const Contact = () => {
                                     )}
                                 </div>
                             </div>
-                        ))}
-                    </div>
-
-                    <div className="flex gap-4 pt-4">
-                        {[Linkedin, Twitter, Github].map((Icon, i) => (
-                            <a key={i} href="#" className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-white hover:bg-primary-600 hover:border-primary-600 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                                <Icon size={20} />
-                            </a>
                         ))}
                     </div>
                 </motion.div>

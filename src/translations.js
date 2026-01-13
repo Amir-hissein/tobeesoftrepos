@@ -276,6 +276,7 @@ export const translations = {
             title: "Contactez-nous",
             info: {
                 title: "Informations de Contact",
+                description: "Discutons de votre projet et voyons comment nous pouvons vous aider à atteindre vos objectifs. Nous sommes toujours ouverts à de nouveaux défis.",
                 email: "Email",
                 phone: "Téléphone",
                 address: "Adresse",
@@ -329,7 +330,10 @@ export const translations = {
                 contact: "Contact"
             },
             contact: {
-                title: "Contact"
+                title: "Contact",
+                address: "İstanbul, Turquie",
+                email: "tobeesoft@gmail.com",
+                phone: "+90 535 504 87 12"
             },
             copyright: "Tous droits réservés."
         }
@@ -611,6 +615,7 @@ export const translations = {
             title: "Contact Us",
             info: {
                 title: "Contact Information",
+                description: "Let's discuss your project and see how we can help you achieve your goals. We're always open to new challenges.",
                 email: "Email",
                 phone: "Phone",
                 address: "Address",
@@ -664,7 +669,10 @@ export const translations = {
                 contact: "Contact"
             },
             contact: {
-                title: "Contact"
+                title: "Contact",
+                address: "İstanbul, Turkey",
+                email: "tobeesoft@gmail.com",
+                phone: "+90 535 504 87 12"
             },
             copyright: "All rights reserved."
         }

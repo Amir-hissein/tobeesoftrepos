@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
 import { BookOpen, Target, Eye, Star, Ear, Rocket, Handshake } from 'lucide-react';
+import techImage from '../../assets/image5.png';
 
 const About = () => {
     const { t } = useLanguage();
@@ -75,6 +76,94 @@ const About = () => {
                     />
                 </div>
 
+                {/* Image Section */}
+                <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                >
+                    {/* Text Content */}
+                    <div className="order-2 lg:order-1">
+                        <motion.p
+                            className="text-lg text-slate-600 leading-relaxed mb-6"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2, duration: 0.6 }}
+                        >
+                            {t.about.subtitle || "Nous sommes une équipe passionnée de développeurs et de créatifs, dédiée à transformer vos idées en solutions digitales innovantes et performantes."}
+                        </motion.p>
+                        <motion.p
+                            className="text-base text-slate-500 leading-relaxed"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4, duration: 0.6 }}
+                        >
+                            {t.about.description || "Notre expertise couvre le développement web, mobile et logiciel, avec une approche centrée sur l'utilisateur et les dernières technologies du marché."}
+                        </motion.p>
+                    </div>
+
+                    {/* Image */}
+                    <motion.div
+                        className="order-1 lg:order-2 relative group"
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                    >
+                        {/* Glow effect behind image */}
+                        <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/20 via-indigo-500/20 to-secondary-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                        {/* Image container */}
+                        <motion.div
+                            className="relative overflow-hidden rounded-2xl shadow-2xl"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.4 }}
+                        >
+                            {/* Decorative border */}
+                            <div className="absolute inset-0 border-2 border-primary-200/50 rounded-2xl pointer-events-none z-10" />
+
+                            <img
+                                src={techImage}
+                                alt="Tobeesoft - Digital Innovation"
+                                className="w-full h-auto object-cover rounded-2xl"
+                            />
+
+                            {/* Overlay gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                        </motion.div>
+
+                        {/* Decorative floating elements */}
+                        <motion.div
+                            className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-500 to-indigo-600 rounded-2xl opacity-80"
+                            animate={{
+                                y: [0, -10, 0],
+                                rotate: [0, 5, 0]
+                            }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
+                        <motion.div
+                            className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-secondary-500 to-emerald-600 rounded-xl opacity-80"
+                            animate={{
+                                y: [0, 10, 0],
+                                rotate: [0, -5, 0]
+                            }}
+                            transition={{
+                                duration: 3.5,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
+                    </motion.div>
+                </motion.div>
+
                 {/* Main Cards */}
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32"
@@ -140,18 +229,54 @@ const About = () => {
                             <motion.div
                                 key={i}
                                 variants={itemVariants}
-                                whileHover={{ y: -5, scale: 1.02 }}
+                                whileHover={{ y: -8, scale: 1.03 }}
                                 className="group relative"
                             >
                                 {/* Hover glow - subtle */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300`} />
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-300`} />
 
                                 {/* Card */}
-                                <div className="relative p-6 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-lg hover:border-primary-300 transition-all duration-300 h-full flex flex-col items-center">
-                                    {/* Animated icon background */}
-                                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200 shadow-sm`}>
-                                        <item.icon size={24} className="text-white" />
-                                    </div>
+                                <div className="relative p-6 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-xl hover:border-primary-300 transition-all duration-300 h-full flex flex-col items-center">
+                                    {/* Animated icon background with multiple effects */}
+                                    <motion.div
+                                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg relative overflow-hidden`}
+                                        whileHover={{
+                                            rotate: [0, -10, 10, -10, 0],
+                                            scale: 1.15
+                                        }}
+                                        transition={{
+                                            rotate: { duration: 0.5 },
+                                            scale: { duration: 0.2 }
+                                        }}
+                                        animate={{
+                                            boxShadow: [
+                                                "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                                                "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                                                "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
+                                            ]
+                                        }}
+                                    >
+                                        {/* Rotating background effect */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-white/20"
+                                            animate={{ rotate: 360 }}
+                                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                                        />
+
+                                        {/* Icon with dynamic animations */}
+                                        <motion.div
+                                            whileHover={{
+                                                scale: [1, 1.2, 1],
+                                                rotate: [0, 360]
+                                            }}
+                                            transition={{
+                                                duration: 0.6,
+                                                ease: "easeInOut"
+                                            }}
+                                        >
+                                            <item.icon size={28} className="text-white relative z-10" />
+                                        </motion.div>
+                                    </motion.div>
 
                                     <h4 className="text-lg font-bold text-slate-900 mb-3">
                                         {item.title}
@@ -161,8 +286,13 @@ const About = () => {
                                         {item.content}
                                     </p>
 
-                                    {/* Decorative bottom line */}
-                                    <div className={`mt-4 h-1 w-12 rounded-full bg-gradient-to-r ${item.gradient} opacity-50 group-hover:w-full group-hover:opacity-100 transition-all duration-300`} />
+                                    {/* Decorative bottom line with animation */}
+                                    <motion.div
+                                        className={`mt-4 h-1 rounded-full bg-gradient-to-r ${item.gradient}`}
+                                        initial={{ width: "3rem", opacity: 0.5 }}
+                                        whileHover={{ width: "100%", opacity: 1 }}
+                                        transition={{ duration: 0.3 }}
+                                    />
                                 </div>
                             </motion.div>
                         ))}

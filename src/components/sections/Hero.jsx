@@ -77,7 +77,7 @@ const Hero = () => {
                     vy: (Math.random() - 0.5) * 0.3,
                     radius: Math.random() * 2 + 1,
                     opacity: Math.random() * 0.5 + 0.1,
-                    hue: Math.random() > 0.6 ? 240 : 160 // Indigo or Emerald mix
+                    hue: 240 // Indigo only for consistency
                 });
             }
         };
@@ -206,10 +206,10 @@ const Hero = () => {
     }, []);
 
     const featureCards = [
-        { icon: Zap, title: 'Performance', color: 'from-accent-500 to-orange-600' },
+        { icon: Zap, title: 'Performance', color: 'from-primary-500 to-indigo-600' },
         { icon: Code2, title: 'Clean Code', color: 'from-primary-500 to-indigo-600' },
-        { icon: Rocket, title: 'Fast Deploy', color: 'from-rose-500 to-pink-600' },
-        { icon: TrendingUp, title: 'Growth', color: 'from-secondary-500 to-emerald-600' }
+        { icon: Rocket, title: 'Fast Deploy', color: 'from-primary-500 to-indigo-600' },
+        { icon: TrendingUp, title: 'Growth', color: 'from-primary-500 to-indigo-600' }
     ];
 
     return (
@@ -333,8 +333,8 @@ const Hero = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
                         {[
                             { label: t.hero.stats.projects, value: stats.projects, suffix: '+', gradient: 'from-primary-500 to-indigo-600' },
-                            { label: t.hero.stats.satisfaction, value: stats.satisfaction, suffix: '%', gradient: 'from-secondary-500 to-emerald-600' },
-                            { label: t.hero.stats.support, value: `${stats.support}/7`, suffix: '', gradient: 'from-amber-500 to-orange-600' }
+                            { label: t.hero.stats.satisfaction, value: stats.satisfaction, suffix: '%', gradient: 'from-primary-500 to-indigo-600' },
+                            { label: t.hero.stats.support, value: `${stats.support}/7`, suffix: '', gradient: 'from-primary-500 to-indigo-600' }
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
