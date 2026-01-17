@@ -6,13 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     // Optimisations pour la production
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Supprime les console.log en production
-        drop_debugger: true,
-      },
-    },
+    minify: 'esbuild',
     // Code splitting pour de meilleures performances
     rollupOptions: {
       output: {
