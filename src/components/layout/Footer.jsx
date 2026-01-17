@@ -1,6 +1,8 @@
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import { Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import logo from '../../assets/TOBEESOFT.png';
+import tobee from '../../assets/tobee.png';
 import { Link } from 'react-router-dom';
 
 // TikTok icon component (since lucide-react doesn't have it)
@@ -13,6 +15,7 @@ const TikTokIcon = ({ size = 18 }) => (
 
 const Footer = () => {
     const { t } = useLanguage();
+    const { theme } = useTheme();
     const currentYear = new Date().getFullYear();
 
     const navLinks = [
@@ -38,14 +41,18 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="space-y-6 text-center md:text-left">
                         <div className="flex justify-center md:justify-start">
-                            <img src={logo} alt="TOBEESOFT" className="h-20 w-auto" />
+                            <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-20 w-auto" />
                         </div>
                         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                             {t.footer.description}
                         </p>
                         <div className="flex gap-4 justify-center md:justify-start">
-                            {[Facebook, Linkedin, TikTokIcon].map((Icon, i) => (
-                                <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/20">
+                            {[
+                                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61581568482187" },
+                                { Icon: Linkedin, href: "https://www.linkedin.com/in/tobeesoft-co-3a7a58389/" },
+                                { Icon: TikTokIcon, href: "https://www.tiktok.com/@amirtobeesoft?lang=fr" }
+                            ].map(({ Icon, href }, i) => (
+                                <a key={i} href={href} className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/20">
                                     <Icon size={18} />
                                 </a>
                             ))}

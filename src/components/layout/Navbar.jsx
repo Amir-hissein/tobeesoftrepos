@@ -7,6 +7,7 @@ import { Menu, X, Globe, ChevronDown, Check, Sun, Moon } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/Button';
 import logo from '../../assets/TOBEESOFT.png';
+import tobee from '../../assets/tobee.png';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -74,7 +75,7 @@ const Navbar = () => {
         >
             <div className="container flex items-center justify-between">
                 <Link to="/" className="relative z-50 group flex items-center gap-0">
-                    <img src={logo} alt="TOBEESOFT" className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
                     <span className="hidden lg:block text-2xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-primary-600 transition-colors duration-300">
                         TOBEESOFT
                     </span>
@@ -179,7 +180,6 @@ const Navbar = () => {
                     <Menu size={24} />
                 </button>
 
-                {/* Mobile Menu */}
                 {createPortal(
                     <AnimatePresence>
                         {isMobileMenuOpen && (
@@ -205,33 +205,33 @@ const Navbar = () => {
                                     )}
                                 >
                                     {/* Header with Close Button */}
-                                    <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 dark:border-slate-800">
+                                    <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-800">
                                         <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
-                                            <img src={logo} alt="TOBEESOFT" className="h-12 w-auto object-contain" />
-                                            <span className="text-xl font-bold text-slate-900 dark:text-white">TOBEESOFT</span>
+                                            <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-10 w-auto object-contain" />
+                                            <span className="text-lg font-bold text-slate-900 dark:text-white">TOBEESOFT</span>
                                         </Link>
                                         <button
                                             onClick={() => setIsMobileMenuOpen(false)}
-                                            className="p-2.5 text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700"
+                                            className="p-2 text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700"
                                         >
-                                            <X size={22} strokeWidth={2.5} />
+                                            <X size={20} strokeWidth={2.5} />
                                         </button>
                                     </div>
 
                                     {/* Navigation Links */}
-                                    <div className="flex flex-col px-6 py-6">
-                                        <ul className="flex flex-col gap-1 mb-6">
+                                    <div className="flex flex-col px-5 py-4">
+                                        <ul className="flex flex-col gap-1 mb-5">
                                             {navLinks.map((link, index) => (
                                                 <motion.li
                                                     key={link.path}
                                                     initial={{ opacity: 0, x: -20 }}
                                                     animate={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: index * 0.05 }}
+                                                    transition={{ delay: index * 0.03 }}
                                                 >
                                                     <Link
                                                         to={link.path}
                                                         className={cn(
-                                                            "text-base font-semibold hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-50 dark:hover:bg-slate-800 px-4 py-3.5 rounded-xl transition-all flex items-center justify-between group",
+                                                            "text-sm font-semibold hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-50 dark:hover:bg-slate-800 px-3 py-2.5 rounded-lg transition-all flex items-center justify-between group",
                                                             isActive(link.path)
                                                                 ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800"
                                                                 : "text-slate-700 dark:text-slate-200"
@@ -240,7 +240,7 @@ const Navbar = () => {
                                                     >
                                                         <span>{link.label}</span>
                                                         <span className={cn(
-                                                            "transition-all text-primary-600 dark:text-primary-400 text-lg",
+                                                            "transition-all text-primary-600 dark:text-primary-400 text-base",
                                                             isActive(link.path) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100"
                                                         )}>→</span>
                                                     </Link>
@@ -252,13 +252,12 @@ const Navbar = () => {
                                         <motion.div
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.3 }}
+                                            transition={{ delay: 0.2 }}
                                         >
                                             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                                                 <Button
                                                     variant="primary"
-                                                    size="lg"
-                                                    className="w-full justify-center bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/30 border-0"
+                                                    className="w-full justify-center py-2.5 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/30 border-0 text-sm"
                                                 >
                                                     {t.navbar.contact}
                                                 </Button>
@@ -267,24 +266,24 @@ const Navbar = () => {
 
                                         {/* Mobile Footer Controls */}
                                         <motion.div
-                                            className="flex items-center gap-3 pt-6 mt-6 border-t border-slate-100 dark:border-slate-800"
+                                            className="flex items-center gap-3 pt-4 mt-4 border-t border-slate-100 dark:border-slate-800"
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
-                                            transition={{ delay: 0.4 }}
+                                            transition={{ delay: 0.25 }}
                                         >
                                             <button
                                                 onClick={toggleTheme}
-                                                className="flex-1 flex items-center justify-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800"
+                                                className="flex-1 flex items-center justify-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors px-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800"
                                             >
-                                                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+                                                {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                                                 <span className="hidden sm:inline">{theme === 'light' ? 'Sombre' : 'Clair'}</span>
                                             </button>
 
                                             <button
                                                 onClick={toggleLanguage}
-                                                className="flex-1 flex items-center justify-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800"
+                                                className="flex-1 flex items-center justify-center gap-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors px-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800"
                                             >
-                                                <Globe size={18} />
+                                                <Globe size={16} />
                                                 <span className="uppercase font-bold">{language}</span>
                                             </button>
                                         </motion.div>

@@ -62,6 +62,8 @@
 
   body {
     @apply bg-[var(--bg-main)] text-[var(--text-primary)] font-sans antialiased transition-colors duration-300;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-image:
       radial-gradient(circle at 15% 50%, var(--primary-glow), transparent 25%),
       radial-gradient(circle at 85% 30%, var(--secondary-glow), transparent 25%);

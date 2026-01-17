@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import { ArrowRight, Sparkles, Zap, Code2, Rocket, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const canvasRef = useRef(null);
     const { t } = useLanguage();
+    const { theme } = useTheme();
     const [typedText, setTypedText] = useState('');
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const fullText = t.hero.title;
@@ -113,13 +115,17 @@ const Hero = () => {
                 // Draw particle with glow
                 const size = particle.radius * particle.z;
 
-                // Glow effect - adjusted for light theme
+                // Glow effect - adjusted for theme
                 const gradient = ctx.createRadialGradient(
                     particle.x, particle.y, 0,
                     particle.x, particle.y, size * 4
                 );
-                gradient.addColorStop(0, `hsla(${particle.hue}, 70%, 55%, ${particle.opacity * 0.4})`);
-                gradient.addColorStop(0.5, `hsla(${particle.hue}, 70%, 45%, ${particle.opacity * 0.15})`);
+
+                // Adjust opacity based on theme for better visibility
+                const baseOpacity = theme === 'dark' ? 0.6 : 0.4;
+
+                gradient.addColorStop(0, `hsla(${particle.hue}, 70%, 55%, ${particle.opacity * baseOpacity})`);
+                gradient.addColorStop(0.5, `hsla(${particle.hue}, 70%, 45%, ${particle.opacity * 0.2})`);
                 gradient.addColorStop(1, `hsla(${particle.hue}, 70%, 40%, 0)`);
 
                 ctx.fillStyle = gradient;
@@ -130,10 +136,10 @@ const Hero = () => {
                     size * 8
                 );
 
-                // Core particle - adjusted for light theme
+                // Core particle
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, size * 0.8, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${particle.hue}, 80%, 60%, ${particle.opacity * 0.7})`;
+                ctx.fillStyle = `hsla(${particle.hue}, 80%, 60%, ${particle.opacity * 0.8})`;
                 ctx.fill();
 
                 // Enhanced connections with gradient
@@ -184,7 +190,7 @@ const Hero = () => {
             canvas.removeEventListener('mousemove', handleMouseMove);
             cancelAnimationFrame(animationId);
         };
-    }, []);
+    }, [theme]); // Re-run when theme changes
 
     // Stats animation
     useEffect(() => {
@@ -213,21 +219,19 @@ const Hero = () => {
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50" id="hero">
-            {/* Enhanced Background with multiple layers - Light theme */}
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-500" id="hero">
+            {/* Enhanced Background with multiple layers */}
             <div className="absolute inset-0 z-0">
-                <canvas ref={canvasRef} className="absolute inset-0 opacity-40" />
+                <canvas ref={canvasRef} className="absolute inset-0 opacity-40 dark:opacity-30" />
 
-                {/* Animated gradient orbs - subtle for light theme */}
-                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/5 rounded-full blur-[120px]"
+                {/* Animated gradient orbs */}
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[120px]"
                     style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }} />
-                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-500/5 rounded-full blur-[120px]"
+                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[120px]"
                     style={{ transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)` }} />
 
-                {/* Grid overlay - removed for cleaner look */}
-
-                {/* Vignette - light theme */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.5)_100%)]" />
+                {/* Vignette - dynamic based on theme */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.5)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,6,23,0.5)_100%)]" />
             </div>
 
             <div className="container relative z-10 px-4 py-12">
@@ -239,9 +243,9 @@ const Hero = () => {
                         transition={{ duration: 0.5 }}
                         className="mb-8"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 border border-primary-200 shadow-sm">
-                            <Sparkles className="w-4 h-4 text-primary-600" />
-                            <span className="text-sm font-medium text-primary-700">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700/50 shadow-sm">
+                            <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
+                            <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
                                 Solutions Digitales Premium
                             </span>
                         </div>
@@ -255,9 +259,9 @@ const Hero = () => {
                         className="mb-6 relative"
                     >
                         <div className="absolute -inset-1 blur-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-primary-500/10 opacity-30"></div>
-                        <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 pb-2 leading-tight tracking-tight">
+                        <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white pb-2 leading-tight tracking-tight">
                             {typedText}
-                            <span className="inline-block w-1.5 h-12 md:h-20 bg-primary-600 ml-2 animate-pulse align-middle rounded-full" />
+                            <span className="inline-block w-1.5 h-12 md:h-20 bg-primary-600 dark:bg-primary-500 ml-2 animate-pulse align-middle rounded-full" />
                         </h1>
                     </motion.div>
 
@@ -266,7 +270,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-2xl md:text-3xl text-slate-700 mb-6 font-light tracking-wide font-display"
+                        className="text-2xl md:text-3xl text-slate-700 dark:text-slate-300 mb-6 font-light tracking-wide font-display"
                     >
                         {t.hero.subtitle}
                     </motion.p>
@@ -275,7 +279,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7, duration: 0.8 }}
-                        className="text-lg md:text-xl text-slate-600 mb-12 max-w-3xl leading-relaxed"
+                        className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl leading-relaxed"
                     >
                         {t.hero.description}
                     </motion.p>
@@ -295,7 +299,7 @@ const Hero = () => {
                             </button>
                         </Link>
                         <Link to="/services" className="group relative">
-                            <button className="relative px-8 py-4 bg-white border border-slate-200 rounded-xl text-slate-700 font-semibold flex items-center gap-3 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-md">
+                            <button className="relative px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 font-semibold flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 shadow-md">
                                 <span>{t.hero.discoverServices}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -319,11 +323,11 @@ const Hero = () => {
                                 className="relative group"
                             >
                                 <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300" />
-                                <div className="relative p-6 bg-white border border-slate-200 rounded-2xl hover:border-primary-300 transition-all duration-300 h-full flex flex-col items-center justify-center gap-3 hover:shadow-md">
+                                <div className="relative p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-3 hover:shadow-md">
                                     <div className={`p-3 rounded-xl bg-gradient-to-br ${card.color} shadow-sm`}>
                                         <card.icon className="w-6 h-6 text-white" />
                                     </div>
-                                    <h3 className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">{card.title}</h3>
+                                    <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</h3>
                                 </div>
                             </motion.div>
                         ))}
@@ -347,11 +351,11 @@ const Hero = () => {
                                 {/* Glow effect on hover - subtle */}
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300`} />
 
-                                <div className="relative p-8 bg-white border border-slate-200 rounded-2xl hover:shadow-lg hover:border-primary-300 transition-all duration-300">
+                                <div className="relative p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:shadow-lg hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
                                     <div className={`text-6xl md:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
                                         {stat.value}{stat.suffix}
                                     </div>
-                                    <div className="text-sm text-slate-600 uppercase tracking-[0.2em] font-semibold group-hover:text-slate-800 transition-colors">
+                                    <div className="text-sm text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em] font-semibold group-hover:text-slate-800 dark:group-hover:text-slate-200 transition-colors">
                                         {stat.label}
                                     </div>
                                 </div>
@@ -368,7 +372,7 @@ const Hero = () => {
                 transition={{ delay: 2, duration: 1 }}
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
             >
-                <div className="flex flex-col items-center gap-2 text-slate-400 hover:text-primary-600 transition-colors cursor-pointer">
+                <div className="flex flex-col items-center gap-2 text-slate-400 dark:text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer">
                     <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
                     <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2 relative overflow-hidden">
                         <motion.div

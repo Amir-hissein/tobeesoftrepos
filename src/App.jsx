@@ -31,7 +31,7 @@ function AppContent() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans overflow-x-hidden flex flex-col">
+      <div className="min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans flex flex-col">
         <Navbar />
         <main className="relative z-10 flex-grow">
           <Routes>
