@@ -1,4 +1,5 @@
-import React from 'react';
+import { useLayoutEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 
@@ -12,25 +13,41 @@ import About from './components/sections/About';
 import Services from './components/sections/Services';
 import Process from './components/sections/Process';
 import Expertise from './components/sections/Expertise';
+import Blog from './components/sections/Blog';
 import FAQ from './components/sections/FAQ';
 import Contact from './components/sections/Contact';
 
-function AppContent() {
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function AppContent() {
   return (
-    <div className="bg-slate-50 text-slate-900 min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans overflow-x-hidden">
-      <Navbar />
-      <main className="relative z-10">
-        <Hero />
-        <About />
-        <Services />
-        <Process />
-        <Expertise />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans overflow-x-hidden flex flex-col">
+        <Navbar />
+        <main className="relative z-10 flex-grow">
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/process" element={<Process />} />
+            <Route path="/expertise" element={<Expertise />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
@@ -39,11 +38,11 @@ const About = () => {
     ];
 
     return (
-        <Section id="apropos" className="bg-white relative overflow-hidden py-24">
+        <Section id="apropos" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
             {/* Decorative background elements - very subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 rounded-full blur-[140px]" />
-                <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-secondary-500/3 rounded-full blur-[140px]" />
+                <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 dark:bg-primary-500/5 rounded-full blur-[140px]" />
+                <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-secondary-500/3 dark:bg-secondary-500/5 rounded-full blur-[140px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -53,9 +52,9 @@ const About = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 border border-primary-200 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 mb-6"
                     >
-                        <span className="text-xs font-bold uppercase tracking-widest text-primary-600">
+                        <span className="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400">
                             {t.about.label}
                         </span>
                     </motion.div>
@@ -64,7 +63,7 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
+                        className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
                     >
                         {t.about.title}
                     </motion.h2>
@@ -87,7 +86,7 @@ const About = () => {
                     {/* Text Content */}
                     <div className="order-2 lg:order-1">
                         <motion.p
-                            className="text-lg text-slate-600 leading-relaxed mb-6"
+                            className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6"
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -96,7 +95,7 @@ const About = () => {
                             {t.about.subtitle || "Nous sommes une équipe passionnée de développeurs et de créatifs, dédiée à transformer vos idées en solutions digitales innovantes et performantes."}
                         </motion.p>
                         <motion.p
-                            className="text-base text-slate-500 leading-relaxed"
+                            className="text-base text-slate-500 dark:text-slate-400 leading-relaxed"
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -124,7 +123,7 @@ const About = () => {
                             transition={{ duration: 0.4 }}
                         >
                             {/* Decorative border */}
-                            <div className="absolute inset-0 border-2 border-primary-200/50 rounded-2xl pointer-events-none z-10" />
+                            <div className="absolute inset-0 border-2 border-primary-200/50 dark:border-primary-500/30 rounded-2xl pointer-events-none z-10" />
 
                             <img
                                 src={techImage}
@@ -183,17 +182,17 @@ const About = () => {
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
                             {/* Card content */}
-                            <div className="relative p-8 rounded-2xl bg-white border border-slate-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                            <div className="relative p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                                 {/* Icon with gradient background */}
                                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${item.gradient} mb-6 shadow-sm w-fit`}>
                                     <item.icon size={28} className="text-white" />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-slate-900 mb-4 font-display">
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 font-display">
                                     {item.title}
                                 </h3>
 
-                                <p className="text-slate-600 leading-relaxed text-base flex-1">
+                                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base flex-1">
                                     {item.content}
                                 </p>
                             </div>
@@ -205,16 +204,16 @@ const About = () => {
                 <div className="relative">
                     {/* Divider with gradient */}
                     <div className="flex items-center gap-4 mb-16">
-                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent" />
                         <motion.h3
-                            className="text-3xl font-bold text-slate-900 font-display px-6 text-center"
+                            className="text-3xl font-bold text-slate-900 dark:text-white font-display px-6 text-center"
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                         >
                             {t.about.valuesTitle}
                         </motion.h3>
-                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent" />
                     </div>
 
                     {/* Value Cards */}
@@ -236,7 +235,7 @@ const About = () => {
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-300`} />
 
                                 {/* Card */}
-                                <div className="relative p-6 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-xl hover:border-primary-300 transition-all duration-300 h-full flex flex-col items-center">
+                                <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center">
                                     {/* Animated icon background with multiple effects */}
                                     <motion.div
                                         className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg relative overflow-hidden`}
@@ -278,11 +277,11 @@ const About = () => {
                                         </motion.div>
                                     </motion.div>
 
-                                    <h4 className="text-lg font-bold text-slate-900 mb-3">
+                                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
                                         {item.title}
                                     </h4>
 
-                                    <p className="text-sm text-slate-600 leading-relaxed flex-1">
+                                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">
                                         {item.content}
                                     </p>
 

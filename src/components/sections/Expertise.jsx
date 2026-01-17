@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
@@ -46,11 +45,11 @@ const Expertise = () => {
     ];
 
     return (
-        <Section id="expertise" className="bg-white relative overflow-hidden py-24">
+        <Section id="expertise" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background effects */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/3 right-20 w-[500px] h-[500px] bg-primary-500/5 rounded-full blur-[100px]" />
-                <div className="absolute bottom-1/3 left-20 w-[500px] h-[500px] bg-secondary-500/5 rounded-full blur-[100px]" />
+                <div className="absolute top-1/3 right-20 w-[500px] h-[500px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-1/3 left-20 w-[500px] h-[500px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[100px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -60,10 +59,10 @@ const Expertise = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-200 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 mb-6"
                     >
-                        <Sparkles className="w-4 h-4 text-purple-600" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-purple-600">
+                        <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                        <span className="text-xs font-bold uppercase tracking-widest text-purple-600 dark:text-purple-400">
                             {t.expertise.label}
                         </span>
                     </motion.div>
@@ -72,7 +71,7 @@ const Expertise = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
+                        className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
                     >
                         {t.expertise.title}
                     </motion.h2>
@@ -87,7 +86,7 @@ const Expertise = () => {
                             viewport={{ once: true }}
                             className="mb-10"
                         >
-                            <h3 className="text-3xl font-bold text-slate-900 font-display mb-2 flex items-center gap-4">
+                            <h3 className="text-3xl font-bold text-slate-900 dark:text-white font-display mb-2 flex items-center gap-4">
                                 <div className="w-1.5 h-12 bg-gradient-to-b from-primary-500 to-indigo-700 rounded-full" />
                                 {t.expertise.industries.title}
                             </h3>
@@ -111,11 +110,11 @@ const Expertise = () => {
                                     <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-full blur opacity-0 group-hover:opacity-10 transition duration-300`} />
 
                                     {/* Pill - cleaner design */}
-                                    <div className="relative flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-slate-200 hover:bg-slate-50 hover:border-primary-300 transition-all cursor-default shadow-sm">
+                                    <div className="relative flex items-center gap-3 px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all cursor-default shadow-sm dark:shadow-none">
                                         <div className={`p-1.5 rounded-full bg-gradient-to-br ${item.gradient}`}>
                                             <item.icon size={16} className="text-white" />
                                         </div>
-                                        <span className="text-slate-700 text-sm font-semibold">{item.label}</span>
+                                        <span className="text-slate-700 dark:text-slate-200 text-sm font-semibold">{item.label}</span>
                                     </div>
                                 </motion.div>
                             ))}
@@ -130,7 +129,7 @@ const Expertise = () => {
                             transition={{ delay: 0.3, duration: 0.8 }}
                         >
                             {/* Glow effect */}
-                            <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/15 via-purple-500/15 to-indigo-500/15 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/15 via-purple-500/15 to-indigo-500/15 dark:from-primary-500/10 dark:via-purple-500/10 dark:to-indigo-500/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                             {/* Image container - transparent background */}
                             <motion.div
@@ -183,7 +182,7 @@ const Expertise = () => {
                             viewport={{ once: true }}
                             className="mb-10"
                         >
-                            <h3 className="text-3xl font-bold text-slate-900 font-display mb-2 flex items-center gap-4">
+                            <h3 className="text-3xl font-bold text-slate-900 dark:text-white font-display mb-2 flex items-center gap-4">
                                 <div className="w-1.5 h-12 bg-gradient-to-b from-secondary-500 to-emerald-700 rounded-full" />
                                 {t.expertise.technologies.title}
                             </h3>
@@ -201,17 +200,17 @@ const Expertise = () => {
                                 >
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${tech.gradient}`} />
-                                        <h4 className="text-sm font-bold text-slate-700 uppercase tracking-widest group-hover:text-slate-900 transition-colors">
+                                        <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                                             {tech.title}
                                         </h4>
-                                        <div className="h-px flex-1 bg-slate-200 group-hover:bg-slate-300 transition-colors" />
+                                        <div className="h-px flex-1 bg-slate-200 dark:bg-slate-700 group-hover:bg-slate-300 dark:group-hover:bg-slate-600 transition-colors" />
                                     </div>
                                     <div className="flex flex-wrap gap-2.5">
                                         {tech.items.map((item, j) => (
                                             <motion.span
                                                 key={j}
                                                 whileHover={{ scale: 1.05, y: -2 }}
-                                                className={`relative text-xs font-medium px-3.5 py-2 rounded-lg bg-white text-slate-600 border border-slate-200 hover:border-primary-300 hover:text-slate-900 hover:bg-slate-50 transition-all cursor-default`}
+                                                className={`relative text-xs font-medium px-3.5 py-2 rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-default`}
                                             >
                                                 {item}
                                             </motion.span>

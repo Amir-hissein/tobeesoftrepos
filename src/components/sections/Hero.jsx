@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Button } from '../ui/Button';
 import { ArrowRight, Sparkles, Zap, Code2, Rocket, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const canvasRef = useRef(null);
@@ -287,19 +287,19 @@ const Hero = () => {
                         transition={{ delay: 0.9, duration: 0.6 }}
                         className="flex flex-col sm:flex-row gap-5 mb-20"
                     >
-                        <a href="#contact" className="group relative">
+                        <Link to="/contact" className="group relative">
                             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300" />
                             <button className="relative px-8 py-4 bg-primary-600 rounded-xl text-white font-semibold flex items-center gap-3 hover:bg-primary-700 transition-all duration-300 shadow-lg shadow-primary-500/30">
                                 <Sparkles size={20} className="stroke-2" />
                                 <span>{t.hero.startProject}</span>
                             </button>
-                        </a>
-                        <a href="#services" className="group relative">
+                        </Link>
+                        <Link to="/services" className="group relative">
                             <button className="relative px-8 py-4 bg-white border border-slate-200 rounded-xl text-slate-700 font-semibold flex items-center gap-3 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-md">
                                 <span>{t.hero.discoverServices}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
-                        </a>
+                        </Link>
                     </motion.div>
 
                     {/* Feature Cards */}

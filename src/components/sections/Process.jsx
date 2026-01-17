@@ -11,11 +11,11 @@ const Process = () => {
     const stepIcons = [Lightbulb, Palette, Code, TestTube, Rocket, Headphones];
 
     return (
-        <Section id="processus" className="bg-white relative overflow-hidden py-24">
+        <Section id="processus" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
             {/* Subtle background decoration */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 rounded-full blur-[120px]" />
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -25,9 +25,9 @@ const Process = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-50 border border-secondary-200 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-50 dark:bg-secondary-900/30 border border-secondary-200 dark:border-secondary-800 mb-6"
                     >
-                        <span className="text-xs font-bold uppercase tracking-widest text-secondary-600">
+                        <span className="text-xs font-bold uppercase tracking-widest text-secondary-600 dark:text-secondary-400">
                             {t.process.label}
                         </span>
                     </motion.div>
@@ -37,7 +37,7 @@ const Process = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
+                        className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
                     >
                         {t.process.title}
                     </motion.h2>
@@ -59,11 +59,11 @@ const Process = () => {
 
                         // Use only primary colors for all cards
                         const colors = {
-                            border: 'border-primary-200',
-                            bg: 'bg-primary-50',
-                            text: 'text-primary-600',
-                            hover: 'hover:border-primary-300',
-                            shadow: 'shadow-primary-100'
+                            border: 'border-primary-200 dark:border-primary-800',
+                            bg: 'bg-primary-50 dark:bg-primary-900/20',
+                            text: 'text-primary-600 dark:text-primary-400',
+                            hover: 'hover:border-primary-300 dark:hover:border-primary-600',
+                            shadow: 'shadow-primary-100 dark:shadow-none'
                         };
 
                         return (
@@ -79,7 +79,7 @@ const Process = () => {
                             >
                                 {/* Card */}
                                 <motion.div
-                                    className={`relative h-full bg-white border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300 ${isHovered ? `shadow-xl ${colors.shadow}` : 'shadow-md'}`}
+                                    className={`relative h-full bg-white dark:bg-slate-800 border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300 ${isHovered ? `shadow-xl ${colors.shadow}` : 'shadow-md'}`}
                                     whileHover={{ y: -4 }}
                                 >
                                     {/* Header section */}
@@ -112,7 +112,7 @@ const Process = () => {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-xl font-bold text-slate-900 mb-4 font-display leading-tight">
+                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 font-display leading-tight">
                                         {item.title}
                                     </h3>
 
@@ -131,7 +131,7 @@ const Process = () => {
                                                     size={16}
                                                     className={`flex-shrink-0 mt-0.5 ${colors.text}`}
                                                 />
-                                                <span className="text-sm leading-relaxed text-slate-600">
+                                                <span className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                                                     {subItem}
                                                 </span>
                                             </motion.li>

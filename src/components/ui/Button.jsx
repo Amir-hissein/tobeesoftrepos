@@ -13,9 +13,9 @@ const Button = React.forwardRef(({
 
     const variants = {
         primary: "bg-primary-600 text-white shadow-md shadow-primary-500/20 hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-500/30",
-        secondary: "bg-white border border-slate-200 text-slate-700 shadow-sm hover:bg-slate-50 hover:shadow-md hover:border-slate-300",
-        ghost: "bg-transparent text-slate-600 hover:text-primary-600 hover:bg-slate-50",
-        outline: "border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white"
+        secondary: "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600",
+        ghost: "bg-transparent text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-50 dark:hover:bg-slate-800",
+        outline: "border-2 border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-600 hover:text-white"
     };
 
     const sizes = {

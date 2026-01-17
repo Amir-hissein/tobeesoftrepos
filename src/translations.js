@@ -6,6 +6,7 @@ export const translations = {
             services: "Services",
             process: "Processus",
             expertise: "Expertise",
+            blog: "Blog",
             faq: "FAQ",
             contact: "Contact"
         },
@@ -313,6 +314,63 @@ export const translations = {
                 error: "❌ Erreur:"
             }
         },
+        blog: {
+            label: "Blog et Conseils",
+            title: "10 Caractéristiques Essentielles d'un Site Web Professionnel",
+            subtitle: "Découvrez les critères indispensables d'un site web moderne et performant selon les experts de TOBEESOFT",
+            featured: {
+                tag: "Article en vedette",
+                date: "Janvier 2026",
+                title: "Les secrets d'un site web qui convertit et fidélise vos clients",
+                intro: "Dans un monde où des millions de sites rivalisent chaque jour pour capter l'attention des internautes, être visible sur Internet relève du défi. Lorsqu'un site parvient à se démarquer, c'est le résultat d'une planification rigoureuse et d'une conception intelligente. Selon TOBEESOFT, un site web professionnel repose sur un ensemble de caractéristiques essentielles alliant design, ergonomie, performance et sécurité. Voici les 10 caractéristiques incontournables qui définissent un site web professionnel et efficace."
+            },
+            characteristics: {
+                responsive: {
+                    title: "Un Design Attrayant",
+                    description: "Le design est la première impression que votre visiteur retiendra. Il doit refléter le sérieux, la crédibilité et la personnalité de votre entreprise. Chez TOBEESOFT, spécialiste du développement web, nous accordons une importance particulière à la cohérence visuelle : couleurs harmonieuses, typographies lisibles, images optimisées et structure équilibrée. Un design attrayant ne se limite pas à l'esthétique ; il influence directement le comportement de vos visiteurs et leur envie de revenir."
+                },
+                performance: {
+                    title: "Conformité aux Standards du Web",
+                    description: "Un site professionnel doit respecter les normes techniques du web. Cela inclut la compatibilité avec tous les navigateurs (Chrome, Firefox, Safari, Edge, etc.) et la capacité d'adaptation à tous les écrans — du mobile à l'ordinateur. TOBEESOFT s'assure que votre site soit responsive, rapide et conforme aux meilleures pratiques d'accessibilité et de performance."
+                },
+                navigation: {
+                    title: "Gestion de Contenu Simplifiée",
+                    description: "Un site efficace permet d'ajouter ou de modifier du contenu facilement, sans passer par un développeur. Grâce au système de configuration de TOBEESOFT, reconnu pour sa flexibilité et sa robustesse, l'administrateur peut publier de nouveaux articles, images ou pages sans effort. C'est d'ailleurs une des forces majeures que met de l'avant notre agence TOBEESOFT."
+                },
+                security: {
+                    title: "Mises à Jour Rapides et Sécurisées",
+                    description: "La stabilité et la sécurité d'un site dépendent de ses mises à jour. Un site régulièrement entretenu demeure performant et protégé contre les failles de sécurité. Les experts TOBEESOFT veillent à ce que chaque site client reste à jour, stable et prêt à soutenir une croissance numérique continue."
+                },
+                seo: {
+                    title: "Ergonomie Fluide et Intuitive",
+                    description: "L'ergonomie d'un site joue un rôle clé dans l'expérience utilisateur. Une navigation claire, des menus logiques et un contenu bien structuré favorisent la rétention des visiteurs. Dans une agence TOBEESOFT, chaque projet est pensé pour offrir un parcours utilisateur intuitif, où l'information est accessible en quelques clics, quel que soit le support utilisé."
+                },
+                content: {
+                    title: "Visibilité Optimisée sur Google",
+                    description: "Un site invisible est un site inexistant. L'optimisation pour les moteurs de recherche (SEO) est donc cruciale. Grâce à une stratégie SEO adaptée, une agence web et mobile TOBEESOFT positionne votre site pour qu'il soit repérable sur Google et attire un trafic qualifié. De la structure technique aux balises, en passant par le contenu, chaque détail est calibré pour maximiser votre visibilité."
+                },
+                accessibility: {
+                    title: "Message Clair : À Qui et Pourquoi",
+                    description: "Un site professionnel doit parler directement à sa clientèle cible. Il doit clarifier le 'à qui' il s'adresse et le 'pourquoi' de ses produits ou services. Nos experts TOBEESOFT conçoivent des structures de contenu qui guident les visiteurs vers les pages les plus pertinentes, tout en répondant précisément à leurs besoins."
+                },
+                speed: {
+                    title: "Clavardage en Direct",
+                    description: "La communication directe est un gage de confiance. Bien qu'une FAQ soit utile, rien ne remplace un contact humain. L'ajout d'une option de clavardage en direct améliore l'expérience client et permet de résoudre rapidement les questions ou hésitations."
+                },
+                design: {
+                    title: "Site Mobile Friendly",
+                    description: "Aujourd'hui, plus de 60% des internautes naviguent depuis un appareil mobile. Un site professionnel doit donc être parfaitement lisible et fonctionnel sur tous les écrans. Toute agence TOBEESOFT doit être en mesure de concevoir des sites web mobile-friendly, garantissant une expérience utilisateur optimale, rapide et fluide, peu importe l'appareil utilisé."
+                },
+                cta: {
+                    title: "HTTPS : La Sécurité Avant Tout",
+                    description: "La sécurité est une priorité absolue. Le protocole HTTPS garantit la confidentialité des données et la protection contre les cyberattaques. Tout site professionnel devrait être sécurisé — particulièrement les sites transactionnels. Les spécialistes TOBEESOFT s'assurent que chaque projet bénéficie d'un niveau de sécurité optimal, tant pour vos utilisateurs que pour vos données."
+                }
+            },
+            cta: {
+                text: "Prêt à créer un site web qui respecte tous ces critères ?",
+                button: "Démarrer votre projet"
+            }
+        },
         footer: {
             description: "Partenaire de confiance pour votre transformation digitale. Nous créons des solutions logicielles innovantes pour propulser votre entreprise vers l'avenir.",
             services: {
@@ -345,6 +403,7 @@ export const translations = {
             services: "Services",
             process: "Process",
             expertise: "Expertise",
+            blog: "Blog",
             faq: "FAQ",
             contact: "Contact"
         },
@@ -650,6 +709,63 @@ export const translations = {
                 sending: "Sending...",
                 success: " Thank you! Your message has been sent successfully.",
                 error: "❌ Error:"
+            }
+        },
+        blog: {
+            label: "Blog & Insights",
+            title: "10 Essential Characteristics of a Professional Website",
+            subtitle: "Discover the essential criteria of a modern and high-performing website according to TOBEESOFT experts",
+            featured: {
+                tag: "Featured article",
+                date: "January 2026",
+                title: "The secrets of a website that converts and retains your customers",
+                intro: "In a world where millions of websites compete daily to capture internet users' attention, being visible online is a real challenge. When a website manages to stand out, it's the result of rigorous planning and intelligent design. According to TOBEESOFT, a professional website is based on a set of essential characteristics combining design, ergonomics, performance, and security. Here are the 10 essential characteristics that define a professional and effective website."
+            },
+            characteristics: {
+                responsive: {
+                    title: "Attractive Design",
+                    description: "Design is the first impression your visitor will remember. It must reflect the professionalism, credibility, and personality of your business. At TOBEESOFT, web development specialists, we pay particular attention to visual consistency: harmonious colors, readable typography, optimized images, and balanced structure. An attractive design is not limited to aesthetics; it directly influences your visitors' behavior and their desire to return."
+                },
+                performance: {
+                    title: "Full Web Standards Compliance",
+                    description: "A professional website must comply with web technical standards. This includes compatibility with all browsers (Chrome, Firefox, Safari, Edge, etc.) and the ability to adapt to all screens — from mobile to desktop. TOBEESOFT ensures that your site is responsive, fast, and compliant with the best practices in accessibility and performance."
+                },
+                navigation: {
+                    title: "Simplified Content Management",
+                    description: "An effective website allows you to add or modify content easily, without going through a developer. Thanks to TOBEESOFT's configuration system, recognized for its flexibility and robustness, administrators can publish new articles, images, or pages effortlessly. This is one of the major strengths that our TOBEESOFT agency highlights."
+                },
+                security: {
+                    title: "Fast and Secure Updates",
+                    description: "The stability and security of a website depend on its updates. A regularly maintained site remains efficient and protected against security vulnerabilities. TOBEESOFT experts ensure that each client site stays up to date, stable, and ready to support continuous digital growth."
+                },
+                seo: {
+                    title: "Fluid and Intuitive Ergonomics",
+                    description: "A website's ergonomics play a key role in user experience. Clear navigation, logical menus, and well-structured content promote visitor retention. At TOBEESOFT agency, each project is designed to offer an intuitive user journey, where information is accessible in just a few clicks, regardless of the device used."
+                },
+                content: {
+                    title: "Optimized Google Visibility",
+                    description: "An invisible website is a non-existent website. Search engine optimization (SEO) is therefore crucial. Thanks to an adapted SEO strategy, TOBEESOFT web and mobile agency positions your site to be found on Google and attract qualified traffic. From technical structure to tags, through content, every detail is calibrated to maximize your visibility."
+                },
+                accessibility: {
+                    title: "Clear Message: Who and Why",
+                    description: "A professional website must speak directly to its target audience. It must clarify 'who' it addresses and 'why' its products or services exist. Our TOBEESOFT experts design content structures that guide visitors to the most relevant pages, while precisely addressing their needs."
+                },
+                speed: {
+                    title: "Live Chat Option",
+                    description: "Direct communication is a guarantee of trust. Although an FAQ is useful, nothing replaces human contact. Adding a live chat option improves customer experience and allows quick resolution of questions or hesitations."
+                },
+                design: {
+                    title: "Mobile Friendly Site",
+                    description: "Today, more than 60% of internet users browse from a mobile device. A professional website must therefore be perfectly readable and functional on all screens. Any TOBEESOFT agency must be able to design mobile-friendly websites, guaranteeing an optimal, fast, and fluid user experience, regardless of the device used."
+                },
+                cta: {
+                    title: "HTTPS: Security First",
+                    description: "Security is an absolute priority. The HTTPS protocol guarantees data confidentiality and protection against cyberattacks. Any professional website should be secured — particularly transactional sites. TOBEESOFT specialists ensure that each project benefits from an optimal level of security, both for your users and your data."
+                }
+            },
+            cta: {
+                text: "Ready to create a website that meets all these criteria?",
+                button: "Start your project"
             }
         },
         footer: {

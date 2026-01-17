@@ -22,11 +22,11 @@ const FAQ = () => {
     ];
 
     return (
-        <Section id="faq" className="bg-slate-50 relative overflow-hidden py-24">
+        <Section id="faq" className="bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background elements - subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/3 rounded-full blur-[120px]" />
-                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary-500/3 rounded-full blur-[120px]" />
+                <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/3 dark:bg-amber-500/5 rounded-full blur-[120px]" />
+                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary-500/3 dark:bg-primary-500/5 rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -36,10 +36,10 @@ const FAQ = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 mb-6"
                     >
-                        <HelpCircle className="w-4 h-4 text-amber-600" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-amber-600">
+                        <HelpCircle className="w-4 h-4 text-amber-600 dark:text-amber-500" />
+                        <span className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-500">
                             {t.faq.label}
                         </span>
                     </motion.div>
@@ -48,7 +48,7 @@ const FAQ = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
+                        className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
                     >
                         {t.faq.title}
                     </motion.h2>
@@ -74,8 +74,8 @@ const FAQ = () => {
 
                                 {/* FAQ Card */}
                                 <div className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${isActive
-                                    ? 'bg-white border-primary-300 shadow-md'
-                                    : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-sm'
+                                    ? 'bg-white dark:bg-slate-800 border-primary-300 dark:border-primary-600 shadow-md'
+                                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm'
                                     }`}>
                                     {/* Question Button */}
                                     <button
@@ -84,8 +84,8 @@ const FAQ = () => {
                                     >
                                         {/* Question text */}
                                         <span className={`font-bold text-lg md:text-xl transition-colors font-display ${isActive
-                                            ? 'text-slate-900'
-                                            : 'text-slate-800 group-hover:text-slate-900'
+                                            ? 'text-slate-900 dark:text-white'
+                                            : 'text-slate-800 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white'
                                             }`}>
                                             {item.question}
                                         </span>
@@ -95,8 +95,8 @@ const FAQ = () => {
                                             animate={{ rotate: isActive ? 180 : 0 }}
                                             transition={{ duration: 0.25 }}
                                             className={`flex-shrink-0 p-2 rounded-lg transition-all ${isActive
-                                                ? 'bg-primary-100 text-primary-600'
-                                                : 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'
+                                                ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
+                                                : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-slate-600'
                                                 }`}
                                         >
                                             {isActive ? <Minus size={20} /> : <Plus size={20} />}
@@ -114,8 +114,8 @@ const FAQ = () => {
                                             >
                                                 <div className="px-6 md:px-7 pb-7 pt-0">
                                                     <div className="">
-                                                        <div className="h-px bg-slate-200 mb-5" />
-                                                        <p className="text-slate-600 leading-relaxed text-base">
+                                                        <div className="h-px bg-slate-200 dark:bg-slate-700 mb-5" />
+                                                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base">
                                                             {item.answer}
                                                         </p>
                                                     </div>

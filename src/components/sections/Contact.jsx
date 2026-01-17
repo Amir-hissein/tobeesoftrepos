@@ -89,11 +89,11 @@ const Contact = () => {
     };
 
     return (
-        <Section id="contact" className="bg-white relative overflow-hidden py-24">
+        <Section id="contact" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background Glow - subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute left-0 bottom-0 w-[800px] h-[800px] bg-primary-500/3 rounded-full blur-[140px] -translate-x-1/2 translate-y-1/2" />
-                <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-secondary-500/3 rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute left-0 bottom-0 w-[800px] h-[800px] bg-primary-500/3 dark:bg-primary-500/5 rounded-full blur-[140px] -translate-x-1/2 translate-y-1/2" />
+                <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-secondary-500/3 dark:bg-secondary-500/5 rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2" />
             </div>
 
             {notification && (
@@ -108,9 +108,9 @@ const Contact = () => {
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 border border-primary-200  mb-6"
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 mb-6"
                 >
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary-600">
+                    <span className="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400">
                         {t.contact.label}
                     </span>
                 </motion.div>
@@ -118,7 +118,7 @@ const Contact = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
+                    className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
                 >
                     {t.contact.title}
                 </motion.h2>
@@ -134,8 +134,8 @@ const Contact = () => {
                     className="space-y-10"
                 >
                     <div>
-                        <h3 className="text-3xl font-bold text-slate-900 mb-6 font-display">{t.contact.info.title}</h3>
-                        <p className="text-slate-600 text-lg leading-relaxed">
+                        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 font-display">{t.contact.info.title}</h3>
+                        <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
                             {t.contact.info.description}
                         </p>
                     </div>
@@ -147,18 +147,18 @@ const Contact = () => {
                             { icon: MapPin, title: t.contact.info.address, value: "İstanbul, Turquie", href: null },
                             { icon: Clock, title: t.contact.info.hours, value: t.contact.info.hoursValue, href: null }
                         ].map((item, i) => (
-                            <div key={i} className="flex items-start gap-5 p-6 rounded-2xl bg-white border border-slate-200 hover:border-primary-300 hover:shadow-md transition-all duration-300 group">
-                                <div className="p-3.5 rounded-xl bg-primary-50 border border-primary-100 text-primary-600 group-hover:bg-primary-100 group-hover:scale-105 transition-all duration-300">
+                            <div key={i} className="flex items-start gap-5 p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all duration-300 group">
+                                <div className="p-3.5 rounded-xl bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800 text-primary-600 dark:text-primary-400 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/50 group-hover:scale-105 transition-all duration-300">
                                     <item.icon size={22} />
                                 </div>
                                 <div>
-                                    <h4 className="text-sm font-bold text-slate-500 mb-1 uppercase tracking-wider">{item.title}</h4>
+                                    <h4 className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">{item.title}</h4>
                                     {item.href ? (
-                                        <a href={item.href} className="text-lg text-slate-900 hover:text-primary-600 transition-colors font-medium">
+                                        <a href={item.href} className="text-lg text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">
                                             {item.value}
                                         </a>
                                     ) : (
-                                        <p className="text-lg text-slate-900 font-medium">{item.value}</p>
+                                        <p className="text-lg text-slate-900 dark:text-white font-medium">{item.value}</p>
                                     )}
                                 </div>
                             </div>
@@ -174,50 +174,50 @@ const Contact = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="relative"
                 >
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 via-secondary-500/10 to-primary-500/10 rounded-3xl blur opacity-20"></div>
-                    <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-lg relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 via-secondary-500/10 to-primary-500/10 dark:from-primary-500/20 dark:via-secondary-500/20 dark:to-primary-500/20 rounded-3xl blur opacity-20"></div>
+                    <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-lg relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 dark:bg-primary-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
-                        <h3 className="text-2xl font-bold text-slate-900 mb-8 relative z-10 font-display">{t.contact.form.title}</h3>
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 relative z-10 font-display">{t.contact.form.title}</h3>
 
                         <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 relative z-10">
                             <input type="text" name="website" className="hidden" tabIndex="-1" autoComplete="off" />
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label htmlFor="name" className="text-sm font-medium text-slate-600 ml-1">{t.contact.form.name} *</label>
+                                    <label htmlFor="name" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.name} *</label>
                                     <input type="text" id="name" name="name" required placeholder={t.contact.form.placeholders.name}
-                                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm font-medium text-slate-600 ml-1">{t.contact.form.email} *</label>
+                                    <label htmlFor="email" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.email} *</label>
                                     <input type="email" id="email" name="email" required placeholder={t.contact.form.placeholders.email}
-                                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label htmlFor="phone" className="text-sm font-medium text-slate-600 ml-1">{t.contact.form.phone}</label>
+                                    <label htmlFor="phone" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.phone}</label>
                                     <input type="tel" id="phone" name="phone" placeholder={t.contact.form.placeholders.phone}
-                                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label htmlFor="company" className="text-sm font-medium text-slate-600 ml-1">{t.contact.form.company}</label>
+                                    <label htmlFor="company" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.company}</label>
                                     <input type="text" id="company" name="company" placeholder={t.contact.form.placeholders.company}
-                                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all"
+                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="projectType" className="text-sm font-medium text-slate-600 ml-1">{t.contact.form.projectType} *</label>
+                                <label htmlFor="projectType" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.projectType} *</label>
                                 <div className="relative">
                                     <select id="projectType" name="projectType" required defaultValue=""
-                                        className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all appearance-none"
+                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all appearance-none"
                                     >
                                         <option value="" disabled>{t.contact.form.selectPlaceholder}</option>
                                         <option value="web">{t.contact.form.projectTypes.web}</option>
@@ -234,9 +234,9 @@ const Contact = () => {
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium text-slate-600 ml-1">{t.contact.form.message} *</label>
+                                <label htmlFor="message" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.message} *</label>
                                 <textarea id="message" name="message" required placeholder={t.contact.form.placeholders.message} rows="4"
-                                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all resize-none"
+                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all resize-none"
                                 ></textarea>
                             </div>
 

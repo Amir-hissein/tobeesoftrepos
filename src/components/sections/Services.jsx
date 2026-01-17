@@ -19,11 +19,11 @@ const Services = () => {
     const serviceKeys = ['service1', 'service2', 'service3', 'service4', 'service5'];
 
     return (
-        <Section id="services" className="bg-white relative overflow-hidden py-24">
+        <Section id="services" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
             {/* Subtle background decoration */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 rounded-full blur-[120px]" />
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -33,9 +33,9 @@ const Services = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-50 border border-secondary-200 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-50 dark:bg-secondary-900/30 border border-secondary-200 dark:border-secondary-800 mb-6"
                     >
-                        <span className="text-xs font-bold uppercase tracking-widest text-secondary-600">
+                        <span className="text-xs font-bold uppercase tracking-widest text-secondary-600 dark:text-secondary-400">
                             {t.services.label}
                         </span>
                     </motion.div>
@@ -45,7 +45,7 @@ const Services = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight"
+                        className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
                     >
                         {t.services.title}
                     </motion.h2>
@@ -68,11 +68,11 @@ const Services = () => {
 
                         // Use only primary colors for all cards
                         const colors = {
-                            border: 'border-primary-200',
-                            bg: 'bg-primary-50',
-                            text: 'text-primary-600',
-                            hover: 'hover:border-primary-300',
-                            shadow: 'shadow-primary-100'
+                            border: 'border-primary-200 dark:border-primary-800',
+                            bg: 'bg-primary-50 dark:bg-primary-900/20',
+                            text: 'text-primary-600 dark:text-primary-400',
+                            hover: 'hover:border-primary-300 dark:hover:border-primary-600',
+                            shadow: 'shadow-primary-100 dark:shadow-none'
                         };
 
                         const subItems = Object.entries(serviceData)
@@ -92,7 +92,7 @@ const Services = () => {
                             >
                                 {/* Card */}
                                 <motion.div
-                                    className={`relative h-full bg-white border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300 ${isHovered ? `shadow-xl ${colors.shadow}` : 'shadow-md'}`}
+                                    className={`relative h-full bg-white dark:bg-slate-800 border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300 ${isHovered ? `shadow-xl ${colors.shadow}` : 'shadow-md'}`}
                                     whileHover={{ y: -4 }}
                                 >
                                     {/* Header section */}
@@ -117,7 +117,7 @@ const Services = () => {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-xl font-bold text-slate-900 mb-4 font-display leading-tight">
+                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 font-display leading-tight">
                                         {serviceData.title}
                                     </h3>
 
@@ -138,10 +138,10 @@ const Services = () => {
                                                         className={`flex-shrink-0 mt-0.5 ${colors.text}`}
                                                     />
                                                     <div>
-                                                        <h4 className="text-sm font-semibold text-slate-800 mb-0.5">
+                                                        <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-0.5">
                                                             {item.title}
                                                         </h4>
-                                                        <p className="text-xs text-slate-600 leading-relaxed">
+                                                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                                                             {item.description}
                                                         </p>
                                                     </div>
