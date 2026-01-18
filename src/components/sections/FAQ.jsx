@@ -22,11 +22,11 @@ const FAQ = () => {
     ];
 
     return (
-        <Section id="faq" className="bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="faq" className="bg-slate-50 dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background elements - subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/3 dark:bg-amber-500/5 rounded-full blur-[120px]" />
-                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary-500/3 dark:bg-primary-500/5 rounded-full blur-[120px]" />
+                <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/3 dark:hidden rounded-full blur-[120px]" />
+                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary-500/3 dark:hidden rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -74,8 +74,8 @@ const FAQ = () => {
 
                                 {/* FAQ Card */}
                                 <div className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${isActive
-                                    ? 'bg-white dark:bg-slate-800 border-primary-300 dark:border-primary-600 shadow-md'
-                                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm'
+                                    ? 'bg-white dark:bg-slate-800 border-primary-300 dark:border-primary-600 shadow-md dark:shadow-none'
+                                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm dark:hover:shadow-none'
                                     }`}>
                                     {/* Question Button */}
                                     <button

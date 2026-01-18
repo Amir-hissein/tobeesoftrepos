@@ -1,7 +1,8 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { initGA, pageview } from './lib/analytics';
 
 // Layout
 import Navbar from './components/layout/Navbar';
@@ -22,6 +23,11 @@ function ScrollToTop() {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // Track page views in Google Analytics
+  useEffect(() => {
+    pageview(pathname);
   }, [pathname]);
 
   return null;
@@ -52,6 +58,11 @@ function AppContent() {
 }
 
 function App() {
+  // Initialize Google Analytics on app mount
+  useEffect(() => {
+    initGA();
+  }, []);
+
   return (
     <ThemeProvider>
       <LanguageProvider>

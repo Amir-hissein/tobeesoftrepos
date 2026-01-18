@@ -29,11 +29,11 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-white dark:bg-slate-900 pt-20 pb-10 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors duration-500">
+        <footer className="bg-white dark:bg-[#1a2332] pt-20 pb-10 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors duration-500">
             {/* Background Glow */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[100px]" />
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary-500/5 dark:hidden rounded-full blur-[100px]" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary-500/5 dark:hidden rounded-full blur-[100px]" />
             </div>
 
             <div className="container relative z-10">
@@ -52,7 +52,7 @@ const Footer = () => {
                                 { Icon: Linkedin, href: "https://www.linkedin.com/in/tobeesoft-co-3a7a58389/" },
                                 { Icon: TikTokIcon, href: "https://www.tiktok.com/@amirtobeesoft?lang=fr" }
                             ].map(({ Icon, href }, i) => (
-                                <a key={i} href={href} className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/20">
+                                <a key={i} href={href} className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:shadow-none hover:shadow-primary-500/20">
                                     <Icon size={18} />
                                 </a>
                             ))}

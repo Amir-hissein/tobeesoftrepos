@@ -38,11 +38,11 @@ const About = () => {
     ];
 
     return (
-        <Section id="apropos" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="apropos" className="bg-white dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
             {/* Decorative background elements - very subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 dark:bg-primary-500/5 rounded-full blur-[140px]" />
-                <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-secondary-500/3 dark:bg-secondary-500/5 rounded-full blur-[140px]" />
+                <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 dark:hidden rounded-full blur-[140px]" />
+                <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-secondary-500/3 dark:hidden rounded-full blur-[140px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -118,7 +118,7 @@ const About = () => {
 
                         {/* Image container */}
                         <motion.div
-                            className="relative overflow-hidden rounded-2xl shadow-2xl"
+                            className="relative overflow-hidden rounded-2xl shadow-2xl dark:shadow-none"
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.4 }}
                         >
@@ -182,9 +182,9 @@ const About = () => {
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
                             {/* Card content */}
-                            <div className="relative p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                            <div className="relative p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-lg dark:shadow-none transition-all duration-300 h-full flex flex-col">
                                 {/* Icon with gradient background */}
-                                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${item.gradient} mb-6 shadow-sm w-fit`}>
+                                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${item.gradient} mb-6 shadow-sm dark:shadow-none w-fit`}>
                                     <item.icon size={28} className="text-white" />
                                 </div>
 
@@ -235,10 +235,10 @@ const About = () => {
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-300`} />
 
                                 {/* Card */}
-                                <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center hover:shadow-xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center">
+                                <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center hover:shadow-xl dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center">
                                     {/* Animated icon background with multiple effects */}
                                     <motion.div
-                                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg relative overflow-hidden`}
+                                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg dark:shadow-none relative overflow-hidden`}
                                         whileHover={{
                                             rotate: [0, -10, 10, -10, 0],
                                             scale: 1.15

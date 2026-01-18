@@ -33,17 +33,17 @@
   }
 
   .dark {
-    /* Professional Dark Theme */
-    --primary-glow: rgba(99, 102, 241, 0.15);
-    --secondary-glow: rgba(16, 185, 129, 0.15);
+    /* Professional Dark Theme - Solid Navy Blue */
+    --primary-glow: rgba(99, 102, 241, 0);
+    --secondary-glow: rgba(16, 185, 129, 0);
 
-    /* Backgrounds */
-    --bg-main: #0f172a;
-    /* Slate 900 */
-    --bg-card: #1e293b;
-    /* Slate 800 */
-    --bg-card-hover: #334155;
-    /* Slate 700 */
+    /* Backgrounds - Unified Navy Blue */
+    --bg-main: #1a2332;
+    /* Navy Blue Base */
+    --bg-card: #212d3f;
+    /* Slightly lighter for cards */
+    --bg-card-hover: #2a3847;
+    /* Even lighter for hover */
 
     /* Text */
     --text-primary: #f8fafc;
@@ -54,20 +54,30 @@
     /* Indigo 400 */
 
     /* Borders */
-    --border-light: #334155;
-    /* Slate 700 */
-    --border-medium: #475569;
-    /* Slate 600 */
+    --border-light: #2a3847;
+    /* Subtle border */
+    --border-medium: #354456;
+    /* Medium border */
   }
 
   body {
     @apply bg-[var(--bg-main)] text-[var(--text-primary)] font-sans antialiased transition-colors duration-300;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  /* Light mode only - gradients */
+  body:not(.dark) {
     background-image:
       radial-gradient(circle at 15% 50%, var(--primary-glow), transparent 25%),
       radial-gradient(circle at 85% 30%, var(--secondary-glow), transparent 25%);
     background-attachment: fixed;
+  }
+
+  /* Dark mode - solid color only */
+  html.dark body {
+    background-image: none !important;
+    background-color: #1a2332 !important;
   }
 
   h1,
@@ -82,19 +92,19 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition-all duration-300 shadow-md shadow-primary-500/20 hover:shadow-primary-600/30 flex items-center gap-2;
+    @apply px-6 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition-all duration-300 shadow-md shadow-primary-500/20 hover:shadow-primary-600/30 dark:shadow-none flex items-center gap-2;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium transition-all duration-300 shadow-sm hover:shadow-md;
+    @apply px-6 py-3 rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium transition-all duration-300 shadow-sm hover:shadow-md dark:shadow-none;
   }
 
   .card {
-    @apply bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 transition-all duration-300 hover:border-primary-200 dark:hover:border-primary-700 hover:shadow-lg hover:shadow-primary-900/5 dark:hover:shadow-primary-900/10;
+    @apply bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 transition-all duration-300 hover:border-primary-200 dark:hover:border-primary-700 hover:shadow-lg hover:shadow-primary-900/5 dark:shadow-none;
   }
 
   .glass-nav {
-    @apply bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-sm;
+    @apply bg-white/90 dark:bg-[#1a2332]/95 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none;
   }
 
   .section-title {

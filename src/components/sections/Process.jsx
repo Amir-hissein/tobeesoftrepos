@@ -11,11 +11,11 @@ const Process = () => {
     const stepIcons = [Lightbulb, Palette, Code, TestTube, Rocket, Headphones];
 
     return (
-        <Section id="processus" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="processus" className="bg-white dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
             {/* Subtle background decoration */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[120px]" />
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 dark:hidden rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 dark:hidden rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -79,7 +79,7 @@ const Process = () => {
                             >
                                 {/* Card */}
                                 <motion.div
-                                    className={`relative h-full bg-white dark:bg-slate-800 border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300 ${isHovered ? `shadow-xl ${colors.shadow}` : 'shadow-md'}`}
+                                    className={`relative h-full bg-white dark:bg-slate-800 border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300 ${isHovered ? `shadow-xl dark:shadow-none ${colors.shadow}` : 'shadow-md dark:shadow-none'}`}
                                     whileHover={{ y: -4 }}
                                 >
                                     {/* Header section */}

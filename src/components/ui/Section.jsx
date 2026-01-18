@@ -1,4 +1,3 @@
-import { cn } from '../../lib/utils';
 
 const Section = ({
     className,
@@ -9,15 +8,15 @@ const Section = ({
     return (
         <section
             id={id}
-            className={cn(
+            className={[
                 "relative py-20 overflow-hidden",
                 className
-            )}
+            ].filter(Boolean).join(' ')}
         >
-            <div className={cn(
+            <div className={[
                 "mx-auto px-4 sm:px-6 lg:px-8",
                 fullWidth ? "w-full" : "container"
-            )}>
+            ].filter(Boolean).join(' ')}>
                 {children}
             </div>
         </section>

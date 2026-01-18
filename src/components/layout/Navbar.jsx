@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Menu, X, Globe, ChevronDown, Check, Sun, Moon } from 'lucide-react';
-import { cn } from '../../lib/utils';
+// Helper function to merge class names
+const cn = (...classes) => classes.filter(Boolean).join(' ');
 import { Button } from '../ui/Button';
 import logo from '../../assets/TOBEESOFT.png';
 import tobee from '../../assets/tobee.png';

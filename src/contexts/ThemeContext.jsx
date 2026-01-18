@@ -6,14 +6,11 @@ export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = React.useState('light');
 
     useEffect(() => {
-        // Check for saved theme or system preference
+        // Check for saved theme
         const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         if (savedTheme) {
             setTheme(savedTheme);
-        } else if (systemPrefersDark) {
-            setTheme('dark');
         }
     }, []);
 

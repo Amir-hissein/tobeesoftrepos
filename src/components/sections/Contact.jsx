@@ -4,7 +4,8 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
 import Notification from '../ui/Notification';
 import { Button } from '../ui/Button';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Phone, Send } from 'lucide-react';
+import { trackContactFormSubmit } from '../../lib/analytics';
 
 // EmailJS Configuration
 const EMAILJS_SERVICE_ID = 'service_lid2yta';
@@ -77,6 +78,9 @@ const Contact = () => {
                     type: 'success'
                 });
                 formRef.current.reset();
+
+                // Track successful contact form submission in Google Analytics
+                trackContactFormSubmit();
             })
             .catch((error) => {
                 console.error('EmailJS Error:', error);
@@ -89,11 +93,11 @@ const Contact = () => {
     };
 
     return (
-        <Section id="contact" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="contact" className="bg-white dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background Glow - subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute left-0 bottom-0 w-[800px] h-[800px] bg-primary-500/3 dark:bg-primary-500/5 rounded-full blur-[140px] -translate-x-1/2 translate-y-1/2" />
-                <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-secondary-500/3 dark:bg-secondary-500/5 rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute left-0 bottom-0 w-[800px] h-[800px] bg-primary-500/3 dark:hidden rounded-full blur-[140px] -translate-x-1/2 translate-y-1/2" />
+                <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-secondary-500/3 dark:hidden rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2" />
             </div>
 
             {notification && (
@@ -140,30 +144,57 @@ const Contact = () => {
                         </p>
                     </div>
 
-                    <div className="grid gap-6">
+                    {/* Contact Info - Simple display */}
+                    <div className="space-y-5 mb-6">
                         {[
                             { icon: Mail, title: t.contact.info.email, value: "tobeesoft@gmail.com", href: "mailto:tobeesoft@gmail.com" },
-                            { icon: Phone, title: t.contact.info.phone, value: "+90 535 504 87 12", href: "tel:+905355048712" },
-                            { icon: MapPin, title: t.contact.info.address, value: "İstanbul, Turquie", href: null },
-                            { icon: Clock, title: t.contact.info.hours, value: t.contact.info.hoursValue, href: null }
+                            { icon: Phone, title: t.contact.info.phone, value: "+90 535 504 87 12", href: "tel:+905355048712" }
                         ].map((item, i) => (
-                            <div key={i} className="flex items-start gap-5 p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all duration-300 group">
-                                <div className="p-3.5 rounded-xl bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800 text-primary-600 dark:text-primary-400 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/50 group-hover:scale-105 transition-all duration-300">
-                                    <item.icon size={22} />
+                            <div key={i} className="flex items-center gap-4">
+                                <div className="flex-shrink-0 p-3 rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400">
+                                    <item.icon size={20} />
                                 </div>
                                 <div>
-                                    <h4 className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-1 uppercase tracking-wider">{item.title}</h4>
+                                    <h4 className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-0.5 uppercase tracking-wider">{item.title}</h4>
                                     {item.href ? (
-                                        <a href={item.href} className="text-lg text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">
+                                        <a href={item.href} className="text-base font-medium text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                                             {item.value}
                                         </a>
                                     ) : (
-                                        <p className="text-lg text-slate-900 dark:text-white font-medium">{item.value}</p>
+                                        <p className="text-base font-medium text-slate-900 dark:text-white">{item.value}</p>
                                     )}
                                 </div>
                             </div>
                         ))}
                     </div>
+
+                    {/* CEO Quote */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="relative mt-8 px-8 py-6 bg-gradient-to-r from-primary-50/50 via-white to-secondary-50/50 dark:from-slate-800/50 dark:via-slate-800/30 dark:to-slate-800/50 rounded-2xl border border-primary-100 dark:border-slate-700"
+                    >
+                        <div className="absolute -top-4 left-8">
+                            <div className="bg-primary-600 dark:bg-primary-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-2xl font-serif">
+                                "
+                            </div>
+                        </div>
+                        <blockquote className="relative">
+                            <p className="text-base md:text-lg text-slate-700 dark:text-slate-200 italic leading-relaxed mb-4 font-medium">
+                                Chez TOBEESOFT, l'innovation n'est pas une promesse, c'est une discipline qui transforme la vision en résultats.
+                            </p>
+                            <footer className="flex items-center gap-3">
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary-300 dark:via-slate-600 to-transparent"></div>
+                                <cite className="not-italic">
+                                    <span className="block text-sm font-bold text-slate-900 dark:text-white">Amir Hissein</span>
+                                    <span className="block text-xs text-primary-600 dark:text-primary-400 font-semibold">CEO & Founder</span>
+                                </cite>
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary-300 dark:via-slate-600 to-transparent"></div>
+                            </footer>
+                        </blockquote>
+                    </motion.div>
                 </motion.div>
 
                 {/* Contact Form */}
@@ -175,7 +206,7 @@ const Contact = () => {
                     className="relative"
                 >
                     <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 via-secondary-500/10 to-primary-500/10 dark:from-primary-500/20 dark:via-secondary-500/20 dark:to-primary-500/20 rounded-3xl blur opacity-20"></div>
-                    <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-lg relative overflow-hidden">
+                    <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-lg dark:shadow-none relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 dark:bg-primary-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 relative z-10 font-display">{t.contact.form.title}</h3>
@@ -187,13 +218,13 @@ const Contact = () => {
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.name} *</label>
                                     <input type="text" id="name" name="name" required placeholder={t.contact.form.placeholders.name}
-                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
+                                        className="w-full bg-white dark:bg-[#1a2332] border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.email} *</label>
                                     <input type="email" id="email" name="email" required placeholder={t.contact.form.placeholders.email}
-                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
+                                        className="w-full bg-white dark:bg-[#1a2332] border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                             </div>
@@ -202,13 +233,13 @@ const Contact = () => {
                                 <div className="space-y-2">
                                     <label htmlFor="phone" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.phone}</label>
                                     <input type="tel" id="phone" name="phone" placeholder={t.contact.form.placeholders.phone}
-                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
+                                        className="w-full bg-white dark:bg-[#1a2332] border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="company" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.company}</label>
                                     <input type="text" id="company" name="company" placeholder={t.contact.form.placeholders.company}
-                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
+                                        className="w-full bg-white dark:bg-[#1a2332] border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all"
                                     />
                                 </div>
                             </div>
@@ -217,7 +248,7 @@ const Contact = () => {
                                 <label htmlFor="projectType" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.projectType} *</label>
                                 <div className="relative">
                                     <select id="projectType" name="projectType" required defaultValue=""
-                                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all appearance-none"
+                                        className="w-full bg-white dark:bg-[#1a2332] border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all appearance-none"
                                     >
                                         <option value="" disabled>{t.contact.form.selectPlaceholder}</option>
                                         <option value="web">{t.contact.form.projectTypes.web}</option>
@@ -236,7 +267,7 @@ const Contact = () => {
                             <div className="space-y-2">
                                 <label htmlFor="message" className="text-sm font-medium text-slate-600 dark:text-slate-300 ml-1">{t.contact.form.message} *</label>
                                 <textarea id="message" name="message" required placeholder={t.contact.form.placeholders.message} rows="4"
-                                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all resize-none"
+                                    className="w-full bg-white dark:bg-[#1a2332] border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900/30 transition-all resize-none"
                                 ></textarea>
                             </div>
 

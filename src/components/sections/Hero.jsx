@@ -54,19 +54,22 @@ const Hero = () => {
         };
     }, [fullText]);
 
-    // Enhanced Canvas animation with 3D-like particles
+    // Enhanced Canvas animation with Falling Web & Binary Background
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d', { alpha: true });
         let particles = [];
+        let binaryEntities = [];
         let animationId;
         let mousePos = { x: 0, y: 0 };
 
         const initCanvas = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+
+            // 1. Web Particles (Falling)
             particles = [];
             const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100);
 
@@ -74,94 +77,176 @@ const Hero = () => {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    z: Math.random() * 2 + 0.5,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: Math.random() * 1.5 + 0.5, // Always positive (Downwards)
                     radius: Math.random() * 2 + 1,
                     opacity: Math.random() * 0.5 + 0.1,
-                    hue: 240 // Indigo only for consistency
+                });
+            }
+
+            // 2. Binary Background Entities (Dark Mode Only usually, but we init them)
+            binaryEntities = [];
+            const binaryCount = Math.floor(canvas.width / 40); // One column every 40px approx
+            for (let i = 0; i < binaryCount; i++) {
+                binaryEntities.push({
+                    x: i * 40 + (Math.random() * 20), // Grid-like columns
+                    y: Math.random() * canvas.height,
+                    val: Math.random() > 0.5 ? '1' : '0',
+                    speed: Math.random() * 0.5 + 0.2,
+                    size: Math.random() * 20 + 40, // Large text as in image
+                    opacity: 0.1 // Subtle background
                 });
             }
         };
 
         const drawParticles = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const isDark = theme === 'dark';
 
+            // --- Layer 1: Binary Background ---
+            if (isDark) {
+                ctx.save();
+                ctx.font = 'bold 60px "Courier New", monospace'; // Large, bold font
+                ctx.textAlign = 'center';
+
+                binaryEntities.forEach(bin => {
+                    // Interaction with mouse
+                    const dx = mousePos.x - bin.x;
+                    const dy = mousePos.y - bin.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    let opacity = 0.15; // Base opacity (visible white for dark blue background)
+
+                    if (dist < 150) {
+                        opacity = 0.7; // Brightens on contact
+
+                        // Contact Line
+                        ctx.beginPath();
+                        ctx.moveTo(bin.x, bin.y - 20); // Adjust for text height center approx
+                        ctx.lineTo(mousePos.x, mousePos.y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, 0.2)`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+
+                    ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+                    ctx.fillText(bin.val, bin.x, bin.y);
+
+                    // Move Down
+                    bin.y += bin.speed;
+                    if (bin.y > canvas.height + 50) {
+                        bin.y = -50;
+                        bin.val = Math.random() > 0.5 ? '1' : '0';
+                    }
+                });
+                ctx.restore();
+            }
+
+            // --- Layer 2: particles (The "Web") ---
             particles.forEach((particle, i) => {
                 // Mouse interaction
                 const dx = mousePos.x - particle.x;
                 const dy = mousePos.y - particle.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < 200) {
-                    const force = (200 - dist) / 200;
-                    particle.vx -= (dx / dist) * force * 0.4;
-                    particle.vy -= (dy / dist) * force * 0.4;
+                // Mouse interaction physics (Magnetic Field)
+                const interactionRadius = 300; // Large field of influence
+                if (dist < interactionRadius && dist > 0) {
+                    const force = Math.pow((interactionRadius - dist) / interactionRadius, 2); // Quadratic for more elasticity
+
+                    // Magnetic Repulsion: Push particles away from cursor strongly
+                    const repulsionStrength = 4; // Very strong push
+                    const pushX = (dx / dist) * force * repulsionStrength;
+                    const pushY = (dy / dist) * force * repulsionStrength;
+
+                    particle.vx -= pushX;
+                    particle.vy -= pushY;
+
+                    // Velocity Damping for smooth elastic return
+                    particle.vx *= 0.92;
+                    particle.vy *= 0.85; // More damping on Y to preserve falling direction
+
+                    // Draw tensile connection line to mouse
+                    if (isDark) {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(mousePos.x, mousePos.y);
+                        ctx.strokeStyle = `hsla(0, 0%, 100%, ${(1 - dist / interactionRadius) * 0.7})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+                    } else {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(mousePos.x, mousePos.y);
+                        ctx.strokeStyle = `hsla(240, 70%, 45%, ${(1 - dist / interactionRadius) * 0.3})`;
+                        ctx.stroke();
+                    }
                 }
 
-                particle.x += particle.vx * particle.z;
-                particle.y += particle.vy * particle.z;
+                // Move Particle
+                particle.x += particle.vx;
+                particle.y += particle.vy; // Constantly falling
 
-                // Damping
-                particle.vx *= 0.98;
-                particle.vy *= 0.98;
+                // Reset when hitting bottom
+                if (particle.y > canvas.height + 10) {
+                    particle.y = -10;
+                    particle.x = Math.random() * canvas.width;
+                    particle.vx = (Math.random() - 0.5) * 0.5; // Reset wobble
+                }
 
-                // Boundaries with wrapping
-                if (particle.x < 0) particle.x = canvas.width;
-                if (particle.x > canvas.width) particle.x = 0;
-                if (particle.y < 0) particle.y = canvas.height;
-                if (particle.y > canvas.height) particle.y = 0;
+                // Wrap X axis
+                if (particle.x < -10) particle.x = canvas.width + 10;
+                if (particle.x > canvas.width + 10) particle.x = -10;
 
-                // Draw particle with glow
-                const size = particle.radius * particle.z;
+                // Draw particle
+                const size = particle.radius * (isDark ? 1.2 : 1);
+                const hue = isDark ? 0 : 240;
+                const baseOpacity = isDark ? 0.9 : 0.4;
+                const coreColor = isDark ? `hsla(0, 0%, 100%, ${particle.opacity})` : `hsla(${hue}, 80%, 60%, ${particle.opacity})`;
 
-                // Glow effect - adjusted for theme
+                // Glow (Gradient)
                 const gradient = ctx.createRadialGradient(
                     particle.x, particle.y, 0,
                     particle.x, particle.y, size * 4
                 );
 
-                // Adjust opacity based on theme for better visibility
-                const baseOpacity = theme === 'dark' ? 0.6 : 0.4;
-
-                gradient.addColorStop(0, `hsla(${particle.hue}, 70%, 55%, ${particle.opacity * baseOpacity})`);
-                gradient.addColorStop(0.5, `hsla(${particle.hue}, 70%, 45%, ${particle.opacity * 0.2})`);
-                gradient.addColorStop(1, `hsla(${particle.hue}, 70%, 40%, 0)`);
+                if (isDark) {
+                    gradient.addColorStop(0, `hsla(0, 0%, 100%, ${particle.opacity * 0.5})`);
+                    gradient.addColorStop(1, `hsla(0, 0%, 100%, 0)`);
+                } else {
+                    gradient.addColorStop(0, `hsla(${hue}, 80%, 60%, ${particle.opacity * baseOpacity})`);
+                    gradient.addColorStop(1, `hsla(${hue}, 80%, 60%, 0)`);
+                }
 
                 ctx.fillStyle = gradient;
-                ctx.fillRect(
-                    particle.x - size * 4,
-                    particle.y - size * 4,
-                    size * 8,
-                    size * 8
-                );
+                ctx.fillRect(particle.x - size * 4, particle.y - size * 4, size * 8, size * 8);
 
-                // Core particle
                 ctx.beginPath();
-                ctx.arc(particle.x, particle.y, size * 0.8, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${particle.hue}, 80%, 60%, ${particle.opacity * 0.8})`;
+                ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
+                ctx.fillStyle = coreColor;
                 ctx.fill();
 
-                // Enhanced connections with gradient
+                // Connections
                 for (let j = i + 1; j < particles.length; j++) {
                     const other = particles[j];
-                    const dx = particle.x - other.x;
-                    const dy = particle.y - other.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const pdx = particle.x - other.x;
+                    const pdy = particle.y - other.y;
+                    const pDistance = Math.sqrt(pdx * pdx + pdy * pdy);
 
-                    if (distance < 140) {
+                    if (pDistance < 180) {
                         ctx.beginPath();
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(other.x, other.y);
-                        const lineGradient = ctx.createLinearGradient(
-                            particle.x, particle.y,
-                            other.x, other.y
-                        );
-                        const alpha = (1 - distance / 140) * 0.08;
-                        lineGradient.addColorStop(0, `hsla(${particle.hue}, 70%, 55%, ${alpha})`);
-                        lineGradient.addColorStop(1, `hsla(${other.hue}, 70%, 55%, ${alpha})`);
-                        ctx.strokeStyle = lineGradient;
-                        ctx.lineWidth = 1;
+
+                        const lineOpacity = isDark
+                            ? (1 - pDistance / 180) * 0.7  // Much brighter
+                            : (1 - pDistance / 180) * 0.2;
+
+                        ctx.strokeStyle = isDark
+                            ? `hsla(0, 0%, 100%, ${lineOpacity})`
+                            : `hsla(${hue}, 70%, 50%, ${lineOpacity})`;
+
+                        ctx.lineWidth = isDark ? 1.5 : 1;
                         ctx.stroke();
                     }
                 }
@@ -219,19 +304,19 @@ const Hero = () => {
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-500" id="hero">
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:bg-none dark:!bg-[#1a2332] transition-colors duration-500" id="hero">
             {/* Enhanced Background with multiple layers */}
             <div className="absolute inset-0 z-0">
-                <canvas ref={canvasRef} className="absolute inset-0 opacity-40 dark:opacity-30" />
+                <canvas ref={canvasRef} className="absolute inset-0 opacity-80 dark:opacity-100" />
 
-                {/* Animated gradient orbs */}
-                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[120px]"
+                {/* Animated gradient orbs - Light mode only */}
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/5 dark:hidden rounded-full blur-[120px]"
                     style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }} />
-                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[120px]"
+                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-500/5 dark:hidden rounded-full blur-[120px]"
                     style={{ transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)` }} />
 
-                {/* Vignette - dynamic based on theme */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.5)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,6,23,0.5)_100%)]" />
+                {/* Vignette - Light mode only */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.5)_100%)] dark:bg-none" />
             </div>
 
             <div className="container relative z-10 px-4 py-12">
@@ -243,7 +328,7 @@ const Hero = () => {
                         transition={{ duration: 0.5 }}
                         className="mb-8"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700/50 shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700/50 shadow-sm dark:shadow-none">
                             <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
                             <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
                                 Solutions Digitales Premium
@@ -258,7 +343,7 @@ const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="mb-6 relative"
                     >
-                        <div className="absolute -inset-1 blur-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-primary-500/10 opacity-30"></div>
+                        <div className="absolute -inset-1 blur-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-primary-500/10 opacity-30 dark:hidden"></div>
                         <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white pb-2 leading-tight tracking-tight">
                             {typedText}
                             <span className="inline-block w-1.5 h-12 md:h-20 bg-primary-600 dark:bg-primary-500 ml-2 animate-pulse align-middle rounded-full" />
@@ -292,14 +377,14 @@ const Hero = () => {
                         className="flex flex-col sm:flex-row gap-5 mb-20"
                     >
                         <Link to="/contact" className="group relative">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300" />
-                            <button className="relative px-8 py-4 bg-primary-600 rounded-xl text-white font-semibold flex items-center gap-3 hover:bg-primary-700 transition-all duration-300 shadow-lg shadow-primary-500/30">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300 dark:hidden" />
+                            <button className="relative px-8 py-4 bg-primary-600 rounded-xl text-white font-semibold flex items-center gap-3 hover:bg-primary-700 transition-all duration-300 shadow-lg dark:shadow-none shadow-primary-500/30 dark:shadow-none">
                                 <Sparkles size={20} className="stroke-2" />
                                 <span>{t.hero.startProject}</span>
                             </button>
                         </Link>
                         <Link to="/services" className="group relative">
-                            <button className="relative px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 font-semibold flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 shadow-md">
+                            <button className="relative px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 font-semibold flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 shadow-md dark:shadow-none">
                                 <span>{t.hero.discoverServices}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -322,9 +407,9 @@ const Hero = () => {
                                 whileHover={{ y: -3 }}
                                 className="relative group"
                             >
-                                <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300" />
-                                <div className="relative p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-3 hover:shadow-md">
-                                    <div className={`p-3 rounded-xl bg-gradient-to-br ${card.color} shadow-sm`}>
+                                <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300 dark:hidden" />
+                                <div className="relative p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-3 hover:shadow-md dark:shadow-none">
+                                    <div className={`p-3 rounded-xl bg-gradient-to-br ${card.color} shadow-sm dark:shadow-none`}>
                                         <card.icon className="w-6 h-6 text-white" />
                                     </div>
                                     <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</h3>
@@ -349,9 +434,9 @@ const Hero = () => {
                                 className="relative group"
                             >
                                 {/* Glow effect on hover - subtle */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300`} />
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300 dark:hidden`} />
 
-                                <div className="relative p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:shadow-lg hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
+                                <div className="relative p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:shadow-lg dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
                                     <div className={`text-6xl md:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
                                         {stat.value}{stat.suffix}
                                     </div>

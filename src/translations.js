@@ -316,59 +316,154 @@ export const translations = {
         },
         blog: {
             label: "Blog et Conseils",
-            title: "10 Caractéristiques Essentielles d'un Site Web Professionnel",
-            subtitle: "Découvrez les critères indispensables d'un site web moderne et performant selon les experts de TOBEESOFT",
-            featured: {
-                tag: "Article en vedette",
-                date: "Janvier 2026",
-                title: "Les secrets d'un site web qui convertit et fidélise vos clients",
-                intro: "Dans un monde où des millions de sites rivalisent chaque jour pour capter l'attention des internautes, être visible sur Internet relève du défi. Lorsqu'un site parvient à se démarquer, c'est le résultat d'une planification rigoureuse et d'une conception intelligente. Selon TOBEESOFT, un site web professionnel repose sur un ensemble de caractéristiques essentielles alliant design, ergonomie, performance et sécurité. Voici les 10 caractéristiques incontournables qui définissent un site web professionnel et efficace."
+            title: "Nos Guides Experts",
+            subtitle: "L'expertise TOBEESOFT à votre service : découvrez les clés de la réussite digitale",
+            categories: {
+                web: "Site Web",
+                mobile: "Application Mobile",
+                software: "Logiciel Sur Mesure",
+                pricing: "Tarifs"
             },
-            characteristics: {
-                responsive: {
-                    title: "Un Design Attrayant",
-                    description: "Le design est la première impression que votre visiteur retiendra. Il doit refléter le sérieux, la crédibilité et la personnalité de votre entreprise. Chez TOBEESOFT, spécialiste du développement web, nous accordons une importance particulière à la cohérence visuelle : couleurs harmonieuses, typographies lisibles, images optimisées et structure équilibrée. Un design attrayant ne se limite pas à l'esthétique ; il influence directement le comportement de vos visiteurs et leur envie de revenir."
+            posts: {
+                web: {
+                    title: "10 Caractéristiques Essentielles d'un Site Web Professionnel",
+                    description: "L'expertise TOBEESOFT à votre service : découvrez les clés de la réussite digitale",
+                    featured: {
+                        tag: "Article en vedette",
+                        title: "Les secrets d'un site web qui convertit et fidélise vos clients",
+                        content: "Dans un monde où des millions de sites rivalisent chaque jour pour capter l'attention des internautes, être visible sur Internet relève du défi. Lorsqu'un site parvient à se démarquer, c'est le résultat d'une planification rigoureuse et d'une conception intelligente."
+                    },
+                    characteristics: [
+                        { key: "responsive", title: "Un Design Attrayant", description: "Le design est la première impression que votre visiteur retiendra. Il doit refléter le sérieux, la crédibilité et la personnalité de votre entreprise." },
+                        { key: "performance", title: "Conformité aux Standards", description: "Compatibilité avec tous les navigateurs et adaptation à tous les écrans. Conformité aux meilleures pratiques d'accessibilité et de performance." },
+                        { key: "navigation", title: "Gestion de Contenu Simplifiée", description: "Un site efficace permet d'ajouter ou de modifier du contenu facilement, sans passer par un développeur." },
+                        { key: "security", title: "Mises à Jour Rapides", description: "La stabilité et la sécurité d'un site dépendent de ses mises à jour régulières pour rester performant et protégé." },
+                        { key: "seo", title: "Ergonomie Fluide", description: "Une navigation claire, des menus logiques et un contenu bien structuré favorisent la rétention des visiteurs." },
+                        { key: "content", title: "Visibilité Optimisée (SEO)", description: "Positionner votre site pour qu'il soit repérable sur Google et attire un trafic qualifié est crucial." },
+                        { key: "accessibility", title: "Message Clair", description: "Clarifier le 'à qui' il s'adresse et le 'pourquoi' de ses produits ou services est essentiel." },
+                        { key: "speed", title: "Clavardage en Direct", description: "L'ajout d'une option de clavardage en direct améliore l'expérience client et permet de résoudre rapidement les questions." },
+                        { key: "design", title: "Site Mobile Friendly", description: "Aujourd'hui, une majorité d'internautes naviguent depuis un mobile. Un site doit être parfaitement lisible sur tous les écrans." },
+                        { key: "cta", title: "HTTPS : Sécurité", description: "Le protocole HTTPS garantit la confidentialité des données et la protection contre les cyberattaques." }
+                    ]
                 },
-                performance: {
-                    title: "Conformité aux Standards du Web",
-                    description: "Un site professionnel doit respecter les normes techniques du web. Cela inclut la compatibilité avec tous les navigateurs (Chrome, Firefox, Safari, Edge, etc.) et la capacité d'adaptation à tous les écrans — du mobile à l'ordinateur. TOBEESOFT s'assure que votre site soit responsive, rapide et conforme aux meilleures pratiques d'accessibilité et de performance."
+                mobile: {
+                    title: "10 Piliers d'une Application Mobile Réussie",
+                    description: "Les fonctionnalités clés pour une application mobile engageante",
+                    featured: {
+                        tag: "Mobile App",
+                        title: "Créer une expérience mobile inoubliable",
+                        content: "Une application mobile doit offrir une valeur ajoutée immédiate, une fluidité exemplaire et s'intégrer naturellement dans le quotidien de l'utilisateur."
+                    },
+                    characteristics: [
+                        { key: "ux", title: "UX/UI Irréprochable", description: "Interface intuitive et parcours utilisateur fluide et agréable." },
+                        { key: "performance", title: "Stabilité & Fluidité", description: "Pas de crashs, animations fluides et réactivité immédiate." },
+                        { key: "offline", title: "Mode Hors Ligne", description: "Fonctionnalités accessibles même sans connexion internet." },
+                        { key: "push", title: "Notifications Push", description: "Engagement utilisateur via des messages ciblés et pertinents." },
+                        { key: "compatibility", title: "Multi-plateforme", description: "Fonctionnement optimal sur iOS et Android." },
+                        { key: "updates", title: "Mises à Jour", description: "Évolutions régulières pour la sécurité et les fonctionnalités." },
+                        { key: "security", title: "Haute Sécurité", description: "Chiffrement des données sensibles et authentification forte." },
+                        { key: "battery", title: "Optimisation Batterie", description: "Consommation énergétique maîtrisée pour l'utilisateur." },
+                        { key: "feedback", title: "Feedback Utilisateur", description: "Système intégré pour noter l'app et remonter des bugs." },
+                        { key: "personalization", title: "Personnalisation", description: "Expérience adaptée aux préférences de chaque utilisateur." }
+                    ]
                 },
-                navigation: {
-                    title: "Gestion de Contenu Simplifiée",
-                    description: "Un site efficace permet d'ajouter ou de modifier du contenu facilement, sans passer par un développeur. Grâce au système de configuration de TOBEESOFT, reconnu pour sa flexibilité et sa robustesse, l'administrateur peut publier de nouveaux articles, images ou pages sans effort. C'est d'ailleurs une des forces majeures que met de l'avant notre agence TOBEESOFT."
+                software: {
+                    title: "Les Atouts d'un Logiciel Sur Mesure",
+                    description: "Pourquoi choisir le développement spécifique pour votre entreprise",
+                    featured: {
+                        tag: "Software",
+                        title: "L'avantage concurrentiel du sur-mesure",
+                        content: "Un logiciel sur mesure s'adapte à vos processus, et non l'inverse. C'est un levier de productivité et de différenciation majeur."
+                    },
+                    characteristics: [
+                        { key: "fit", title: "Adéquation Parfaite", description: "Répond à 100% de vos besoins métiers spécifiques." },
+                        { key: "scalability", title: "Évolutivité", description: "Grandit avec votre entreprise sans contraintes de licence." },
+                        { key: "integration", title: "Intégration Système", description: "Connecté nativement à vos outils existants (ERP, CRM)." },
+                        { key: "ownership", title: "Propriété du Code", description: "Vous êtes propriétaire de votre outil, sans dépendance." },
+                        { key: "security", title: "Sécurité Renforcée", description: "Protocoles de sécurité adaptés à vos exigences internes." },
+                        { key: "support", title: "Support Dédié", description: "Équipe réactive connaissant parfaitement votre projet." },
+                        { key: "efficiency", title: "Gain de Productivité", description: "Automatisation des tâches chronophages de votre métier." },
+                        { key: "ux", title: "Ergonomie Métier", description: "Interfaces pensées pour vos collaborateurs et leur efficacité." },
+                        { key: "reporting", title: "Reporting Avancé", description: "Tableaux de bord sur mesure pour le pilotage de l'activité." },
+                        { key: "roi", title: "ROI Long Terme", description: "Investissement rentabilisé par l'absence de coûts récurrents." }
+                    ]
                 },
-                security: {
-                    title: "Mises à Jour Rapides et Sécurisées",
-                    description: "La stabilité et la sécurité d'un site dépendent de ses mises à jour. Un site régulièrement entretenu demeure performant et protégé contre les failles de sécurité. Les experts TOBEESOFT veillent à ce que chaque site client reste à jour, stable et prêt à soutenir une croissance numérique continue."
-                },
-                seo: {
-                    title: "Ergonomie Fluide et Intuitive",
-                    description: "L'ergonomie d'un site joue un rôle clé dans l'expérience utilisateur. Une navigation claire, des menus logiques et un contenu bien structuré favorisent la rétention des visiteurs. Dans une agence TOBEESOFT, chaque projet est pensé pour offrir un parcours utilisateur intuitif, où l'information est accessible en quelques clics, quel que soit le support utilisé."
-                },
-                content: {
-                    title: "Visibilité Optimisée sur Google",
-                    description: "Un site invisible est un site inexistant. L'optimisation pour les moteurs de recherche (SEO) est donc cruciale. Grâce à une stratégie SEO adaptée, une agence web et mobile TOBEESOFT positionne votre site pour qu'il soit repérable sur Google et attire un trafic qualifié. De la structure technique aux balises, en passant par le contenu, chaque détail est calibré pour maximiser votre visibilité."
-                },
-                accessibility: {
-                    title: "Message Clair : À Qui et Pourquoi",
-                    description: "Un site professionnel doit parler directement à sa clientèle cible. Il doit clarifier le 'à qui' il s'adresse et le 'pourquoi' de ses produits ou services. Nos experts TOBEESOFT conçoivent des structures de contenu qui guident les visiteurs vers les pages les plus pertinentes, tout en répondant précisément à leurs besoins."
-                },
-                speed: {
-                    title: "Clavardage en Direct",
-                    description: "La communication directe est un gage de confiance. Bien qu'une FAQ soit utile, rien ne remplace un contact humain. L'ajout d'une option de clavardage en direct améliore l'expérience client et permet de résoudre rapidement les questions ou hésitations."
-                },
-                design: {
-                    title: "Site Mobile Friendly",
-                    description: "Aujourd'hui, plus de 60% des internautes naviguent depuis un appareil mobile. Un site professionnel doit donc être parfaitement lisible et fonctionnel sur tous les écrans. Toute agence TOBEESOFT doit être en mesure de concevoir des sites web mobile-friendly, garantissant une expérience utilisateur optimale, rapide et fluide, peu importe l'appareil utilisé."
-                },
-                cta: {
-                    title: "HTTPS : La Sécurité Avant Tout",
-                    description: "La sécurité est une priorité absolue. Le protocole HTTPS garantit la confidentialité des données et la protection contre les cyberattaques. Tout site professionnel devrait être sécurisé — particulièrement les sites transactionnels. Les spécialistes TOBEESOFT s'assurent que chaque projet bénéficie d'un niveau de sécurité optimal, tant pour vos utilisateurs que pour vos données."
+                pricing: {
+                    title: "Combien coûte un site Web ?",
+                    description: "Les experts TOBEESOFT lèvent le voile sur la réalité des coûts",
+                    isArticle: true,
+                    intro: "Créer un site web efficace — qui donnera de la visibilité à votre entreprise, attirera plus de clients et, par ricochet, augmentera votre chiffre d'affaires — a un prix. Ce prix dépend de ce que vous voulez exactement. TOBEESOFT aide les entreprises à définir précisément leurs besoins pour obtenir un devis clair et adapté.",
+                    sections: [
+                        {
+                            title: "Les facteurs déterminants",
+                            content: [
+                                "Pour l'achat d'une télévision, par exemple, si vous ne précisez aucun détail (marque, largeur, type de résolution, ...) et que vous demandez un prix, la réponse du vendeur sera : « ça dépend ». De même, pour connaître le prix d'un site web, il faut éviter de poser la question d'emblée à un concepteur sans donner de détails, car sa réponse risque d'être la même.",
+                                "Dès le départ, vous devez être sûr de ce que vous voulez exactement pour obtenir une réponse plus directe. Gardez en tête que le prix d'un site varie en fonction de plusieurs facteurs qui peuvent le faire augmenter ou diminuer.",
+                                "Un site peut coûter $300, $1,500, $3,000, $15,000, voire $30,000. Certains de ces facteurs sont élémentaires, mais ont une influence majeure sur le prix. Alors, voici 5 facteurs qui déterminent le prix d'un site Web."
+                            ]
+                        },
+                        {
+                            title: "1. Le type de site web désiré et les options activées",
+                            content: [
+                                "Le prix dépend du type de site qu'il vous faut pour votre projet WEB : vitrine ou boutique en ligne. Si vous désirez un site vitrine, vous dépenserez moins que si vous demandez une boutique en ligne. À l'inverse, si vous voulez quelque chose de très complexe (comme une grande plateforme commerciale), préparez-vous à des budgets élevés.",
+                                "Pour un site vitrine unilingue, basé sur un thème générique et fourni avec 4 pages de base, la fourchette de prix se situe généralement entre $250 et $600. Si vous y ajoutez un module blogue (moteur de recherche interne, catégories, styles d'affichage en liste et en détail), le prix se situera plutôt entre $900 et $1,350. Le coût continue de monter si vous ajoutez, par exemple, un module de prise de rendez-vous avec gestion des disponibilités.",
+                                "Pour une boutique en ligne, incluant catalogue produit, panier et paiement en ligne, le budget minimal à prévoir commence autour de $1,500. Le tarif augmente selon les méthodes de paiement, fonctionnalités avancées (upsell, wishlist, intégrations logistiques) et personnalisations demandées."
+                            ]
+                        },
+                        {
+                            title: "2. Le concepteur sollicité pour la conception",
+                            content: [
+                                "Le choix entre une agence, un freelancer ou le \"Do It Yourself\" pèse lourd sur la facture. Manifestement, une agence coûte plus cher qu'un freelancer ou qu'une solution clé en main, mais elle apporte une équipe multidisciplinaire et une garantie de suivi."
+                            ],
+                            subsections: [
+                                {
+                                    title: "2.1. Le freelancer et le \"Do It Yourself\"",
+                                    content: "Le freelancer travaille généralement seul ; il offre parfois de très bonnes solutions pour des petits projets, mais le risque est qu'il devienne indisponible après la livraison. De plus, certains freelancers privilégient la rapidité au détriment de la maintenabilité. Les plateformes comme Wix ou GoDaddy permettent de démarrer pour très peu (parfois dès $10/mois), mais elles demandent du temps d'apprentissage et offrent un support limité."
+                                },
+                                {
+                                    title: "2.2. L'agence",
+                                    content: "Faire appel à une agence Web expérimentée, comme TOBEESOFT, garantit un accompagnement complet (stratégie, design, développement, SEO, maintenance). Chez TOBEESOFT, nos clients bénéficient d'une période de support gratuit pouvant aller jusqu'à 3 mois selon la complexité du projet. Des forfaits typiques en agence peuvent commencer autour de $600, et monter à $1,000, $1,500 ou plus selon les options. Les grandes agences, spécialisées pour des clients institutionnels ou gouvernementaux, peuvent facturer entre $3,000 et $30,000 pour des plateformes très personnalisées."
+                                }
+                            ]
+                        },
+                        {
+                            title: "3. Temps nécessaire pour la conception",
+                            content: [
+                                "Le nombre d'heures nécessaires pour créer un site est souvent le facteur le plus déterminant. Plus le projet est complexe, plus il demandera d'heures (design, intégration, développement, tests). Les taux horaires varient généralement entre $15 (freelancer débutant ou agence low-cost) et $45 (agence haut de gamme).",
+                                "En tant qu'agence Web spécialiste, TOBEESOFT planifie les phases du projet pour optimiser le temps sans sacrifier la qualité du code et de l'expérience utilisateur."
+                            ]
+                        },
+                        {
+                            title: "4. La personnalisation désirée",
+                            content: [
+                                "La personnalisation fait rapidement grimper la facture : animations, pages à design unique, intégrations spécifiques, ou contenu dynamique exigent plus de temps de conception et de développement. Les experts de TOBEESOFT créent des solutions sur mesure, évolutives et optimisées, en respectant les bonnes pratiques UX/UI et SEO."
+                            ]
+                        },
+                        {
+                            title: "5. Établissement d'un cahier des charges",
+                            content: [
+                                "Un cahier des charges clair et détaillé est primordial. Ce document décrit les objectifs, les fonctionnalités souhaitées et les étapes du projet — il facilite l'évaluation du coût réel. Chez TOBEESOFT, les spécialistes prodiguent de précieux conseils pour la rédaction du cahier des charges, afin que chaque soumission soit précise et comparable. Un cahier des charges bien fait, élimine dès le départ le \"ça dépend\" et permet d'obtenir une proposition budgétaire réaliste."
+                            ]
+                        },
+                        {
+                            title: "Ce qui détermine réellement le prix",
+                            content: [
+                                "En définitive, le type de site, le choix du prestataire, le temps requis et le degré de personnalisation déterminent le prix. Pour un projet fortement personnalisé confié à une agence comme nous, attendez-vous à un budget en conséquence.",
+                                "Pour un petit projet, un freelancer peut être plus économique. Pour des projets moyens à complexes, privilégiez des experts qui maîtrisent le développement web et le suivi opérationnel. N'oubliez pas d'ajouter les frais récurrents (nom de domaine, hébergement) et de débuter par un cahier des charges bien défini."
+                            ]
+                        },
+                        {
+                            title: "Conclusion",
+                            content: [
+                                "En somme, faire appel à une agence comme TOBEESOFT, c'est investir dans la qualité, la performance et la sérénité. Nos experts conçoivent des sites adaptés aux entreprises souhaitant se démarquer en ligne."
+                            ]
+                        }
+                    ]
                 }
             },
             cta: {
-                text: "Prêt à créer un site web qui respecte tous ces critères ?",
-                button: "Démarrer votre projet"
+                text: "Envie de concrétiser votre projet ?",
+                button: "Contactez nos experts"
             }
         },
         footer: {
@@ -713,59 +808,154 @@ export const translations = {
         },
         blog: {
             label: "Blog & Insights",
-            title: "10 Essential Characteristics of a Professional Website",
-            subtitle: "Discover the essential criteria of a modern and high-performing website according to TOBEESOFT experts",
-            featured: {
-                tag: "Featured article",
-                date: "January 2026",
-                title: "The secrets of a website that converts and retains your customers",
-                intro: "In a world where millions of websites compete daily to capture internet users' attention, being visible online is a real challenge. When a website manages to stand out, it's the result of rigorous planning and intelligent design. According to TOBEESOFT, a professional website is based on a set of essential characteristics combining design, ergonomics, performance, and security. Here are the 10 essential characteristics that define a professional and effective website."
+            title: "Our Expert Guides",
+            subtitle: "TOBEESOFT expertise at your service: discover the keys to digital success",
+            categories: {
+                web: "Website",
+                mobile: "Mobile App",
+                software: "Custom Software",
+                pricing: "Pricing"
             },
-            characteristics: {
-                responsive: {
-                    title: "Attractive Design",
-                    description: "Design is the first impression your visitor will remember. It must reflect the professionalism, credibility, and personality of your business. At TOBEESOFT, web development specialists, we pay particular attention to visual consistency: harmonious colors, readable typography, optimized images, and balanced structure. An attractive design is not limited to aesthetics; it directly influences your visitors' behavior and their desire to return."
+            posts: {
+                web: {
+                    title: "10 Essential Characteristics of a Professional Website",
+                    description: "Discover the essential criteria of a modern and high-performing website",
+                    featured: {
+                        tag: "Web Design",
+                        title: "The secrets of a website that converts",
+                        content: "A professional website relies on a perfect balance between aesthetics, functionality, and performance. It is the mirror of your business in the digital world."
+                    },
+                    characteristics: [
+                        { key: "responsive", title: "Responsive Design", description: "Perfect adaptation to all screens (mobile, tablet, desktop)." },
+                        { key: "speed", title: "Loading Speed", description: "Performance optimization for instant display." },
+                        { key: "navigation", title: "Intuitive Navigation", description: "Clear structure facilitating access to information." },
+                        { key: "seo", title: "SEO Optimization", description: "Maximum visibility on search engines to attract traffic." },
+                        { key: "security", title: "HTTPS Security", description: "User data protection and secure transactions." },
+                        { key: "content", title: "Quality Content", description: "Relevant and engaging texts for your target audience." },
+                        { key: "cta", title: "Call to Action", description: "Clear incentive for conversion (contact, purchase, signup)." },
+                        { key: "analytics", title: "Analytics Tools", description: "Tracking performance and visitor behavior." },
+                        { key: "social", title: "Social Integration", description: "Links to your social networks to expand your presence." },
+                        { key: "support", title: "Accessible Support", description: "Easy contact methods (chat, form) for your clients." }
+                    ]
                 },
-                performance: {
-                    title: "Full Web Standards Compliance",
-                    description: "A professional website must comply with web technical standards. This includes compatibility with all browsers (Chrome, Firefox, Safari, Edge, etc.) and the ability to adapt to all screens — from mobile to desktop. TOBEESOFT ensures that your site is responsive, fast, and compliant with the best practices in accessibility and performance."
+                mobile: {
+                    title: "10 Pillars of a Successful Mobile App",
+                    description: "Key features for an engaging mobile application",
+                    featured: {
+                        tag: "Mobile App",
+                        title: "Creating an unforgettable mobile experience",
+                        content: "A mobile app must offer immediate value, exemplary fluidity, and integrate naturally into the user's daily life."
+                    },
+                    characteristics: [
+                        { key: "ux", title: "Flawless UX/UI", description: "Intuitive interface and fluid, pleasant user journey." },
+                        { key: "performance", title: "Stability & Fluidity", description: "No crashes, smooth animations, and immediate responsiveness." },
+                        { key: "offline", title: "Offline Mode", description: "Features accessible even without internet connection." },
+                        { key: "push", title: "Push Notifications", description: "User engagement via targeted and relevant messages." },
+                        { key: "compatibility", title: "Cross-platform", description: "Optimal operation on iOS and Android." },
+                        { key: "updates", title: "Updates", description: "Regular evolutions for security and features." },
+                        { key: "security", title: "High Security", description: "Encryption of sensitive data and strong authentication." },
+                        { key: "battery", title: "Battery Optimization", description: "Controlled energy consumption for the user." },
+                        { key: "feedback", title: "User Feedback", description: "Integrated system to rate the app and report bugs." },
+                        { key: "personalization", title: "Personalization", description: "Experience adapted to each user's preferences." }
+                    ]
                 },
-                navigation: {
-                    title: "Simplified Content Management",
-                    description: "An effective website allows you to add or modify content easily, without going through a developer. Thanks to TOBEESOFT's configuration system, recognized for its flexibility and robustness, administrators can publish new articles, images, or pages effortlessly. This is one of the major strengths that our TOBEESOFT agency highlights."
+                software: {
+                    title: "The Assets of Custom Software",
+                    description: "Why choose specific development for your business",
+                    featured: {
+                        tag: "Software",
+                        title: "The competitive advantage of custom-made",
+                        content: "Custom software adapts to your processes, not the other way around. It is a major lever for productivity and differentiation."
+                    },
+                    characteristics: [
+                        { key: "fit", title: "Perfect Fit", description: "Meets 100% of your specific business needs." },
+                        { key: "scalability", title: "Scalability", description: "Grows with your business without licensing constraints." },
+                        { key: "integration", title: "System Integration", description: "Natively connected to your existing tools (ERP, CRM)." },
+                        { key: "ownership", title: "Code Ownership", description: "You own your tool, without dependency." },
+                        { key: "security", title: "Enhanced Security", description: "Security protocols adapted to your internal requirements." },
+                        { key: "support", title: "Dedicated Support", description: "Responsive team perfectly knowing your project." },
+                        { key: "efficiency", title: "Productivity Gain", description: "Automation of time-consuming tasks in your trade." },
+                        { key: "ux", title: "Business Ergonomics", description: "Interfaces designed for your collaborators and their efficiency." },
+                        { key: "reporting", title: "Advanced Reporting", description: "Custom dashboards for activity steering." },
+                        { key: "roi", title: "Long Term ROI", description: "Investment profitable by the absence of recurring costs." }
+                    ]
                 },
-                security: {
-                    title: "Fast and Secure Updates",
-                    description: "The stability and security of a website depend on its updates. A regularly maintained site remains efficient and protected against security vulnerabilities. TOBEESOFT experts ensure that each client site stays up to date, stable, and ready to support continuous digital growth."
-                },
-                seo: {
-                    title: "Fluid and Intuitive Ergonomics",
-                    description: "A website's ergonomics play a key role in user experience. Clear navigation, logical menus, and well-structured content promote visitor retention. At TOBEESOFT agency, each project is designed to offer an intuitive user journey, where information is accessible in just a few clicks, regardless of the device used."
-                },
-                content: {
-                    title: "Optimized Google Visibility",
-                    description: "An invisible website is a non-existent website. Search engine optimization (SEO) is therefore crucial. Thanks to an adapted SEO strategy, TOBEESOFT web and mobile agency positions your site to be found on Google and attract qualified traffic. From technical structure to tags, through content, every detail is calibrated to maximize your visibility."
-                },
-                accessibility: {
-                    title: "Clear Message: Who and Why",
-                    description: "A professional website must speak directly to its target audience. It must clarify 'who' it addresses and 'why' its products or services exist. Our TOBEESOFT experts design content structures that guide visitors to the most relevant pages, while precisely addressing their needs."
-                },
-                speed: {
-                    title: "Live Chat Option",
-                    description: "Direct communication is a guarantee of trust. Although an FAQ is useful, nothing replaces human contact. Adding a live chat option improves customer experience and allows quick resolution of questions or hesitations."
-                },
-                design: {
-                    title: "Mobile Friendly Site",
-                    description: "Today, more than 60% of internet users browse from a mobile device. A professional website must therefore be perfectly readable and functional on all screens. Any TOBEESOFT agency must be able to design mobile-friendly websites, guaranteeing an optimal, fast, and fluid user experience, regardless of the device used."
-                },
-                cta: {
-                    title: "HTTPS: Security First",
-                    description: "Security is an absolute priority. The HTTPS protocol guarantees data confidentiality and protection against cyberattacks. Any professional website should be secured — particularly transactional sites. TOBEESOFT specialists ensure that each project benefits from an optimal level of security, both for your users and your data."
+                pricing: {
+                    title: "How Much Does a Website Cost?",
+                    description: "TOBEESOFT experts reveal the reality of website pricing",
+                    isArticle: true,
+                    intro: "Creating an effective website — one that will give your business visibility, attract more clients, and increase your revenue — has a price. This price depends on exactly what you want. TOBEESOFT helps businesses define their needs precisely to get a clear and adapted quote.",
+                    sections: [
+                        {
+                            title: "The Determining Factors",
+                            content: [
+                                "For the purchase of a television, for example, if you don't specify any details (brand, width, type of resolution, ...) and you ask for a price, the seller's answer will be: \"it depends\". Similarly, to know the price of a website, you should avoid asking a designer right away without giving details, as their answer is likely to be the same.",
+                                "From the start, you must be sure of what you want exactly to get a more direct answer. Keep in mind that the price of a site varies according to several factors that can increase or decrease it.",
+                                "A site can cost $300, $1,500, $3,000, $15,000, or even $30,000. Some of these factors are basic, but have a major influence on the price. So, here are 5 factors that determine the price of a website."
+                            ]
+                        },
+                        {
+                            title: "1. The Type of Website Desired and Active Options",
+                            content: [
+                                "The price depends on the type of site you need for your WEB project: showcase or online store. If you want a showcase site, you will spend less than if you request an online store. Conversely, if you want something very complex (like a large commercial platform), prepare yourself for high budgets.",
+                                "For a single-language showcase site, based on a generic theme and provided with 4 basic pages, the price range is generally between $250 and $600. If you add a blog module (internal search engine, categories, list and detail display styles), the price will be rather between $900 and $1,350. The cost continues to rise if you add, for example, an appointment booking module with availability management.",
+                                "For an online store, including product catalog, cart and online payment, the minimum budget to plan starts around $1,500. The price increases according to payment methods, advanced features (upsell, wishlist, logistics integrations) and requested customizations."
+                            ]
+                        },
+                        {
+                            title: "2. The Designer Chosen for the Design",
+                            content: [
+                                "The choice between an agency, a freelancer or \"Do It Yourself\" weighs heavily on the bill. Obviously, an agency costs more than a freelancer or a turnkey solution, but it brings a multidisciplinary team and a guarantee of follow-up."
+                            ],
+                            subsections: [
+                                {
+                                    title: "2.1. The Freelancer and \"Do It Yourself\"",
+                                    content: "The freelancer generally works alone; they sometimes offer very good solutions for small projects, but the risk is that they become unavailable after delivery. In addition, some freelancers prioritize speed over maintainability. Platforms like Wix or GoDaddy allow you to start for very little (sometimes from $10/month), but they require learning time and offer limited support."
+                                },
+                                {
+                                    title: "2.2. The Agency",
+                                    content: "Using an experienced Web agency, like TOBEESOFT, guarantees complete support (strategy, design, development, SEO, maintenance). At TOBEESOFT, our clients benefit from a free support period of up to 3 months depending on the complexity of the project. Typical agency packages can start around $600, and go up to $1,000, $1,500 or more depending on options. Large agencies, specialized for institutional or government clients, can charge between $3,000 and $30,000 for highly customized platforms."
+                                }
+                            ]
+                        },
+                        {
+                            title: "3. Time Required for Design",
+                            content: [
+                                "The number of hours needed to create a site is often the most determining factor. The more complex the project, the more hours it will require (design, integration, development, testing). Hourly rates generally vary between $15 (beginner freelancer or low-cost agency) and $45 (high-end agency).",
+                                "As a specialist Web agency, TOBEESOFT plans the project phases to optimize time without sacrificing code quality and user experience."
+                            ]
+                        },
+                        {
+                            title: "4. The Desired Customization",
+                            content: [
+                                "Customization quickly increases the bill: animations, unique design pages, specific integrations, or dynamic content require more design and development time. TOBEESOFT experts create custom, scalable and optimized solutions, respecting UX/UI and SEO best practices."
+                            ]
+                        },
+                        {
+                            title: "5. Establishing a Specification Document",
+                            content: [
+                                "A clear and detailed specification document is essential. This document describes the objectives, desired features and project stages — it facilitates the evaluation of the real cost. At TOBEESOFT, specialists provide valuable advice for writing the specification document, so that each submission is precise and comparable. A well-done specification document eliminates the \"it depends\" from the start and allows you to obtain a realistic budget proposal."
+                            ]
+                        },
+                        {
+                            title: "What Really Determines the Price",
+                            content: [
+                                "Ultimately, the type of site, the choice of provider, the time required and the degree of customization determine the price. For a highly customized project entrusted to an agency like us, expect a budget accordingly.",
+                                "For a small project, a freelancer may be more economical. For medium to complex projects, favor experts who master web development and operational follow-up. Don't forget to add recurring costs (domain name, hosting) and start with a well-defined specification document."
+                            ]
+                        },
+                        {
+                            title: "Conclusion",
+                            content: [
+                                "In short, using an agency like TOBEESOFT means investing in quality, performance and peace of mind. Our experts design sites adapted to businesses wishing to stand out online."
+                            ]
+                        }
+                    ]
                 }
             },
             cta: {
-                text: "Ready to create a website that meets all these criteria?",
-                button: "Start your project"
+                text: "Ready to bring your project to life?",
+                button: "Contact our experts"
             }
         },
         footer: {

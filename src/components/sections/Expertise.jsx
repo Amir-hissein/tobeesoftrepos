@@ -45,11 +45,11 @@ const Expertise = () => {
     ];
 
     return (
-        <Section id="expertise" className="bg-white dark:bg-slate-900 relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="expertise" className="bg-white dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background effects */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/3 right-20 w-[500px] h-[500px] bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-[100px]" />
-                <div className="absolute bottom-1/3 left-20 w-[500px] h-[500px] bg-secondary-500/5 dark:bg-secondary-500/10 rounded-full blur-[100px]" />
+                <div className="absolute top-1/3 right-20 w-[500px] h-[500px] bg-primary-500/5 dark:hidden rounded-full blur-[100px]" />
+                <div className="absolute bottom-1/3 left-20 w-[500px] h-[500px] bg-secondary-500/5 dark:hidden rounded-full blur-[100px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">

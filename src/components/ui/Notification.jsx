@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertCircle, CheckCircle, Info, X } from 'lucide-react';
-import { cn } from '../../lib/utils';
+// Helper function to merge class names
+const cn = (...classes) => classes.filter(Boolean).join(' ');
 
 const Notification = ({ message, type = 'info', onClose }) => {
     useEffect(() => {
