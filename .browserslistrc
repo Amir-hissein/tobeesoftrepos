@@ -1,0 +1,22 @@
+# Browsers that we support
+# Used by Autoprefixer, Babel, and other tools
+
+# Modern browsers
+last 2 versions
+> 0.5%
+not dead
+not op_mini all
+
+# Specific browser versions for maximum compatibility
+Chrome >= 87
+Safari >= 13
+Firefox >= 78
+Edge >= 88
+iOS >= 13
+Android >= 87
+
+# Samsung Internet
+Samsung >= 12
+
+# UC Browser
+UCAndroid >= 12.12
