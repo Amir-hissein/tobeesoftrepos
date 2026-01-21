@@ -1,0 +1,41 @@
+# robots.txt pour TOBEESOFT
+# https://www.tobeesoft.com/robots.txt
+
+# Autoriser tous les robots à indexer tout le site
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.tobeesoft.com/sitemap.xml
+
+# Empêcher l'indexation des fichiers système et de développement
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /dist/
+
+# Autoriser spécifiquement les images et ressources
+Allow: /assets/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.css$
+Allow: /*.js$
+
+# User-agents spécifiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay (optionnel, pour éviter la surcharge du serveur)
+# User-agent: *
+# Crawl-delay: 1
