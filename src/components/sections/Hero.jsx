@@ -344,9 +344,9 @@ const Hero = () => {
                         className="mb-6 relative"
                     >
                         <div className="absolute -inset-1 blur-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-primary-500/10 opacity-30 dark:hidden"></div>
-                        <h1 className="relative text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white pb-2 leading-tight tracking-tight">
+                        <h1 className="relative text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white pb-2 leading-tight tracking-tight">
                             {typedText}
-                            <span className="inline-block w-1.5 h-12 md:h-20 bg-primary-600 dark:bg-primary-500 ml-2 animate-pulse align-middle rounded-full" />
+                            <span className="inline-block w-1 sm:w-1.5 h-8 sm:h-12 md:h-16 lg:h-20 bg-primary-600 dark:bg-primary-500 ml-1 sm:ml-2 animate-pulse align-middle rounded-full" />
                         </h1>
                     </motion.div>
 
@@ -355,7 +355,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-2xl md:text-3xl text-slate-700 dark:text-slate-300 mb-6 font-light tracking-wide font-display"
+                        className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-slate-700 dark:text-slate-300 mb-6 font-light tracking-wide font-display"
                     >
                         {t.hero.subtitle}
                     </motion.p>
@@ -364,7 +364,7 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7, duration: 0.8 }}
-                        className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl leading-relaxed"
+                        className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 sm:mb-12 max-w-3xl leading-relaxed px-4"
                     >
                         {t.hero.description}
                     </motion.p>
@@ -374,17 +374,17 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.9, duration: 0.6 }}
-                        className="flex flex-col sm:flex-row gap-5 mb-20"
+                        className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-12 sm:mb-16 md:mb-20 w-full max-w-lg sm:max-w-none px-4"
                     >
                         <Link to="/contact" className="group relative">
                             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300 dark:hidden" />
-                            <button className="relative px-8 py-4 bg-primary-600 rounded-xl text-white font-semibold flex items-center gap-3 hover:bg-primary-700 transition-all duration-300 shadow-lg dark:shadow-none shadow-primary-500/30 dark:shadow-none">
+                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 rounded-xl text-white text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-primary-700 transition-all duration-300 shadow-lg dark:shadow-none shadow-primary-500/30 dark:shadow-none w-full sm:w-auto">
                                 <Sparkles size={20} className="stroke-2" />
                                 <span>{t.hero.startProject}</span>
                             </button>
                         </Link>
                         <Link to="/services" className="group relative">
-                            <button className="relative px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 font-semibold flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 shadow-md dark:shadow-none">
+                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 shadow-md dark:shadow-none w-full sm:w-auto">
                                 <span>{t.hero.discoverServices}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -396,7 +396,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.1, duration: 0.8 }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 w-full max-w-5xl"
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16 md:mb-20 w-full max-w-5xl px-4"
                     >
                         {featureCards.map((card, i) => (
                             <motion.div
@@ -408,9 +408,9 @@ const Hero = () => {
                                 className="relative group"
                             >
                                 <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300 dark:hidden" />
-                                <div className="relative p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-3 hover:shadow-md dark:shadow-none">
-                                    <div className={`p-3 rounded-xl bg-gradient-to-br ${card.color} shadow-sm dark:shadow-none`}>
-                                        <card.icon className="w-6 h-6 text-white" />
+                                <div className="relative p-4 sm:p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-2 sm:gap-3 hover:shadow-md dark:shadow-none">
+                                    <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-br ${card.color} shadow-sm dark:shadow-none`}>
+                                        <card.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                     </div>
                                     <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</h3>
                                 </div>
@@ -419,7 +419,7 @@ const Hero = () => {
                     </motion.div>
 
                     {/* Stats with glassmorphism cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-5xl px-4">
                         {[
                             { label: t.hero.stats.projects, value: stats.projects, suffix: '+', gradient: 'from-primary-500 to-indigo-600' },
                             { label: t.hero.stats.satisfaction, value: stats.satisfaction, suffix: '%', gradient: 'from-primary-500 to-indigo-600' },
@@ -436,11 +436,11 @@ const Hero = () => {
                                 {/* Glow effect on hover - subtle */}
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300 dark:hidden`} />
 
-                                <div className="relative p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:shadow-lg dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
-                                    <div className={`text-6xl md:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
+                                <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:shadow-lg dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
+                                    <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
                                         {stat.value}{stat.suffix}
                                     </div>
-                                    <div className="text-sm text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em] font-semibold group-hover:text-slate-800 dark:group-hover:text-slate-200 transition-colors">
+                                    <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold group-hover:text-slate-800 dark:group-hover:text-slate-200 transition-colors">
                                         {stat.label}
                                     </div>
                                 </div>

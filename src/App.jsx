@@ -37,9 +37,9 @@ function AppContent() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans flex flex-col">
+      <div className="min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans flex flex-col overflow-x-hidden">
         <Navbar />
-        <main className="relative z-10 flex-grow">
+        <main className="relative z-10 flex-grow overflow-x-hidden w-full">
           <Routes>
             <Route path="/" element={<Hero />} />
             <Route path="/about" element={<About />} />
