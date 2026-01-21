@@ -76,7 +76,7 @@ const Navbar = () => {
         >
             <div className="container flex items-center justify-between">
                 <Link to="/" className="relative z-50 group flex items-center gap-0">
-                    <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-12 sm:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
                     <span className="hidden lg:block text-2xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-primary-600 transition-colors duration-300">
                         TOBEESOFT
                     </span>
@@ -208,8 +208,8 @@ const Navbar = () => {
                                     {/* Header with Close Button */}
                                     <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-800">
                                         <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
-                                            <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-10 w-auto object-contain" />
-                                            <span className="text-lg font-bold text-slate-900 dark:text-white">TOBEESOFT</span>
+                                            <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-8 w-auto object-contain" />
+                                            <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">TOBEESOFT</span>
                                         </Link>
                                         <button
                                             onClick={() => setIsMobileMenuOpen(false)}
