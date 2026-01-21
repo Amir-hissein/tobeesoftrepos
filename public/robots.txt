@@ -5,28 +5,10 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap - Important pour l'indexation Google
 Sitemap: https://www.tobeesoft.com/sitemap.xml
 
-# Empêcher l'indexation des fichiers système et de développement
-Disallow: /node_modules/
-Disallow: /src/
-Disallow: /.git/
-Disallow: /.vscode/
-Disallow: /dist/
-
-# Autoriser spécifiquement les images et ressources
-Allow: /assets/
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.webp$
-Allow: /*.svg$
-Allow: /*.css$
-Allow: /*.js$
-
-# User-agents spécifiques
+# Règles spécifiques pour les principaux moteurs de recherche
 User-agent: Googlebot
 Allow: /
 
@@ -36,6 +18,5 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Crawl delay (optionnel, pour éviter la surcharge du serveur)
-# User-agent: *
-# Crawl-delay: 1
+# Note: Les fichiers de développement (src/, node_modules/, etc.) 
+# ne sont pas accessibles en production après le build Vite
