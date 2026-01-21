@@ -210,7 +210,7 @@ const Blog = () => {
                         {/* Dynamic Title Section */}
                         <div className="text-center mb-16 max-w-3xl mx-auto">
                             <motion.h2
-                                className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
+                                className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white font-display mb-6 tracking-tight"
                             >
                                 {currentPost.title}
                             </motion.h2>
