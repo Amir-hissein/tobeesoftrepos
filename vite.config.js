@@ -1,7 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import autoprefixer from 'autoprefixer'
-
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -32,30 +30,6 @@ export default defineConfig({
 
     // S'assurer que tous les assets sont correctement gérés
     assetsInlineLimit: 4096,
-  },
-
-  // CSS processing avec autoprefixer
-  css: {
-    postcss: {
-      plugins: [
-        autoprefixer({
-          overrideBrowserslist: [
-            'last 2 versions',
-            '> 0.5%',
-            'not dead',
-            'not op_mini all',
-            'Chrome >= 87',
-            'Safari >= 13',
-            'Firefox >= 78',
-            'Edge >= 88',
-            'iOS >= 13',
-            'Android >= 87'
-          ],
-          grid: 'autoplace',
-          flexbox: 'no-2009'
-        })
-      ]
-    }
   },
 
   // Optimisations pour le dev
