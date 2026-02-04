@@ -76,7 +76,7 @@ const Services = () => {
 
                         const subItems = Object.entries(serviceData)
                             .filter(([k]) => k !== 'title')
-                            .map((val) => val);
+                            .map((entry) => entry[1]);
 
                         return (
                             <motion.div
