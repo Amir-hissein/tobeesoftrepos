@@ -17,12 +17,8 @@ const Button = React.forwardRef(({
             bg-gradient-to-r from-primary-600 to-primary-700 
             dark:from-primary-500 dark:to-primary-600
             text-white font-semibold
-            shadow-lg shadow-primary-500/25 
-            dark:shadow-primary-500/40 dark:shadow-xl
             hover:from-primary-700 hover:to-primary-800 
             dark:hover:from-primary-400 dark:hover:to-primary-500
-            hover:shadow-xl hover:shadow-primary-500/35 
-            dark:hover:shadow-2xl dark:hover:shadow-primary-400/50
             hover:scale-105 active:scale-95
             border border-primary-700 dark:border-primary-400
         `,
@@ -34,12 +30,8 @@ const Button = React.forwardRef(({
             border-2 border-slate-200 dark:border-slate-600
             text-slate-700 dark:text-slate-100 
             font-semibold
-            shadow-md dark:shadow-lg 
-            dark:shadow-slate-900/30
             hover:bg-slate-50 dark:hover:bg-slate-700/90 
             hover:border-slate-300 dark:hover:border-primary-500
-            hover:shadow-lg dark:hover:shadow-xl 
-            dark:hover:shadow-primary-500/20
             hover:scale-102 active:scale-98
         `,
 
@@ -50,7 +42,6 @@ const Button = React.forwardRef(({
             font-medium
             hover:text-primary-600 dark:hover:text-primary-400 
             hover:bg-slate-100/80 dark:hover:bg-slate-800/60
-            dark:hover:shadow-lg dark:hover:shadow-primary-500/10
             transition-all duration-200
         `,
 
@@ -63,8 +54,6 @@ const Button = React.forwardRef(({
             hover:bg-gradient-to-r hover:from-primary-600 hover:to-primary-700
             dark:hover:from-primary-500 dark:hover:to-primary-600
             hover:text-white hover:border-transparent
-            hover:shadow-lg hover:shadow-primary-500/30
-            dark:hover:shadow-xl dark:hover:shadow-primary-400/40
             transition-all duration-300
         `,
 
@@ -73,11 +62,8 @@ const Button = React.forwardRef(({
             bg-gradient-to-r from-red-600 to-red-700 
             dark:from-red-500 dark:to-red-600
             text-white font-semibold
-            shadow-lg shadow-red-500/25 
-            dark:shadow-red-500/40
             hover:from-red-700 hover:to-red-800 
             dark:hover:from-red-400 dark:hover:to-red-500
-            hover:shadow-xl hover:shadow-red-500/35
             border border-red-700 dark:border-red-400
         `,
 
@@ -86,11 +72,8 @@ const Button = React.forwardRef(({
             bg-gradient-to-r from-emerald-600 to-emerald-700 
             dark:from-emerald-500 dark:to-emerald-600
             text-white font-semibold
-            shadow-lg shadow-emerald-500/25 
-            dark:shadow-emerald-500/40
             hover:from-emerald-700 hover:to-emerald-800 
             dark:hover:from-emerald-400 dark:hover:to-emerald-500
-            hover:shadow-xl hover:shadow-emerald-500/35
             border border-emerald-700 dark:border-emerald-400
         `
     };

@@ -74,8 +74,8 @@ const FAQ = () => {
 
                                 {/* FAQ Card */}
                                 <div className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${isActive
-                                    ? 'bg-white dark:bg-slate-800 border-primary-300 dark:border-primary-600 shadow-md dark:shadow-none'
-                                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm dark:hover:shadow-none'
+                                    ? 'bg-white dark:bg-slate-800 border-primary-300 dark:border-primary-600 dark:shadow-none'
+                                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 dark:hover:shadow-none'
                                     }`}>
                                     {/* Question Button */}
                                     <button

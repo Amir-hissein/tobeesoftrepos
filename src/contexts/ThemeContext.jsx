@@ -3,16 +3,13 @@ import React, { createContext, useContext, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = React.useState('light');
-
-    useEffect(() => {
-        // Check for saved theme
-        const savedTheme = localStorage.getItem('theme');
-
-        if (savedTheme) {
-            setTheme(savedTheme);
+    // Initialize state directly from localStorage to avoid effect issues
+    const [theme, setTheme] = React.useState(() => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem('theme') || 'light';
         }
-    }, []);
+        return 'light';
+    });
 
     useEffect(() => {
         const root = document.documentElement;
@@ -37,4 +34,5 @@ export const ThemeProvider = ({ children }) => {
     );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => useContext(ThemeContext);

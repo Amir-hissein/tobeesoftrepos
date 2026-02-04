@@ -104,43 +104,42 @@ const Hero = () => {
             const isDark = theme === 'dark';
 
             // --- Layer 1: Binary Background ---
-            if (isDark) {
-                ctx.save();
-                ctx.font = 'bold 60px "Courier New", monospace'; // Large, bold font
-                ctx.textAlign = 'center';
+            // --- Layer 1: Binary Background ---
+            ctx.save();
+            ctx.font = 'bold 60px "Courier New", monospace'; // Large, bold font
+            ctx.textAlign = 'center';
 
-                binaryEntities.forEach(bin => {
-                    // Interaction with mouse
-                    const dx = mousePos.x - bin.x;
-                    const dy = mousePos.y - bin.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
+            binaryEntities.forEach(bin => {
+                // Interaction with mouse
+                const dx = mousePos.x - bin.x;
+                const dy = mousePos.y - bin.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    let opacity = 0.15; // Base opacity (visible white for dark blue background)
+                let opacity = isDark ? 0.15 : 0.15; // Same base opacity for both
 
-                    if (dist < 150) {
-                        opacity = 0.7; // Brightens on contact
+                if (dist < 150) {
+                    opacity = isDark ? 0.7 : 0.7; // Same contact opacity
 
-                        // Contact Line
-                        ctx.beginPath();
-                        ctx.moveTo(bin.x, bin.y - 20); // Adjust for text height center approx
-                        ctx.lineTo(mousePos.x, mousePos.y);
-                        ctx.strokeStyle = `rgba(255, 255, 255, 0.2)`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
+                    // Contact Line
+                    ctx.beginPath();
+                    ctx.moveTo(bin.x, bin.y - 20); // Adjust for text height center approx
+                    ctx.lineTo(mousePos.x, mousePos.y);
+                    ctx.strokeStyle = isDark ? `rgba(255, 255, 255, 0.4)` : `rgba(0, 0, 0, 0.4)`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
 
-                    ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-                    ctx.fillText(bin.val, bin.x, bin.y);
+                ctx.fillStyle = isDark ? `rgba(255, 255, 255, ${opacity})` : `rgba(0, 0, 0, ${opacity})`;
+                ctx.fillText(bin.val, bin.x, bin.y);
 
-                    // Move Down
-                    bin.y += bin.speed;
-                    if (bin.y > canvas.height + 50) {
-                        bin.y = -50;
-                        bin.val = Math.random() > 0.5 ? '1' : '0';
-                    }
-                });
-                ctx.restore();
-            }
+                // Move Down
+                bin.y += bin.speed;
+                if (bin.y > canvas.height + 50) {
+                    bin.y = -50;
+                    bin.val = Math.random() > 0.5 ? '1' : '0';
+                }
+            });
+            ctx.restore();
 
             // --- Layer 2: particles (The "Web") ---
             particles.forEach((particle, i) => {
@@ -178,7 +177,7 @@ const Hero = () => {
                         ctx.beginPath();
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(mousePos.x, mousePos.y);
-                        ctx.strokeStyle = `hsla(240, 70%, 45%, ${(1 - dist / interactionRadius) * 0.3})`;
+                        ctx.strokeStyle = `rgba(0, 0, 0, ${(1 - dist / interactionRadius) * 0.7})`; // Same intensity as dark mode
                         ctx.stroke();
                     }
                 }
@@ -240,13 +239,13 @@ const Hero = () => {
 
                         const lineOpacity = isDark
                             ? (1 - pDistance / 180) * 0.7  // Much brighter
-                            : (1 - pDistance / 180) * 0.2;
+                            : (1 - pDistance / 180) * 0.7; // Match dark mode intensity
 
                         ctx.strokeStyle = isDark
                             ? `hsla(0, 0%, 100%, ${lineOpacity})`
-                            : `hsla(${hue}, 70%, 50%, ${lineOpacity})`;
+                            : `rgba(0, 0, 0, ${lineOpacity})`; // Black lines in light mode
 
-                        ctx.lineWidth = isDark ? 1.5 : 1;
+                        ctx.lineWidth = isDark ? 1.5 : 1.5;
                         ctx.stroke();
                     }
                 }
@@ -328,7 +327,7 @@ const Hero = () => {
                         transition={{ duration: 0.5 }}
                         className="mb-8"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700/50 shadow-sm dark:shadow-none">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700/50">
                             <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
                             <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
                                 Solutions Digitales Premium
@@ -378,13 +377,13 @@ const Hero = () => {
                     >
                         <Link to="/contact" className="group relative">
                             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300 dark:hidden" />
-                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 rounded-xl text-white text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-primary-700 transition-all duration-300 shadow-lg dark:shadow-none shadow-primary-500/30 dark:shadow-none w-full sm:w-auto">
+                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 rounded-xl text-white text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-primary-700 transition-all duration-300 w-full sm:w-auto">
                                 <Sparkles size={20} className="stroke-2" />
                                 <span>{t.hero.startProject}</span>
                             </button>
                         </Link>
                         <Link to="/services" className="group relative">
-                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 shadow-md dark:shadow-none w-full sm:w-auto">
+                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 w-full sm:w-auto">
                                 <span>{t.hero.discoverServices}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -408,8 +407,8 @@ const Hero = () => {
                                 className="relative group"
                             >
                                 <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300 dark:hidden" />
-                                <div className="relative p-4 sm:p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-2 sm:gap-3 hover:shadow-md dark:shadow-none">
-                                    <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-br ${card.color} shadow-sm dark:shadow-none`}>
+                                <div className="relative p-4 sm:p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-2 sm:gap-3 dark:shadow-none">
+                                    <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-br ${card.color} dark:shadow-none`}>
                                         <card.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                     </div>
                                     <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</h3>
@@ -436,7 +435,7 @@ const Hero = () => {
                                 {/* Glow effect on hover - subtle */}
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300 dark:hidden`} />
 
-                                <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:shadow-lg dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
+                                <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
                                     <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
                                         {stat.value}{stat.suffix}
                                     </div>

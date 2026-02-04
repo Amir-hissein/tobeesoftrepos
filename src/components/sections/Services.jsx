@@ -71,13 +71,12 @@ const Services = () => {
                             border: 'border-primary-200 dark:border-primary-800',
                             bg: 'bg-primary-50 dark:bg-primary-900/20',
                             text: 'text-primary-600 dark:text-primary-400',
-                            hover: 'hover:border-primary-300 dark:hover:border-primary-600',
-                            shadow: 'shadow-primary-100 dark:shadow-none'
+                            hover: 'hover:border-primary-300 dark:hover:border-primary-600'
                         };
 
                         const subItems = Object.entries(serviceData)
                             .filter(([k]) => k !== 'title')
-                            .map(([_, val]) => val);
+                            .map((val) => val);
 
                         return (
                             <motion.div
@@ -92,7 +91,7 @@ const Services = () => {
                             >
                                 {/* Card */}
                                 <motion.div
-                                    className={`relative h-full bg-white dark:bg-slate-800 border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300 ${isHovered ? `shadow-xl dark:shadow-none ${colors.shadow}` : 'shadow-md dark:shadow-none'}`}
+                                    className={`relative h-full bg-white dark:bg-slate-800 border-2 ${colors.border} ${colors.hover} rounded-2xl p-6 transition-all duration-300`}
                                     whileHover={{ y: -4 }}
                                 >
                                     {/* Header section */}

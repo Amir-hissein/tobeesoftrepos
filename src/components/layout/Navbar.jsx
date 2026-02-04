@@ -70,7 +70,7 @@ const Navbar = () => {
             className={cn(
                 "fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-in-out border-b",
                 isScrolled
-                    ? "glass-nav py-4 shadow-sm"
+                    ? "glass-nav py-4"
                     : "bg-transparent border-transparent py-6"
             )}
         >
@@ -133,7 +133,7 @@ const Navbar = () => {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 10 }}
-                                        className="absolute top-full right-0 mt-2 w-36 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden py-1 z-50"
+                                        className="absolute top-full right-0 mt-2 w-36 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden py-1 z-50"
                                     >
                                         <button
                                             onClick={() => { toggleLanguage(); setIsLanguageMenuOpen(false); }}
@@ -164,7 +164,7 @@ const Navbar = () => {
                             <Button
                                 variant="primary"
                                 size="sm"
-                                className="bg-primary-600 hover:bg-primary-700 text-white shadow-md shadow-primary-500/20 border-0"
+                                className="bg-primary-600 hover:bg-primary-700 text-white border-0"
                             >
                                 {t.navbar.contact}
                             </Button>
@@ -204,7 +204,6 @@ const Navbar = () => {
                                     className={cn(
                                         "fixed top-0 left-0 right-0 max-h-[95vh] z-[1000] flex flex-col lg:hidden overflow-hidden",
                                         "bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl",
-                                        "shadow-2xl shadow-slate-900/10 dark:shadow-none",
                                         "border-b-2 border-slate-200/50 dark:border-slate-700/50",
                                         "rounded-b-[2rem]"
                                     )}
@@ -262,8 +261,8 @@ const Navbar = () => {
                                                         className={cn(
                                                             "relative group flex items-center justify-between px-4 py-3.5 rounded-xl transition-all duration-300 overflow-hidden",
                                                             isActive(link.path)
-                                                                ? "bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent dark:from-primary-500/20 dark:via-primary-500/10 border-l-4 border-primary-600 dark:border-primary-400 shadow-sm shadow-primary-500/10"
-                                                                : "hover:bg-slate-100/80 dark:hover:bg-slate-800/50 hover:shadow-sm border-l-4 border-transparent hover:border-slate-300 dark:hover:border-slate-600"
+                                                                ? "bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent dark:from-primary-500/20 dark:via-primary-500/10 border-l-4 border-primary-600 dark:border-primary-400"
+                                                                : "hover:bg-slate-100/80 dark:hover:bg-slate-800/50 border-l-4 border-transparent hover:border-slate-300 dark:hover:border-slate-600"
                                                         )}
                                                         onClick={() => setIsMobileMenuOpen(false)}
                                                     >
@@ -309,7 +308,7 @@ const Navbar = () => {
                                         >
                                             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                                                 <motion.button
-                                                    className="relative w-full py-4 rounded-xl font-bold text-base text-white overflow-hidden shadow-lg shadow-primary-500/30 dark:shadow-primary-500/20"
+                                                    className="relative w-full py-4 rounded-xl font-bold text-base text-white overflow-hidden"
                                                     whileHover={{ scale: 1.02 }}
                                                     whileTap={{ scale: 0.98 }}
                                                 >
@@ -352,7 +351,7 @@ const Navbar = () => {
                                         >
                                             <motion.button
                                                 onClick={toggleTheme}
-                                                className="flex-1 flex items-center justify-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all px-4 py-3.5 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-sm"
+                                                className="flex-1 flex items-center justify-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all px-4 py-3.5 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-primary-300 dark:hover:border-primary-600"
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                             >
@@ -367,7 +366,7 @@ const Navbar = () => {
 
                                             <motion.button
                                                 onClick={toggleLanguage}
-                                                className="flex-1 flex items-center justify-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all px-4 py-3.5 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-sm"
+                                                className="flex-1 flex items-center justify-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-all px-4 py-3.5 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-primary-300 dark:hover:border-primary-600"
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                             >

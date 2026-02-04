@@ -40,7 +40,7 @@ const Notification = ({ message, type = 'info', onClose }) => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 100, scale: 0.9 }}
                 className={cn(
-                    "fixed top-24 right-5 z-[100] p-4 rounded-lg shadow-xl flex items-start gap-4 text-slate-900 min-w-[320px] max-w-sm border border-slate-200",
+                    "fixed top-24 right-5 z-[100] p-4 rounded-lg flex items-start gap-4 text-slate-900 min-w-[320px] max-w-sm border border-slate-200",
                     currentVariant.bg
                 )}
             >

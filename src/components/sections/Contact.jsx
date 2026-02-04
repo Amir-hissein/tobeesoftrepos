@@ -6,6 +6,7 @@ import Notification from '../ui/Notification';
 import { Button } from '../ui/Button';
 import { Mail, Phone, Send } from 'lucide-react';
 import { trackContactFormSubmit } from '../../lib/analytics';
+import officeImage from '../../assets/image2.png';
 
 // EmailJS Configuration
 const EMAILJS_SERVICE_ID = 'service_lid2yta';
@@ -168,6 +169,22 @@ const Contact = () => {
                         ))}
                     </div>
 
+                    {/* Office/Team Image */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 mb-8"
+                    >
+                        <div className="absolute inset-0 bg-primary-900/10 dark:bg-primary-900/20 mix-blend-overlay" />
+                        <img
+                            src={officeImage}
+                            alt="Tobeesoft Office"
+                            className="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-700"
+                        />
+                    </motion.div>
+
                     {/* CEO Quote */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -206,7 +223,7 @@ const Contact = () => {
                     className="relative"
                 >
                     <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 via-secondary-500/10 to-primary-500/10 dark:from-primary-500/20 dark:via-secondary-500/20 dark:to-primary-500/20 rounded-3xl blur opacity-20"></div>
-                    <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-lg dark:shadow-none relative overflow-hidden">
+                    <div className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-700 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 dark:bg-primary-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 relative z-10 font-display">{t.contact.form.title}</h3>

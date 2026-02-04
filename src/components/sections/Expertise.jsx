@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
 import { ShoppingCart, Heart, GraduationCap, Coins, Factory, Truck, Building, Users, Sparkles } from 'lucide-react';
-import devImage from '../../assets/image0.png';
+import devImage from '../../assets/image1.png';
 
 const Expertise = () => {
     const { t } = useLanguage();
@@ -110,7 +110,7 @@ const Expertise = () => {
                                     <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-full blur opacity-0 group-hover:opacity-10 transition duration-300`} />
 
                                     {/* Pill - cleaner design */}
-                                    <div className="relative flex items-center gap-3 px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all cursor-default shadow-sm dark:shadow-none">
+                                    <div className="relative flex items-center gap-3 px-5 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all cursor-default">
                                         <div className={`p-1.5 rounded-full bg-gradient-to-br ${item.gradient}`}>
                                             <item.icon size={16} className="text-white" />
                                         </div>

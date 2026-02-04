@@ -25,15 +25,15 @@
      ======================================== */
 
     .glow-primary-dark {
-        @apply shadow-lg shadow-primary-500/25 dark:shadow-primary-500/40 dark:shadow-xl;
+        @apply dark:shadow-none;
     }
 
     .glow-primary-dark-hover {
-        @apply hover:shadow-xl hover:shadow-primary-500/35 dark:hover:shadow-2xl dark:hover:shadow-primary-400/50;
+        @apply dark:hover:shadow-none;
     }
 
     .glow-secondary-dark {
-        @apply shadow-lg shadow-secondary-500/25 dark:shadow-secondary-500/40;
+        @apply dark:shadow-none;
     }
 
     /* ========================================
@@ -57,11 +57,11 @@
      ======================================== */
 
     .card-bg {
-        @apply bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 shadow-md dark:shadow-lg dark:shadow-slate-900/30;
+        @apply bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 dark:shadow-none;
     }
 
     .card-bg-hover {
-        @apply hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-slate-900/40 hover:border-primary-300 dark:hover:border-primary-600;
+        @apply dark:hover:shadow-none hover:border-primary-300 dark:hover:border-primary-600;
     }
 
     /* ========================================
@@ -105,7 +105,7 @@
     }
 
     .hover-glow {
-        @apply transition-shadow duration-300 hover:shadow-lg dark:hover:shadow-primary-500/30;
+        @apply transition-shadow duration-300 dark:hover:shadow-none;
     }
 
     /* ========================================

@@ -118,7 +118,7 @@ const About = () => {
 
                         {/* Image container */}
                         <motion.div
-                            className="relative overflow-hidden rounded-2xl shadow-2xl dark:shadow-none"
+                            className="relative overflow-hidden rounded-2xl"
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.4 }}
                         >
@@ -165,7 +165,7 @@ const About = () => {
 
                 {/* Main Cards */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-40"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -181,18 +181,18 @@ const About = () => {
                             {/* Glow effect - subtle */}
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
-                            {/* Card content */}
-                            <div className="relative p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-lg dark:shadow-none transition-all duration-300 h-full flex flex-col">
+                            {/* Content without card container */}
+                            <div className="relative h-full flex flex-col items-center justify-start text-center group-hover:transform group-hover:-translate-y-1 transition-transform duration-300">
                                 {/* Icon with gradient background */}
-                                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${item.gradient} mb-6 shadow-sm dark:shadow-none w-fit`}>
-                                    <item.icon size={28} className="text-white" />
+                                <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${item.gradient} mb-6 w-fit transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                                    <item.icon size={32} className="text-white" />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 font-display">
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 font-display">
                                     {item.title}
                                 </h3>
 
-                                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base flex-1">
+                                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base max-w-sm mx-auto">
                                     {item.content}
                                 </p>
                             </div>
@@ -218,7 +218,7 @@ const About = () => {
 
                     {/* Value Cards */}
                     <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16"
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -234,11 +234,11 @@ const About = () => {
                                 {/* Hover glow - subtle */}
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-300`} />
 
-                                {/* Card */}
-                                <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center hover:shadow-xl dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center">
+                                {/* Content without card container */}
+                                <div className="relative flex flex-col items-center h-full text-center">
                                     {/* Animated icon background with multiple effects */}
                                     <motion.div
-                                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-lg dark:shadow-none relative overflow-hidden`}
+                                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 relative overflow-hidden`}
                                         whileHover={{
                                             rotate: [0, -10, 10, -10, 0],
                                             scale: 1.15
@@ -246,13 +246,6 @@ const About = () => {
                                         transition={{
                                             rotate: { duration: 0.5 },
                                             scale: { duration: 0.2 }
-                                        }}
-                                        animate={{
-                                            boxShadow: [
-                                                "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-                                                "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-                                                "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
-                                            ]
                                         }}
                                     >
                                         {/* Rotating background effect */}
@@ -281,13 +274,13 @@ const About = () => {
                                         {item.title}
                                     </h4>
 
-                                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">
+                                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
                                         {item.content}
                                     </p>
 
                                     {/* Decorative bottom line with animation */}
                                     <motion.div
-                                        className={`mt-4 h-1 rounded-full bg-gradient-to-r ${item.gradient}`}
+                                        className={`mt-auto h-1 rounded-full bg-gradient-to-r ${item.gradient}`}
                                         initial={{ width: "3rem", opacity: 0.5 }}
                                         whileHover={{ width: "100%", opacity: 1 }}
                                         transition={{ duration: 0.3 }}

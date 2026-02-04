@@ -52,7 +52,7 @@ const Footer = () => {
                                 { Icon: Linkedin, href: "https://www.linkedin.com/in/tobeesoft-co-3a7a58389/" },
                                 { Icon: TikTokIcon, href: "https://www.tiktok.com/@amirtobeesoft?lang=fr" }
                             ].map(({ Icon, href }, i) => (
-                                <a key={i} href={href} className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:shadow-none hover:shadow-primary-500/20">
+                                <a key={i} href={href} className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1">
                                     <Icon size={18} />
                                 </a>
                             ))}
