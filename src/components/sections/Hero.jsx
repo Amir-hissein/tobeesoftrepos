@@ -411,7 +411,7 @@ const Hero = () => {
                                     <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-br ${card.color} dark:shadow-none`}>
                                         <card.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                     </div>
-                                    <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</h3>
+                                    <div className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</div>
                                 </div>
                             </motion.div>
                         ))}

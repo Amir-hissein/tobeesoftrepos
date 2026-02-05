@@ -1,8 +1,8 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
-import logo from '../../assets/TOBEESOFT.png';
-import tobee from '../../assets/tobee.png';
+import logo from '../../assets/TOBEESOFT-opt.png';
+import tobee from '../../assets/tobee-opt.png';
 import { Link } from 'react-router-dom';
 
 // TikTok icon component (since lucide-react doesn't have it)
@@ -43,7 +43,7 @@ const Footer = () => {
                         <div className="flex justify-center md:justify-start">
                             <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-12 sm:h-16 md:h-20 w-auto" />
                         </div>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                             {t.footer.description}
                         </p>
                         <div className="flex gap-4 justify-center md:justify-start">
@@ -52,7 +52,7 @@ const Footer = () => {
                                 { Icon: Linkedin, href: "https://www.linkedin.com/in/tobeesoft-co-3a7a58389/" },
                                 { Icon: TikTokIcon, href: "https://www.tiktok.com/@amirtobeesoft?lang=fr" }
                             ].map(({ Icon, href }, i) => (
-                                <a key={i} href={href} className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1">
+                                <a key={i} href={href} aria-label="Social Link" className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1">
                                     <Icon size={18} />
                                 </a>
                             ))}
@@ -117,12 +117,12 @@ const Footer = () => {
 
                 <div className="border-t border-slate-200 dark:border-slate-800 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
-                        <p className="text-slate-500 dark:text-slate-500 text-sm text-center md:text-left">
+                        <p className="text-slate-600 dark:text-slate-400 text-sm text-center md:text-left">
                             © {currentYear} Tobeesoft. {t.footer.copyright}
                         </p>
                         <div className="flex flex-wrap gap-6 justify-center">
-                            <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">Privacy Policy</a>
-                            <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">Terms of Service</a>
+                            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">Privacy Policy</a>
+                            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">Terms of Service</a>
                         </div>
                     </div>
                 </div>

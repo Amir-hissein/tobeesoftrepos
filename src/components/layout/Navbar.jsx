@@ -7,8 +7,8 @@ import { Menu, X, Globe, ChevronDown, Check, Sun, Moon } from 'lucide-react';
 // Helper function to merge class names
 const cn = (...classes) => classes.filter(Boolean).join(' ');
 import { Button } from '../ui/Button';
-import logo from '../../assets/TOBEESOFT.png';
-import tobee from '../../assets/tobee.png';
+import logo from '../../assets/TOBEESOFT-opt.png';
+import tobee from '../../assets/tobee-opt.png';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -121,6 +121,7 @@ const Navbar = () => {
                             <button
                                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
                                 className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+                                aria-label="Toggle language"
                             >
                                 <Globe size={18} />
                                 <span className="uppercase">{language}</span>
@@ -177,6 +178,7 @@ const Navbar = () => {
                     className="lg:hidden relative z-50 p-2 text-slate-600 dark:text-slate-300 transition-colors duration-300 hover:text-primary-600"
                     onClick={() => setIsMobileMenuOpen(true)}
                     style={{ opacity: isMobileMenuOpen ? 0 : 1, pointerEvents: isMobileMenuOpen ? 'none' : 'auto' }}
+                    aria-label="Open mobile menu"
                 >
                     <Menu size={24} />
                 </button>
@@ -235,6 +237,7 @@ const Navbar = () => {
                                             whileHover={{ scale: 1.05, rotate: 90 }}
                                             whileTap={{ scale: 0.95 }}
                                             transition={{ duration: 0.2 }}
+                                            aria-label="Close mobile menu"
                                         >
                                             <X size={20} strokeWidth={2.5} />
                                         </motion.button>
