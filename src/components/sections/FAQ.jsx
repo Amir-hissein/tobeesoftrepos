@@ -22,7 +22,7 @@ const FAQ = () => {
     ];
 
     return (
-        <Section id="faq" className="bg-slate-50 dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="faq" className="relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background elements - subtle */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/3 dark:hidden rounded-full blur-[120px]" />
@@ -70,10 +70,10 @@ const FAQ = () => {
                                 className="group relative"
                             >
                                 {/* Subtle glow effect when active */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${gradient} rounded-2xl blur opacity-0 ${isActive ? 'opacity-10' : 'group-hover:opacity-5'} transition-opacity duration-300`} />
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${gradient} rounded-lg blur opacity-0 ${isActive ? 'opacity-10' : 'group-hover:opacity-5'} transition-opacity duration-300`} />
 
                                 {/* FAQ Card */}
-                                <div className={`relative rounded-2xl border transition-all duration-300 overflow-hidden ${isActive
+                                <div className={`relative rounded-lg border transition-all duration-300 overflow-hidden ${isActive
                                     ? 'bg-white dark:bg-slate-800 border-primary-300 dark:border-primary-600 dark:shadow-none'
                                     : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 dark:hover:shadow-none'
                                     }`}>
@@ -94,7 +94,7 @@ const FAQ = () => {
                                         <motion.div
                                             animate={{ rotate: isActive ? 180 : 0 }}
                                             transition={{ duration: 0.25 }}
-                                            className={`flex-shrink-0 p-2 rounded-lg transition-all ${isActive
+                                            className={`flex-shrink-0 p-2 rounded-md transition-all ${isActive
                                                 ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
                                                 : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-slate-600'
                                                 }`}

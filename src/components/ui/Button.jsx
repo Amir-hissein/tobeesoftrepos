@@ -9,7 +9,7 @@ const Button = React.forwardRef(({
     children,
     ...props
 }, ref) => {
-    const Comp = asChild ? String : 'button'; // Simplified asChild logic for now
+    const Comp = props.as ? props.as : (asChild ? String : 'button');
 
     const variants = {
         // Primary - Vibrant gradient with glow in dark mode
@@ -87,7 +87,7 @@ const Button = React.forwardRef(({
     return (
         <Comp
             className={[
-                "inline-flex items-center justify-center rounded-xl transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group",
+                "inline-flex items-center justify-center rounded-md transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group",
                 variants[variant],
                 sizes[size],
                 className

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import { useLanguage } from '../../contexts/LanguageContext';
 import Section from '../ui/Section';
 import {
@@ -73,7 +74,7 @@ const Blog = () => {
     const getIcon = (key) => iconMap[key] || CheckCircle2;
 
     return (
-        <Section id="blog" className="bg-white dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="blog" className="relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background - kept minimal */}
             <div className="absolute inset-0 pointer-events-none opacity-40">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-900/10 rounded-full blur-[100px]" />
@@ -143,7 +144,7 @@ const Blog = () => {
 
                             {/* Featured / Intro Section */}
                             {currentPost.featured && (
-                                <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 md:p-8 border border-slate-100 dark:border-slate-800 mb-12 relative overflow-hidden group">
+                                <div className="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-6 md:p-8 border border-slate-100 dark:border-slate-800 mb-12 relative overflow-hidden group">
                                     <div className="absolute top-0 right-0 p-8 opacity-10 dark:opacity-5 group-hover:scale-110 transition-transform duration-700">
                                         <Sparkles size={120} />
                                     </div>
@@ -200,7 +201,7 @@ const Blog = () => {
                                             className="group md:flex gap-6 items-start pb-12 border-b border-slate-100 dark:border-slate-800 last:border-0"
                                         >
                                             <div className="flex-none mb-4 md:mb-0">
-                                                <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-900 dark:text-white font-bold text-lg group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                                                <div className="w-12 h-12 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-900 dark:text-white font-bold text-lg group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
                                                     {index + 1}
                                                 </div>
                                             </div>
@@ -233,14 +234,18 @@ const Blog = () => {
                                         </div>
                                     </div>
 
-                                    <motion.a
-                                        href="/contact"
-                                        whileHover={{ x: 5 }}
+                                    <a
+                                        href="/#contact"
                                         className="inline-flex items-center gap-2 font-bold text-primary-600 dark:text-primary-400 group"
                                     >
-                                        {t.blog.cta.text || "Démarrer un projet"}
-                                        <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                                    </motion.a>
+                                        <motion.span
+                                            whileHover={{ x: 5 }}
+                                            className="inline-flex items-center gap-2"
+                                        >
+                                            {t.blog.cta.text || "Démarrer un projet"}
+                                            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                                        </motion.span>
+                                    </a>
                                 </div>
                             </div>
 

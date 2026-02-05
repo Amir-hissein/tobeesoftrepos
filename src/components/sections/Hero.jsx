@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { ArrowRight, Sparkles, Zap, Code2, Rocket, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
 
 const Hero = () => {
     const canvasRef = useRef(null);
@@ -303,7 +303,7 @@ const Hero = () => {
     ];
 
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:bg-none dark:!bg-[#1a2332] transition-colors duration-500" id="hero">
+        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden transition-colors duration-500" id="hero">
             {/* Enhanced Background with multiple layers */}
             <div className="absolute inset-0 z-0">
                 <canvas ref={canvasRef} className="absolute inset-0 opacity-80 dark:opacity-100" />
@@ -375,19 +375,19 @@ const Hero = () => {
                         transition={{ delay: 0.9, duration: 0.6 }}
                         className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-12 sm:mb-16 md:mb-20 w-full max-w-lg sm:max-w-none px-4"
                     >
-                        <Link to="/contact" className="group relative">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300 dark:hidden" />
-                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 rounded-xl text-white text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-primary-700 transition-all duration-300 w-full sm:w-auto">
+                        <a href="/#contact" className="group relative">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-md blur opacity-40 group-hover:opacity-60 transition duration-300 dark:hidden" />
+                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 rounded-md text-white text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-primary-700 transition-all duration-300 w-full sm:w-auto">
                                 <Sparkles size={20} className="stroke-2" />
                                 <span>{t.hero.startProject}</span>
                             </button>
-                        </Link>
-                        <Link to="/services" className="group relative">
-                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 w-full sm:w-auto">
+                        </a>
+                        <a href="/#services" className="group relative">
+                            <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md text-slate-700 dark:text-slate-200 text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 w-full sm:w-auto">
                                 <span>{t.hero.discoverServices}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
-                        </Link>
+                        </a>
                     </motion.div>
 
                     {/* Feature Cards */}
@@ -406,9 +406,9 @@ const Hero = () => {
                                 whileHover={{ y: -3 }}
                                 className="relative group"
                             >
-                                <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300 dark:hidden" />
-                                <div className="relative p-4 sm:p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-2 sm:gap-3 dark:shadow-none">
-                                    <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-br ${card.color} dark:shadow-none`}>
+                                <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-lg blur transition duration-300 dark:hidden" />
+                                <div className="relative p-4 sm:p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-2 sm:gap-3 dark:shadow-none">
+                                    <div className={`p-2 sm:p-3 rounded-md bg-gradient-to-br ${card.color} dark:shadow-none`}>
                                         <card.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                     </div>
                                     <div className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</div>
@@ -433,9 +433,9 @@ const Hero = () => {
                                 className="relative group"
                             >
                                 {/* Glow effect on hover - subtle */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-300 dark:hidden`} />
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-300 dark:hidden`} />
 
-                                <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
+                                <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
                                     <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
                                         {stat.value}{stat.suffix}
                                     </div>

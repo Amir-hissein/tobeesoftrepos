@@ -3,7 +3,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import { Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import logo from '../../assets/TOBEESOFT-opt.png';
 import tobee from '../../assets/tobee-opt.png';
-import { Link } from 'react-router-dom';
+
 
 // TikTok icon component (since lucide-react doesn't have it)
 const TikTokIcon = ({ size = 18 }) => (
@@ -19,14 +19,26 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const navLinks = [
-        { path: '/', label: t.navbar.home },
-        { path: '/about', label: t.navbar.about },
-        { path: '/services', label: t.navbar.services },
-        { path: '/process', label: t.navbar.process },
-        { path: '/expertise', label: t.navbar.expertise },
-        { path: '/blog', label: t.navbar.blog },
-        { path: '/faq', label: t.navbar.faq },
+        { path: '/#hero', label: t.navbar.home },
+        { path: '/#about', label: t.navbar.about },
+        { path: '/#services', label: t.navbar.services },
+        { path: '/#process', label: t.navbar.process },
+        { path: '/#expertise', label: t.navbar.expertise },
+        { path: '/#blog', label: t.navbar.blog },
+        { path: '/#faq', label: t.navbar.faq },
     ];
+
+    const handleNavClick = (path) => {
+        if (path.startsWith('/#')) {
+            const elementId = path.replace('/#', '');
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            } else if (path === '/#hero' || path === '/') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    };
 
     return (
         <footer className="bg-white dark:bg-[#1a2332] pt-20 pb-10 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors duration-500">
@@ -52,7 +64,7 @@ const Footer = () => {
                                 { Icon: Linkedin, href: "https://www.linkedin.com/in/tobeesoft-co-3a7a58389/" },
                                 { Icon: TikTokIcon, href: "https://www.tiktok.com/@amirtobeesoft?lang=fr" }
                             ].map(({ Icon, href }, i) => (
-                                <a key={i} href={href} aria-label="Social Link" className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1">
+                                <a key={i} href={href} aria-label="Social Link" className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-600 dark:hover:bg-primary-600 hover:border-primary-600 dark:hover:border-primary-600 hover:text-white dark:hover:text-white transition-all duration-300 hover:-translate-y-1">
                                     <Icon size={18} />
                                 </a>
                             ))}
@@ -65,13 +77,27 @@ const Footer = () => {
                         <ul className="space-y-3">
                             {navLinks.map((link) => (
                                 <li key={link.path}>
-                                    <Link
-                                        to={link.path}
+                                    <a
+                                        href={link.path}
+                                        onClick={(e) => {
+                                            // Let default behavior happen if it's a page reload, 
+                                            // but if we are on the page, try smooth scroll
+                                            // Actually for hash links on same page, default behavior jumps.
+                                            // We want smooth scroll.
+                                            // But if we are on another page (not possible now), it should load Home.
+                                            // Since we are single page, we can just intercept.
+                                            // However, Footer is on Home.
+                                            // Let's use simple logic:
+                                            if (document.getElementById(link.path.replace('/#', ''))) {
+                                                e.preventDefault();
+                                                handleNavClick(link.path);
+                                            }
+                                        }}
                                         className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm flex items-center gap-2 justify-center md:justify-start group"
                                     >
                                         <span className="w-1.5 h-1.5 rounded-full bg-primary-600 dark:bg-primary-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                                         {link.label}
-                                    </Link>
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -83,9 +109,16 @@ const Footer = () => {
                         <ul className="space-y-3">
                             {['web', 'mobile', 'cloud', 'consulting'].map((serviceKey) => (
                                 <li key={serviceKey}>
-                                    <Link to="/services" className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm block hover:translate-x-1 duration-200">
+                                    <a
+                                        href="/#services"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleNavClick('/#services');
+                                        }}
+                                        className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm block hover:translate-x-1 duration-200"
+                                    >
                                         {t.footer.services[serviceKey]}
-                                    </Link>
+                                    </a>
                                 </li>
                             ))}
                         </ul>

@@ -38,7 +38,7 @@ const About = () => {
     ];
 
     return (
-        <Section id="apropos" className="bg-white dark:bg-[#1a2332] relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="apropos" className="relative overflow-hidden py-24 transition-colors duration-500">
             {/* Decorative background elements - very subtle */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 dark:hidden rounded-full blur-[140px]" />
@@ -114,30 +114,30 @@ const About = () => {
                         transition={{ delay: 0.3, duration: 0.8 }}
                     >
                         {/* Glow effect behind image */}
-                        <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/20 via-indigo-500/20 to-secondary-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                        <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/20 via-indigo-500/20 to-secondary-500/20 rounded-xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                         {/* Image container */}
                         <motion.div
-                            className="relative overflow-hidden rounded-2xl"
+                            className="relative overflow-hidden rounded-lg"
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.4 }}
                         >
                             {/* Decorative border */}
-                            <div className="absolute inset-0 border-2 border-primary-200/50 dark:border-primary-500/30 rounded-2xl pointer-events-none z-10" />
+                            <div className="absolute inset-0 border-2 border-primary-200/50 dark:border-primary-500/30 rounded-lg pointer-events-none z-10" />
 
                             <img
                                 src={techImage}
                                 alt="Tobeesoft - Digital Innovation"
-                                className="w-full h-auto object-cover rounded-2xl"
+                                className="w-full h-auto object-cover rounded-lg"
                             />
 
                             {/* Overlay gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
                         </motion.div>
 
                         {/* Decorative floating elements */}
                         <motion.div
-                            className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-500 to-indigo-600 rounded-2xl opacity-80"
+                            className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-500 to-indigo-600 rounded-lg opacity-80"
                             animate={{
                                 y: [0, -10, 0],
                                 rotate: [0, 5, 0]
@@ -149,7 +149,7 @@ const About = () => {
                             }}
                         />
                         <motion.div
-                            className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-secondary-500 to-emerald-600 rounded-xl opacity-80"
+                            className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-secondary-500 to-emerald-600 rounded-lg opacity-80"
                             animate={{
                                 y: [0, 10, 0],
                                 rotate: [0, -5, 0]
@@ -179,12 +179,12 @@ const About = () => {
                             className="group relative"
                         >
                             {/* Glow effect - subtle */}
-                            <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                            <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-lg blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
                             {/* Content without card container */}
                             <div className="relative h-full flex flex-col items-center justify-start text-center group-hover:transform group-hover:-translate-y-1 transition-transform duration-300">
                                 {/* Icon with gradient background */}
-                                <div className={`inline-flex p-5 rounded-2xl bg-gradient-to-br ${item.gradient} mb-6 w-fit transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                                <div className={`inline-flex p-5 rounded-lg bg-gradient-to-br ${item.gradient} mb-6 w-fit transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
                                     <item.icon size={32} className="text-white" />
                                 </div>
 
@@ -232,13 +232,13 @@ const About = () => {
                                 className="group relative"
                             >
                                 {/* Hover glow - subtle */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-20 transition duration-300`} />
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-lg blur opacity-0 group-hover:opacity-20 transition duration-300`} />
 
                                 {/* Content without card container */}
                                 <div className="relative flex flex-col items-center h-full text-center">
                                     {/* Animated icon background with multiple effects */}
                                     <motion.div
-                                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 relative overflow-hidden`}
+                                        className={`w-16 h-16 rounded-lg bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 relative overflow-hidden`}
                                         whileHover={{
                                             rotate: [0, -10, 10, -10, 0],
                                             scale: 1.15

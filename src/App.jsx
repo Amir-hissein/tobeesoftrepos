@@ -8,15 +8,8 @@ import { initGA, pageview } from './lib/analytics';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
-// Sections
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Services from './components/sections/Services';
-import Process from './components/sections/Process';
-import Expertise from './components/sections/Expertise';
-import Blog from './components/sections/Blog';
-import FAQ from './components/sections/FAQ';
-import Contact from './components/sections/Contact';
+// Pages
+import Home from './pages/Home';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,18 +30,11 @@ function AppContent() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen selection:bg-primary-500/30 selection:text-primary-900 font-sans flex flex-col overflow-x-hidden">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-900 selection:bg-primary-500/30 selection:text-primary-900 font-sans flex flex-col overflow-x-hidden">
         <Navbar />
         <main className="relative z-10 flex-grow overflow-x-hidden w-full">
           <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/process" element={<Process />} />
-            <Route path="/expertise" element={<Expertise />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </main>
         <Footer />
