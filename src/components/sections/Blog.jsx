@@ -74,7 +74,7 @@ const Blog = () => {
     const getIcon = (key) => iconMap[key] || CheckCircle2;
 
     return (
-        <Section id="blog" className="relative overflow-hidden py-24 transition-colors duration-500">
+        <Section id="blog" className="relative overflow-hidden py-16 md:py-24 transition-colors duration-500">
             {/* Background - kept minimal */}
             <div className="absolute inset-0 pointer-events-none opacity-40">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-900/10 rounded-full blur-[100px]" />
@@ -134,10 +134,10 @@ const Blog = () => {
                                     </span>
                                 </div>
 
-                                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white font-display mb-6 leading-tight">
+                                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white font-display mb-6 leading-tight">
                                     {currentPost.title}
                                 </h1>
-                                <p className="text-xl leading-relaxed text-slate-600 dark:text-slate-300">
+                                <p className="text-lg md:text-xl leading-relaxed text-slate-600 dark:text-slate-300">
                                     {currentPost.description}
                                 </p>
                             </header>
@@ -198,21 +198,23 @@ const Blog = () => {
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true, margin: "-10%" }}
                                             transition={{ delay: index * 0.05 }}
-                                            className="group md:flex gap-6 items-start pb-12 border-b border-slate-100 dark:border-slate-800 last:border-0"
+                                            className="group bg-white dark:bg-slate-800/40 rounded-2xl p-5 md:p-8 border border-slate-200/60 dark:border-slate-700/60 hover:border-primary-500/30 dark:hover:border-primary-500/30 shadow-sm hover:shadow-md transition-all duration-300"
                                         >
-                                            <div className="flex-none mb-4 md:mb-0">
-                                                <div className="w-12 h-12 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-900 dark:text-white font-bold text-lg group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                                                    {index + 1}
+                                            <div className="md:flex gap-6 items-start">
+                                                <div className="flex-none mb-4 md:mb-0">
+                                                    <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-slate-800 flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold text-lg group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 ring-4 ring-primary-50/50 dark:ring-primary-900/10">
+                                                        {index + 1}
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div>
-                                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 font-display flex items-center gap-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                                                    {item.title}
-                                                </h3>
-                                                <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-                                                    {item.description}
-                                                </p>
+                                                <div>
+                                                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3 font-display flex items-center gap-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                                                        {item.title}
+                                                    </h3>
+                                                    <p className="text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                                                        {item.description}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </motion.div>
                                     );
