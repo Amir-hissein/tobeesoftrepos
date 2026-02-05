@@ -198,11 +198,11 @@ const Blog = () => {
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true, margin: "-10%" }}
                                             transition={{ delay: index * 0.05 }}
-                                            className="group bg-white dark:bg-slate-800/40 rounded-2xl p-5 md:p-8 border border-slate-200/60 dark:border-slate-700/60 hover:border-primary-500/30 dark:hover:border-primary-500/30 shadow-sm hover:shadow-md transition-all duration-300"
+                                            className="group bg-white dark:bg-slate-800/40 rounded-lg p-5 md:p-8 border border-slate-200/60 dark:border-slate-700/60 hover:border-primary-500/30 dark:hover:border-primary-500/30 shadow-sm hover:shadow-md transition-all duration-300"
                                         >
                                             <div className="md:flex gap-6 items-start">
                                                 <div className="flex-none mb-4 md:mb-0">
-                                                    <div className="w-12 h-12 rounded-xl bg-primary-50 dark:bg-slate-800 flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold text-lg group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 ring-4 ring-primary-50/50 dark:ring-primary-900/10">
+                                                    <div className="w-12 h-12 rounded-lg bg-primary-50 dark:bg-slate-800 flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold text-lg group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300 ring-4 ring-primary-50/50 dark:ring-primary-900/10">
                                                         {index + 1}
                                                     </div>
                                                 </div>
