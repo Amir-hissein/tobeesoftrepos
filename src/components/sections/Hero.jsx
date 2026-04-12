@@ -21,6 +21,11 @@ const Hero = () => {
     });
 
     // Mouse tracking for parallax effect
+    const cardVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 }
+    };
+
     useEffect(() => {
         const handleMouseMove = (e) => {
             setMousePosition({
@@ -296,10 +301,10 @@ const Hero = () => {
     }, []);
 
     const featureCards = [
-        { icon: Zap, title: 'Performance', color: 'from-primary-500 to-indigo-600' },
-        { icon: Code2, title: 'Clean Code', color: 'from-primary-500 to-indigo-600' },
-        { icon: Rocket, title: 'Fast Deploy', color: 'from-primary-500 to-indigo-600' },
-        { icon: TrendingUp, title: 'Growth', color: 'from-primary-500 to-indigo-600' }
+        { icon: Zap, title: 'Performance' },
+        { icon: Code2, title: 'Clean Code' },
+        { icon: Rocket, title: 'Fast Deploy' },
+        { icon: TrendingUp, title: 'Growth' }
     ];
 
     return (
@@ -309,9 +314,9 @@ const Hero = () => {
                 <canvas ref={canvasRef} className="absolute inset-0 opacity-80 dark:opacity-100" />
 
                 {/* Animated gradient orbs - Light mode only */}
-                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/5 dark:hidden rounded-full blur-[120px]"
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary-500/5 hidden rounded-full blur-[120px]"
                     style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }} />
-                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-500/5 dark:hidden rounded-full blur-[120px]"
+                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-500/5 hidden rounded-full blur-[120px]"
                     style={{ transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)` }} />
 
                 {/* Vignette - Light mode only */}
@@ -330,7 +335,7 @@ const Hero = () => {
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-700/50">
                             <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
                             <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
-                                Solutions Digitales Premium
+                                {t.hero.badge}
                             </span>
                         </div>
                     </motion.div>
@@ -342,7 +347,7 @@ const Hero = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="mb-6 relative"
                     >
-                        <div className="absolute -inset-1 blur-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-primary-500/10 opacity-30 dark:hidden"></div>
+                        <div className="absolute -inset-1 blur-3xl bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-primary-500/10 opacity-30 hidden"></div>
                         <h1 className="relative text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white pb-2 leading-tight tracking-tight">
                             {typedText}
                             <span className="inline-block w-1 sm:w-1.5 h-8 sm:h-12 md:h-16 lg:h-20 bg-primary-600 dark:bg-primary-500 ml-1 sm:ml-2 animate-pulse align-middle rounded-full" />
@@ -375,8 +380,8 @@ const Hero = () => {
                         transition={{ delay: 0.9, duration: 0.6 }}
                         className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-12 sm:mb-16 md:mb-20 w-full max-w-lg sm:max-w-none px-4"
                     >
-                        <a href="/#contact" className="group relative">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-md blur opacity-40 group-hover:opacity-60 transition duration-300 dark:hidden" />
+                        <a href="/contact" className="group relative">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-md blur opacity-40 group-hover:opacity-60 transition duration-300 hidden" />
                             <button className="relative px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 rounded-md text-white text-sm sm:text-base font-semibold flex items-center justify-center gap-2 sm:gap-3 hover:bg-primary-700 transition-all duration-300 w-full sm:w-auto">
                                 <Sparkles size={20} className="stroke-2" />
                                 <span>{t.hero.startProject}</span>
@@ -403,16 +408,14 @@ const Hero = () => {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 1.3 + i * 0.1 }}
-                                whileHover={{ y: -3 }}
-                                className="relative group"
+                                variants={cardVariants}
+                                className="relative flex flex-col items-center p-4 sm:p-5 lg:p-6 bg-white/80 dark:bg-slate-800/40 backdrop-blur-sm rounded-lg border border-slate-200/50 dark:border-slate-700/50 hover:border-primary-500/30 transition-all duration-300 group shadow-sm hover:shadow-md h-full w-full"
+                                whileHover={{ y: -5, scale: 1.02 }}
                             >
-                                <div className="absolute -inset-0.5 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-lg blur transition duration-300 dark:hidden" />
-                                <div className="relative p-4 sm:p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 h-full flex flex-col items-center justify-center gap-2 sm:gap-3 dark:shadow-none">
-                                    <div className={`p-2 sm:p-3 rounded-md bg-gradient-to-br ${card.color} dark:shadow-none`}>
-                                        <card.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                                    </div>
-                                    <div className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</div>
+                                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 mb-3 sm:mb-4 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+                                    <card.icon size={20} className="sm:w-6 sm:h-6" />
                                 </div>
+                                <div className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{card.title}</div>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -433,7 +436,7 @@ const Hero = () => {
                                 className="relative group"
                             >
                                 {/* Glow effect on hover - subtle */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-300 dark:hidden`} />
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-300 hidden`} />
 
                                 <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg dark:shadow-none hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300">
                                     <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 font-display`}>
@@ -457,7 +460,7 @@ const Hero = () => {
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
             >
                 <div className="flex flex-col items-center gap-2 text-slate-400 dark:text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer">
-                    <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
+                    <span className="text-xs uppercase tracking-widest font-semibold">{t.hero.scroll}</span>
                     <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2 relative overflow-hidden">
                         <motion.div
                             animate={{ y: [0, 15, 0] }}

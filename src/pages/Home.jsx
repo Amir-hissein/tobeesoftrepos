@@ -6,7 +6,6 @@ import Process from '../components/sections/Process';
 import Expertise from '../components/sections/Expertise';
 import Blog from '../components/sections/Blog';
 import FAQ from '../components/sections/FAQ';
-import Contact from '../components/sections/Contact';
 
 const Home = () => {
     return (
@@ -31,9 +30,6 @@ const Home = () => {
             </section>
             <section id="faq">
                 <FAQ />
-            </section>
-            <section id="contact">
-                <Contact />
             </section>
         </div>
     );

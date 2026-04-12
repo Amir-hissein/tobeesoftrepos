@@ -25,24 +25,24 @@ const About = () => {
     };
 
     const mainCards = [
-        { icon: BookOpen, title: t.about.history.title, content: t.about.history.content, gradient: 'from-primary-500 to-indigo-600' },
-        { icon: Target, title: t.about.mission.title, content: t.about.mission.content, gradient: 'from-secondary-500 to-emerald-600' },
-        { icon: Eye, title: t.about.vision.title, content: t.about.vision.content, gradient: 'from-accent-500 to-amber-600' }
+        { icon: BookOpen, title: t.about.history.title, content: t.about.history.content },
+        { icon: Target, title: t.about.mission.title, content: t.about.mission.content },
+        { icon: Eye, title: t.about.vision.title, content: t.about.vision.content }
     ];
 
     const valueCards = [
-        { icon: Star, title: t.about.values.excellence.title, content: t.about.values.excellence.content, gradient: 'from-amber-500 to-orange-600' },
-        { icon: Ear, title: t.about.values.listening.title, content: t.about.values.listening.content, gradient: 'from-indigo-500 to-blue-600' },
-        { icon: Rocket, title: t.about.values.innovation.title, content: t.about.values.innovation.content, gradient: 'from-rose-500 to-pink-600' },
-        { icon: Handshake, title: t.about.values.partnership.title, content: t.about.values.partnership.content, gradient: 'from-emerald-500 to-teal-600' }
+        { icon: Star, title: t.about.values.excellence.title, content: t.about.values.excellence.content },
+        { icon: Ear, title: t.about.values.listening.title, content: t.about.values.listening.content },
+        { icon: Rocket, title: t.about.values.innovation.title, content: t.about.values.innovation.content },
+        { icon: Handshake, title: t.about.values.partnership.title, content: t.about.values.partnership.content }
     ];
 
     return (
         <Section id="apropos" className="relative overflow-hidden py-24 transition-colors duration-500">
             {/* Decorative background elements - very subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 dark:hidden rounded-full blur-[140px]" />
-                <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-secondary-500/3 dark:hidden rounded-full blur-[140px]" />
+                <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary-500/3 hidden rounded-full blur-[140px]" />
+                <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-secondary-500/3 hidden rounded-full blur-[140px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -92,7 +92,7 @@ const About = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            {t.about.subtitle || "Nous sommes une équipe passionnée de développeurs et de créatifs, dédiée à transformer vos idées en solutions digitales innovantes et performantes."}
+                            {t.about.subtitle}
                         </motion.p>
                         <motion.p
                             className="text-base text-slate-500 dark:text-slate-400 leading-relaxed"
@@ -101,7 +101,7 @@ const About = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.4, duration: 0.6 }}
                         >
-                            {t.about.description || "Notre expertise couvre le développement web, mobile et logiciel, avec une approche centrée sur l'utilisateur et les dernières technologies du marché."}
+                            {t.about.description}
                         </motion.p>
                     </div>
 
@@ -129,6 +129,7 @@ const About = () => {
                                 src={techImage}
                                 alt="Tobeesoft - Digital Innovation"
                                 className="w-full h-auto object-cover rounded-lg"
+                                loading="lazy"
                             />
 
                             {/* Overlay gradient */}
@@ -175,17 +176,17 @@ const About = () => {
                         <motion.div
                             key={i}
                             variants={itemVariants}
-                            whileHover={{ y: -5 }}
+                            whileHover={{ y: -5, scale: 1.03 }}
                             className="group relative"
                         >
-                            {/* Glow effect - subtle */}
-                            <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-lg blur opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                            {/* Glow effect - subtle gray */}
+                            <div className="absolute -inset-0.5 bg-slate-200 dark:bg-slate-700 rounded-lg blur opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
 
                             {/* Content without card container */}
                             <div className="relative h-full flex flex-col items-center justify-start text-center group-hover:transform group-hover:-translate-y-1 transition-transform duration-300">
-                                {/* Icon with gradient background */}
-                                <div className={`inline-flex p-5 rounded-lg bg-gradient-to-br ${item.gradient} mb-6 w-fit transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                                    <item.icon size={32} className="text-white" />
+                                {/* Icon with gray background */}
+                                <div className="inline-flex p-5 rounded-lg bg-slate-100 dark:bg-slate-800/80 mb-6 w-fit transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                                    <item.icon size={32} className="text-slate-500 dark:text-slate-400" />
                                 </div>
 
                                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 font-display">
@@ -228,17 +229,17 @@ const About = () => {
                             <motion.div
                                 key={i}
                                 variants={itemVariants}
-                                whileHover={{ y: -8, scale: 1.03 }}
+                                whileHover={{ y: -8, scale: 1.05 }}
                                 className="group relative"
                             >
-                                {/* Hover glow - subtle */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-lg blur opacity-0 group-hover:opacity-20 transition duration-300`} />
+                                {/* Hover glow - subtle gray */}
+                                <div className="absolute -inset-0.5 bg-slate-200 dark:bg-slate-700 rounded-lg blur opacity-0 group-hover:opacity-20 transition duration-300" />
 
                                 {/* Content without card container */}
                                 <div className="relative flex flex-col items-center h-full text-center">
-                                    {/* Animated icon background with multiple effects */}
+                                    {/* Animated icon background with gray theme */}
                                     <motion.div
-                                        className={`w-16 h-16 rounded-lg bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 relative overflow-hidden`}
+                                        className="w-16 h-16 rounded-lg bg-slate-100 dark:bg-slate-800/80 flex items-center justify-center mb-4 relative overflow-hidden"
                                         whileHover={{
                                             rotate: [0, -10, 10, -10, 0],
                                             scale: 1.15
@@ -248,13 +249,6 @@ const About = () => {
                                             scale: { duration: 0.2 }
                                         }}
                                     >
-                                        {/* Rotating background effect */}
-                                        <motion.div
-                                            className="absolute inset-0 bg-white/20"
-                                            animate={{ rotate: 360 }}
-                                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                                        />
-
                                         {/* Icon with dynamic animations */}
                                         <motion.div
                                             whileHover={{
@@ -266,7 +260,7 @@ const About = () => {
                                                 ease: "easeInOut"
                                             }}
                                         >
-                                            <item.icon size={28} className="text-white relative z-10" />
+                                            <item.icon size={28} className="text-slate-500 dark:text-slate-400 relative z-10" />
                                         </motion.div>
                                     </motion.div>
 

@@ -14,8 +14,8 @@ const Process = () => {
         <Section id="processus" className="relative overflow-hidden py-24 transition-colors duration-500">
             {/* Subtle background decoration */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 dark:hidden rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 dark:hidden rounded-full blur-[120px]" />
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 hidden rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-500/5 hidden rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -25,9 +25,9 @@ const Process = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-50 dark:bg-secondary-900/30 border border-secondary-200 dark:border-secondary-800 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 mb-6"
                     >
-                        <span className="text-xs font-bold uppercase tracking-widest text-secondary-600 dark:text-secondary-400">
+                        <span className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                             {t.process.label}
                         </span>
                     </motion.div>
@@ -57,11 +57,11 @@ const Process = () => {
                         const Icon = stepIcons[index % stepIcons.length];
                         const isHovered = hoveredIndex === index;
 
-                        // Use only primary colors for all cards
+                        // Use professional gray/slate tones for standardization
                         const colors = {
-                            border: 'border-primary-200 dark:border-primary-800',
-                            bg: 'bg-primary-50 dark:bg-primary-900/20',
-                            text: 'text-primary-600 dark:text-primary-400',
+                            border: 'border-slate-200 dark:border-slate-800',
+                            bg: 'bg-slate-100 dark:bg-slate-800/80',
+                            text: 'text-slate-500 dark:text-slate-400',
                             hover: 'hover:border-primary-300 dark:hover:border-primary-600'
                         };
 
@@ -79,7 +79,7 @@ const Process = () => {
                                 {/* Card */}
                                 <motion.div
                                     className={`relative h-full bg-white dark:bg-slate-800 border-2 ${colors.border} ${colors.hover} rounded-lg p-6 transition-all duration-300`}
-                                    whileHover={{ y: -4 }}
+                                    whileHover={{ y: -4, scale: 1.03 }}
                                 >
                                     {/* Header section */}
                                     <div className="flex items-start justify-between mb-5">
@@ -167,7 +167,7 @@ const Process = () => {
                     className="mt-16 text-center"
                 >
                     <p className="text-slate-500 text-sm max-w-2xl mx-auto">
-                        Chaque étape est soigneusement orchestrée pour garantir le succès de votre projet
+                        {t.process.footerNote}
                     </p>
                 </motion.div>
             </div>

@@ -8,7 +8,11 @@ export const translations = {
             expertise: "Expertise",
             blog: "Blog",
             faq: "FAQ",
-            contact: "Contact"
+            contact: "Contact",
+            theme: {
+                dark: "Sombre",
+                light: "Clair"
+            }
         },
         hero: {
             title: "Transformez votre vision digitale en réalité",
@@ -16,6 +20,8 @@ export const translations = {
             description: "Nous concevons des solutions logicielles innovantes et sur mesure qui propulsent votre entreprise vers l'excellence numérique. De l'idée initiale au déploiement final, nous transformons vos défis technologiques en opportunités de croissance.",
             startProject: "Démarrer votre projet",
             discoverServices: "Découvrir nos services",
+            badge: "Solutions Digitales Premium",
+            scroll: "Défiler",
             stats: {
                 projects: "Projets réalisés",
                 satisfaction: "Satisfaction",
@@ -25,6 +31,8 @@ export const translations = {
         about: {
             label: "Qui sommes-nous",
             title: "À Propos de TOBEESOFT",
+            subtitle: "Nous sommes une équipe passionnée de développeurs et de créatifs, dédiée à transformer vos idées en solutions digitales innovantes et performantes.",
+            description: "Notre expertise couvre le développement web, mobile et logiciel, avec une approche centrée sur l'utilisateur et les dernières technologies du marché.",
             history: {
                 title: "Notre Histoire",
                 content: "Tobeesoft est née d'une passion commune pour l'innovation technologique et d'une volonté de rendre la transformation digitale accessible à toutes les entreprises. Depuis notre création, nous avons accompagné des dizaines d'organisations dans leur évolution numérique."
@@ -147,6 +155,7 @@ export const translations = {
         process: {
             label: "Comment nous travaillons",
             title: "Notre Processus de Travail",
+            footerNote: "Chaque étape est soigneusement orchestrée pour garantir le succès de votre projet",
             steps: [
                 {
                     title: "Découverte et Analyse",
@@ -275,6 +284,11 @@ export const translations = {
         contact: {
             label: "Parlons de votre projet",
             title: "Contactez-nous",
+            quote: {
+                text: "Chez TOBEESOFT, l'innovation n'est pas une promesse, c'est une discipline qui transforme la vision en résultats.",
+                author: "Amir Hissein",
+                role: "CEO & Founder"
+            },
             info: {
                 title: "Informations de Contact",
                 description: "Discutons de votre projet et voyons comment nous pouvons vous aider à atteindre vos objectifs. Nous sommes toujours ouverts à de nouveaux défis.",
@@ -318,6 +332,15 @@ export const translations = {
             label: "Blog et Conseils",
             title: "Nos Guides Experts",
             subtitle: "L'expertise TOBEESOFT à votre service : découvrez les clés de la réussite digitale",
+            meta: {
+                category: "Blog",
+                readTime: "5 min de lecture",
+                updated: "Mis à jour récemment"
+            },
+            author: {
+                name: "L'équipe Tobeesoft",
+                role: "Experts en transformation digitale"
+            },
             categories: {
                 web: "Site Web",
                 mobile: "Application Mobile",
@@ -488,6 +511,10 @@ export const translations = {
                 email: "tobeesoft@gmail.com",
                 phone: "+90 535 504 87 12"
             },
+            legal: {
+                privacy: "Politique de Confidentialité",
+                terms: "Conditions d'Utilisation"
+            },
             copyright: "Tous droits réservés."
         }
     },
@@ -500,7 +527,11 @@ export const translations = {
             expertise: "Expertise",
             blog: "Blog",
             faq: "FAQ",
-            contact: "Contact"
+            contact: "Contact",
+            theme: {
+                dark: "Dark",
+                light: "Light"
+            }
         },
         hero: {
             title: "Transform your digital vision into reality",
@@ -508,6 +539,8 @@ export const translations = {
             description: "We design innovative and custom software solutions that propel your business towards digital excellence. From initial idea to final deployment, we transform your technological challenges into growth opportunities.",
             startProject: "Start your project",
             discoverServices: "Discover our services",
+            badge: "Premium Digital Solutions",
+            scroll: "Scroll",
             stats: {
                 projects: "Projects completed",
                 satisfaction: "Satisfaction",
@@ -517,6 +550,8 @@ export const translations = {
         about: {
             label: "Who we are",
             title: "About TOBEESOFT",
+            subtitle: "We are a passionate team of developers and creatives, dedicated to transforming your ideas into innovative and high-performance digital solutions.",
+            description: "Our expertise covers web, mobile, and software development, with a user-centric approach and the latest technologies in the market.",
             history: {
                 title: "Our Story",
                 content: "Tobeesoft was born from a shared passion for technological innovation and a desire to make digital transformation accessible to all businesses. Since our inception, we have supported dozens of organizations in their digital evolution."
@@ -639,6 +674,7 @@ export const translations = {
         process: {
             label: "How we work",
             title: "Our Work Process",
+            footerNote: "Each step is carefully orchestrated to ensure the success of your project",
             steps: [
                 {
                     title: "Discovery & Analysis",
@@ -767,6 +803,11 @@ export const translations = {
         contact: {
             label: "Let's talk about your project",
             title: "Contact Us",
+            quote: {
+                text: "At TOBEESOFT, innovation is not a promise, it's a discipline that transforms vision into results.",
+                author: "Amir Hissein",
+                role: "CEO & Founder"
+            },
             info: {
                 title: "Contact Information",
                 description: "Let's discuss your project and see how we can help you achieve your goals. We're always open to new challenges.",
@@ -807,9 +848,18 @@ export const translations = {
             }
         },
         blog: {
-            label: "Blog & Insights",
+            label: "Blog and Tips",
             title: "Our Expert Guides",
             subtitle: "TOBEESOFT expertise at your service: discover the keys to digital success",
+            meta: {
+                category: "Blog",
+                readTime: "5 min read",
+                updated: "Recently updated"
+            },
+            author: {
+                name: "Tobeesoft Team",
+                role: "Digital Transformation Experts"
+            },
             categories: {
                 web: "Website",
                 mobile: "Mobile App",
@@ -979,6 +1029,10 @@ export const translations = {
                 address: "İstanbul, Turkey",
                 email: "tobeesoft@gmail.com",
                 phone: "+90 535 504 87 12"
+            },
+            legal: {
+                privacy: "Privacy Policy",
+                terms: "Terms of Service"
             },
             copyright: "All rights reserved."
         }

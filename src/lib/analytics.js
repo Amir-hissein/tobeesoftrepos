@@ -1,8 +1,8 @@
 // Google Analytics 4 Configuration
 // Documentation: https://developers.google.com/analytics/devguides/collection/ga4
 
-// Remplacez 'G-XXXXXXXXXX' par votre véritable ID de mesure Google Analytics
-const GA_MEASUREMENT_ID = 'G-DJ61K24VMD'; // ID Google Analytics TOBEESOFT
+// ID Google Analytics TOBEESOFT issu de l'environnement
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 /**
  * Initialise Google Analytics 4

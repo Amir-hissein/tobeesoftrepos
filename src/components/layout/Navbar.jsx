@@ -9,7 +9,7 @@ const cn = (...classes) => classes.filter(Boolean).join(' ');
 import { Button } from '../ui/Button';
 import logo from '../../assets/TOBEESOFT-opt.png';
 import tobee from '../../assets/tobee-opt.png';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -18,6 +18,7 @@ const Navbar = () => {
     const { language, toggleLanguage, t } = useLanguage();
     const { theme, toggleTheme } = useTheme();
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -63,25 +64,36 @@ const Navbar = () => {
 
     const handleNavClick = (e, path) => {
         e.preventDefault();
-        const elementId = path.replace('/#', '');
-        const element = document.getElementById(elementId);
 
-        if (element) {
-            const navbarHeight = 80; // Approximate navbar height
-            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-
-            window.scrollTo({
-                top: elementPosition - navbarHeight,
-                behavior: 'smooth'
-            });
-
-            setIsMobileMenuOpen(false);
+        if (path.startsWith('/#')) {
+            if (location.pathname !== '/') {
+                navigate(path);
+                setIsMobileMenuOpen(false);
+            } else {
+                const elementId = path.replace('/#', '');
+                const element = document.getElementById(elementId);
+                
+                if (element) {
+                    const navbarHeight = 80;
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: elementPosition - navbarHeight,
+                        behavior: 'smooth'
+                    });
+                    setIsMobileMenuOpen(false);
+                }
+            }
         } else if (path === '/') {
+            navigate('/');
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
             setIsMobileMenuOpen(false);
+        } else {
+            navigate(path);
+            setIsMobileMenuOpen(false);
+            window.scrollTo(0, 0);
         }
     };
 
@@ -100,9 +112,9 @@ const Navbar = () => {
             )}
         >
             <div className="container flex items-center justify-between">
-                <a href="/" onClick={(e) => handleNavClick(e, '/#hero')} className="relative z-50 group flex items-center gap-0">
-                    <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-12 sm:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
-                    <span className="hidden lg:block text-2xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-primary-600 transition-colors duration-300">
+                <a href="/" onClick={(e) => handleNavClick(e, '/#hero')} className="relative z-50 group flex items-center gap-3">
+                    <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-8 sm:h-10 lg:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105" />
+                    <span className="hidden sm:block text-lg lg:text-xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-primary-600 transition-colors duration-300">
                         TOBEESOFT
                     </span>
                 </a>
@@ -189,11 +201,11 @@ const Navbar = () => {
 
                         <Button
                             as="a"
-                            href="/#contact"
+                            href="/contact"
                             variant="primary"
                             size="sm"
                             className="bg-primary-600 hover:bg-primary-700 text-white border-0"
-                            onClick={(e) => handleNavClick(e, '/#contact')}
+                            onClick={(e) => handleNavClick(e, '/contact')}
                         >
                             {t.navbar.contact}
                         </Button>
@@ -250,11 +262,11 @@ const Navbar = () => {
                                             <motion.img
                                                 src={theme === 'dark' ? tobee : logo}
                                                 alt="TOBEESOFT"
-                                                className="h-7 w-auto object-contain"
+                                                className="h-6 w-auto object-contain"
                                                 whileHover={{ scale: 1.05 }}
                                                 transition={{ duration: 0.2 }}
                                             />
-                                            <span className="text-lg font-black text-slate-900 dark:text-white tracking-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                                            <span className="text-base font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                                                 TOBEESOFT
                                             </span>
                                         </a>
@@ -337,8 +349,8 @@ const Navbar = () => {
                                             className="mb-4"
                                         >
                                             <motion.a
-                                                href="/#contact"
-                                                onClick={(e) => handleNavClick(e, '/#contact')}
+                                                href="/contact"
+                                                onClick={(e) => handleNavClick(e, '/contact')}
                                                 className="relative w-full py-2.5 rounded-md font-bold text-sm text-white overflow-hidden shadow-lg shadow-primary-500/20 block text-center"
                                                 whileHover={{ scale: 1.01 }}
                                                 whileTap={{ scale: 0.98 }}
@@ -388,7 +400,7 @@ const Navbar = () => {
                                                 >
                                                     {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                                                 </motion.div>
-                                                <span>{theme === 'light' ? 'Sombre' : 'Clair'}</span>
+                                                <span>{theme === 'light' ? t.navbar.theme.dark : t.navbar.theme.light}</span>
                                             </motion.button>
 
                                             <motion.button

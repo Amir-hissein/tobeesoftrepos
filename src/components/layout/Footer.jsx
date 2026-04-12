@@ -53,7 +53,7 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="space-y-6 text-center md:text-left">
                         <div className="flex justify-center md:justify-start">
-                            <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-12 sm:h-16 md:h-20 w-auto" />
+                            <img src={theme === 'dark' ? tobee : logo} alt="TOBEESOFT" className="h-8 sm:h-10 md:h-12 w-auto" loading="lazy" />
                         </div>
                         <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                             {t.footer.description}
@@ -154,8 +154,8 @@ const Footer = () => {
                             © {currentYear} Tobeesoft. {t.footer.copyright}
                         </p>
                         <div className="flex flex-wrap gap-6 justify-center">
-                            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">Privacy Policy</a>
-                            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">Terms of Service</a>
+                            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">{t.footer.legal.privacy}</a>
+                            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm transition-colors">{t.footer.legal.terms}</a>
                         </div>
                     </div>
                 </div>

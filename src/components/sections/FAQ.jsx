@@ -12,21 +12,15 @@ const FAQ = () => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    const gradients = [
-        'from-primary-500 to-indigo-600',
-        'from-secondary-500 to-emerald-600',
-        'from-amber-500 to-orange-600',
-        'from-rose-500 to-pink-600',
-        'from-blue-500 to-cyan-600',
-        'from-purple-500 to-violet-600'
-    ];
+    // Professional branding color
+    const primaryGradient = 'from-primary-500 to-indigo-600';
 
     return (
         <Section id="faq" className="relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background elements - subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/3 dark:hidden rounded-full blur-[120px]" />
-                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary-500/3 dark:hidden rounded-full blur-[120px]" />
+                <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/3 hidden rounded-full blur-[120px]" />
+                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary-500/3 hidden rounded-full blur-[120px]" />
             </div>
 
             <div className="relative z-10 container mx-auto px-4">
@@ -36,10 +30,10 @@ const FAQ = () => {
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 mb-6"
                     >
-                        <HelpCircle className="w-4 h-4 text-amber-600 dark:text-amber-500" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-500">
+                        <HelpCircle className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                        <span className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                             {t.faq.label}
                         </span>
                     </motion.div>
@@ -57,7 +51,6 @@ const FAQ = () => {
                 {/* FAQ Items */}
                 <div className="max-w-4xl mx-auto space-y-3">
                     {t.faq.questions.map((item, index) => {
-                        const gradient = gradients[index % gradients.length];
                         const isActive = activeIndex === index;
 
                         return (
@@ -69,8 +62,8 @@ const FAQ = () => {
                                 transition={{ delay: index * 0.05 }}
                                 className="group relative"
                             >
-                                {/* Subtle glow effect when active */}
-                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${gradient} rounded-lg blur opacity-0 ${isActive ? 'opacity-10' : 'group-hover:opacity-5'} transition-opacity duration-300`} />
+                                {/* Subtle glow effect - unified brand color */}
+                                <div className={`absolute -inset-0.5 bg-gradient-to-r ${primaryGradient} rounded-lg blur opacity-0 ${isActive ? 'opacity-10' : 'group-hover:opacity-5'} transition-opacity duration-300`} />
 
                                 {/* FAQ Card */}
                                 <div className={`relative rounded-lg border transition-all duration-300 overflow-hidden ${isActive

@@ -8,10 +8,10 @@ import { Mail, Phone, Send } from 'lucide-react';
 import { trackContactFormSubmit } from '../../lib/analytics';
 import officeImage from '../../assets/image2.png';
 
-// EmailJS Configuration
-const EMAILJS_SERVICE_ID = 'service_lid2yta';
-const EMAILJS_TEMPLATE_ID = 'template_0iv0rnp';
-const EMAILJS_PUBLIC_KEY = '8wkbxHcPMNERdCeAY';
+// EmailJS Configuration issues de l'environnement
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
     const { t } = useLanguage();
@@ -97,8 +97,8 @@ const Contact = () => {
         <Section id="contact" className="relative overflow-hidden py-24 transition-colors duration-500">
             {/* Background Glow - subtle */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute left-0 bottom-0 w-[800px] h-[800px] bg-primary-500/3 dark:hidden rounded-full blur-[140px] -translate-x-1/2 translate-y-1/2" />
-                <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-secondary-500/3 dark:hidden rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute left-0 bottom-0 w-[800px] h-[800px] bg-primary-500/3 hidden rounded-full blur-[140px] -translate-x-1/2 translate-y-1/2" />
+                <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-secondary-500/3 hidden rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2" />
             </div>
 
             {notification && (
@@ -182,6 +182,7 @@ const Contact = () => {
                             src={officeImage}
                             alt="Tobeesoft Office"
                             className="w-full h-40 sm:h-64 object-cover hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
                         />
                     </motion.div>
 
@@ -200,13 +201,13 @@ const Contact = () => {
                         </div>
                         <blockquote className="relative">
                             <p className="text-base md:text-lg text-slate-700 dark:text-slate-200 italic leading-relaxed mb-4 font-medium">
-                                Chez TOBEESOFT, l'innovation n'est pas une promesse, c'est une discipline qui transforme la vision en résultats.
+                                {t.contact.quote.text}
                             </p>
                             <footer className="flex items-center gap-3">
                                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary-300 dark:via-slate-600 to-transparent"></div>
                                 <cite className="not-italic">
-                                    <span className="block text-sm font-bold text-slate-900 dark:text-white">Amir Hissein</span>
-                                    <span className="block text-xs text-primary-600 dark:text-primary-400 font-semibold">CEO & Founder</span>
+                                    <span className="block text-sm font-bold text-slate-900 dark:text-white">{t.contact.quote.author}</span>
+                                    <span className="block text-xs text-primary-600 dark:text-primary-400 font-semibold">{t.contact.quote.role}</span>
                                 </cite>
                                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary-300 dark:via-slate-600 to-transparent"></div>
                             </footer>
@@ -292,7 +293,7 @@ const Contact = () => {
                                 type="submit"
                                 variant="primary"
                                 size="lg"
-                                className="w-full py-4 text-base font-semibold tracking-wide"
+                                className="w-full py-3.5 sm:py-4 text-base sm:text-lg font-semibold tracking-wide"
                                 disabled={loading}
                             >
                                 {loading ? (

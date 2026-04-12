@@ -76,7 +76,7 @@ const Blog = () => {
     return (
         <Section id="blog" className="relative overflow-hidden py-16 md:py-24 transition-colors duration-500">
             {/* Background - kept minimal */}
-            <div className="absolute inset-0 pointer-events-none opacity-40">
+            <div className="absolute inset-0 pointer-events-none opacity-40 hidden">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-900/10 rounded-full blur-[100px]" />
             </div>
 
@@ -122,22 +122,22 @@ const Blog = () => {
                             <header className="mb-10 md:mb-12 border-b border-slate-100 dark:border-slate-800 pb-10">
                                 <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-6 font-medium">
                                     <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 border border-primary-100 dark:border-primary-800/50">
-                                        Blog
+                                        {t.blog.meta.category}
                                     </span>
                                     <span className="flex items-center gap-1.5">
                                         <Clock size={14} />
-                                        5 min de lecture
+                                        {t.blog.meta.readTime}
                                     </span>
                                     <span className="flex items-center gap-1.5">
                                         <Calendar size={14} />
-                                        Mis à jour récemment
+                                        {t.blog.meta.updated}
                                     </span>
                                 </div>
 
                                 <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white font-display mb-6 leading-tight">
                                     {currentPost.title}
                                 </h1>
-                                <p className="text-lg md:text-xl leading-relaxed text-slate-600 dark:text-slate-300">
+                                <p className="text-lg md:text-xl leading-relaxed text-slate-600 dark:text-slate-300 text-justify">
                                     {currentPost.description}
                                 </p>
                             </header>
@@ -152,7 +152,7 @@ const Blog = () => {
                                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 font-display">
                                             {currentPost.featured.title}
                                         </h3>
-                                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg text-justify">
                                             {currentPost.featured.content}
                                         </p>
                                     </div>
@@ -163,7 +163,7 @@ const Blog = () => {
                             <div className="space-y-12">
                                 {/* Case 1: Standard Article (Pricing) */}
                                 {currentPost.isArticle && currentPost.sections?.map((section, idx) => (
-                                    <div key={idx} className="prose prose-lg dark:prose-invert max-w-none">
+                                    <div key={idx} className="prose prose-lg dark:prose-invert max-w-none text-justify">
                                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 font-display flex items-center gap-3">
                                             {section.title}
                                         </h3>
@@ -198,6 +198,7 @@ const Blog = () => {
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true, margin: "-10%" }}
                                             transition={{ delay: index * 0.05 }}
+                                            whileHover={{ scale: 1.03, y: -4 }}
                                             className="group bg-white dark:bg-slate-800/40 rounded-lg p-5 md:p-8 border border-slate-200/60 dark:border-slate-700/60 hover:border-primary-500/30 dark:hover:border-primary-500/30 shadow-sm hover:shadow-md transition-all duration-300"
                                         >
                                             <div className="md:flex gap-6 items-start">
@@ -211,7 +212,7 @@ const Blog = () => {
                                                     <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-3 font-display flex items-center gap-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                                                         {item.title}
                                                     </h3>
-                                                    <p className="text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                                                    <p className="text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300 text-justify">
                                                         {item.description}
                                                     </p>
                                                 </div>
@@ -231,20 +232,20 @@ const Blog = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="font-bold text-slate-900 dark:text-white">L'équipe Tobeesoft</p>
-                                            <p className="text-sm text-slate-500">Experts en transformation digitale</p>
+                                            <p className="font-bold text-slate-900 dark:text-white">{t.blog.author.name}</p>
+                                            <p className="text-sm text-slate-500">{t.blog.author.role}</p>
                                         </div>
                                     </div>
 
                                     <a
-                                        href="/#contact"
+                                        href="/contact"
                                         className="inline-flex items-center gap-2 font-bold text-primary-600 dark:text-primary-400 group"
                                     >
                                         <motion.span
                                             whileHover={{ x: 5 }}
                                             className="inline-flex items-center gap-2"
                                         >
-                                            {t.blog.cta.text || "Démarrer un projet"}
+                                            {t.blog.cta.button}
                                             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                                         </motion.span>
                                     </a>

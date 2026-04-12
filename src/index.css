@@ -11,8 +11,8 @@
     --secondary-glow: rgba(16, 185, 129, 0.1);
 
     /* Backgrounds */
-    --bg-main: #f8fafc;
-    /* Slate 50 */
+    --bg-main: #ffffff;
+    /* White (previously slate-50) */
     --bg-card: #ffffff;
     /* White */
     --bg-card-hover: #f1f5f9;
@@ -67,13 +67,6 @@
     overflow-y: auto;
   }
 
-  /* Light mode only - gradients */
-  body:not(.dark) {
-    background-image:
-      radial-gradient(circle at 15% 50%, var(--primary-glow), transparent 25%),
-      radial-gradient(circle at 85% 30%, var(--secondary-glow), transparent 25%);
-    background-attachment: fixed;
-  }
 
   /* Dark mode - solid color only */
   html.dark body {
